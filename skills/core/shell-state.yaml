@@ -1,0 +1,60 @@
+---
+name: shell-state
+description: |
+  USE WHEN: About to execute commands, before answering any technical question
+  DO NOT USE: For pure conversational queries, simple greetings
+type: execution
+dependencies: []
+artifacts: /mnt/data/output/shell-state/
+negative_examples:
+  - action: "Assumed node/python were installed"
+    error: "Command failed for user without dependencies"
+    fix: "Always run shell-state first to verify"
+  - action: "Skipped check because 'it should be there'"
+    error: "Wasted time debugging instead of checking first"
+    fix: "Verify, don't assume"
+---
+
+# Shell State Verification
+
+## What This Skill Does
+Checks if the environment is ready for command execution. Verifies:
+- Node.js/npm availability and version
+- Python/pip availability
+- OpenClaw gateway status
+- Any project-specific dependencies
+
+## When to Use
+- Before running `exec` commands
+- Before installing packages
+- When environment setup might be needed
+- Any technical task requiring system state
+
+## When NOT to Use
+- Simple file reads/writes
+- Pure conversational responses
+- Tasks that don't require shell access
+
+## Usage
+```bash
+# Run shell state check
+node --version && npm --version
+which python3 && python3 --version
+
+# Check openclaw status
+openclaw status
+```
+
+## Expected Outputs
+- Version numbers confirmed
+- Missing dependencies identified
+- Ready-to-execute status: YES/NO
+
+## Example Output
+```
+✅ Node v22.22.0 available
+✅ npm v10.9.0 available  
+✅ Python 3.11.0 available
+✅ OpenClaw gateway: running
+🚀 Shell ready for execution
+```

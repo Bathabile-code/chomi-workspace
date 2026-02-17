@@ -1,0 +1,85 @@
+---
+name: context-compaction
+description: |
+  USE WHEN: Conversation exceeds 20 messages OR context size > 8KB
+  DO NOT USE: In short, simple conversations (<10 messages)
+type: automation
+dependencies: []
+artifacts: /mnt/data/context/
+negative_examples:
+  - action: "Forgot everything after context limit hit"
+    error: "Lost important context, repeated work"
+    fix: "Always compact before limit reached"
+  - action: "Didn't save artifacts before compacting"
+    error: "Couldn't reference earlier work"
+    fix: "Save artifacts FIRST, then compact context"
+---
+
+# Context Compaction
+
+## What This Skill Does
+Summarizes long-running conversations, extracts key state, saves artifacts, and prepares compacted context for continued work.
+
+## When to Use
+- Message count > 20
+- Context tokens > 8KB
+- Before starting a new major task in same session
+- When switching between distinct topics
+
+## When NOT to Use
+- Short conversations (<10 messages)
+- Simple, one-off questions
+- When all context is still relevant
+
+## Usage
+
+**Step 1: Extract Key Information**
+```json
+{
+  "session_summary": "2-3 sentences on what we've done",
+  "active_context": {
+    "current_task": "",
+    "user_preferences": [],
+    "decisions_made": []
+  },
+  "artifacts": ["/mnt/data/file1", "/mnt/data/file2"],
+  "open_threads": ["thing to remember", "follow-up needed"]
+}
+```
+
+**Step 2: Save to /mnt/data/context/**
+```bash
+# Create timestamped snapshot
+cp /mnt/data/context/latest.json /mnt/data/context/session-$(date +%Y%m%d-%H%M%S).json
+
+# Update latest
+cat > /mnt/data/context/latest.json << 'EOF'
+{
+  "summary": "...",
+  "artifacts": [...],
+  "compacted_at": "ISO-timestamp"
+}
+EOF
+```
+
+## Expected Outputs
+- `/mnt/data/context/latest.json` (main reference)
+- `/mnt/data/context/session-{timestamp}.json` (backup snapshots)
+
+## Compaction Template
+```json
+{
+  "session_summary": "Brief summary of what happened",
+  "user": "Who I'm helping",
+  "current_focus": "What we're working on",
+  "artifacts": ["list", "of", "files"],
+  "open_threads": ["things", "to", "remember"],
+  "decisions": ["key", "decisions", "made"],
+  "compacted_at": "ISO-8601 timestamp"
+}
+```
+
+## After Compaction
+Future references should point to artifacts, not re-explain context:
+- ✅ "Based on the artifact at /mnt/data/data/output/report.md..."
+- ❌ "As I mentioned earlier about the thing from before..."

@@ -1,0 +1,38 @@
+---
+name: skill-template
+description: |
+  USE WHEN: Creating a new repeatable task
+  DO NOT USE: For one-off, unique tasks
+type: automation
+dependencies: []
+artifacts: /mnt/data/output/skill-template/
+negative_examples: []
+---
+
+# Skill Template
+
+## What This Skill Does
+Brief description of the skill's purpose.
+
+## When to Use
+- Scenario 1
+- Scenario 2
+
+## When NOT to Use
+- Scenario A
+- Scenario B
+
+## Dependencies
+- List what must be installed/running first
+
+## Usage
+```bash
+# Command or steps to execute
+```
+
+## Expected Outputs
+- File 1 → /mnt/data/output/
+- File 2 → /mnt/data/output/
+
+## Notes
+Any edge cases or special considerations.
