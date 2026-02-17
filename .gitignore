@@ -1,0 +1,22 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Secrets and keys
+*.pem
+*.key
+*.secret
+credentials.json
+
+# OpenClaw internal
+.openclaw/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.bak
