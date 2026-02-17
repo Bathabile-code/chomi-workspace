@@ -2,11 +2,11 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- **Name:** Bathabile Amirchand
+- **What to call them:** Thaby (or Chomi - we sharing names lol)
+- **Pronouns:** 
+- **Timezone:** Africa/Johannesburg (SAST)
+- **Notes:** Tech-savvy, working on AI/automation stuff, has browser-use repo open
 
 ## Context
 
