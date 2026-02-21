@@ -7,12 +7,13 @@
 | Chomi workspace setup | Done | Daily improvements active | 2026-02-21 |
 
 ## Immediate Actions (Today)
-- [ ] Install Exa AI skill for free web search
+- [x] Install Exa AI skill for free web search
 - [ ] Configure RouteLLM model tiering
 
 ## Background Tasks
 - [x] Memory flush + session search enabled
 - [x] AGENTS.md safety rails configured
+- [x] Install Exa AI skill (mcporter + exa MCP configured)
 - [ ] Daily 9am improvement (starts tomorrow)
 
 ## Blocked / Needs Attention
