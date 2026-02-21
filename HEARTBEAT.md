@@ -1,5 +1,7 @@
-# HEARTBEAT.md
+# Heartbeat (runs every 30 min)
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+## Rotation (pick ONE per cycle, rotate through them)
 
-# Add tasks below when you want the agent to check something periodically.
+1. **Drift Check** — verify AGENTS.md, SOUL.md, USER.md, MEMORY.md are intact and consistent
+2. **Quick X Scan** — check mentions of @ThabiTechy or #BuildInPublic trends (use x-research skill)
+3. **Message Summarize** — summarize unread Telegram/WhatsApp messages and flag anything urgent

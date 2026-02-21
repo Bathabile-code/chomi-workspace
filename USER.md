@@ -2,13 +2,27 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:** Bathabile Amirchand
+- **Name:** Bathabile Amirchand (also goes by: Thabi, ThabiTechy)
 - **What to call them:** Thaby (or Chomi - we sharing names lol)
 - **Pronouns:** 
 - **Timezone:** Africa/Johannesburg (SAST)
 - **WhatsApp:** +27658532223
+- **Platforms:** X, Telegram, WhatsApp
+- **Hardware:** ASUS TUF Gaming F15, Windows + WSL2 Ubuntu
 - **Tech setup:** WSL2 + Ubuntu on Windows, Node.js 22 via nvm, OpenClaw gateway
 - **Main AI chat:** ChatLLM Teams (Abacus AI) - uses Claude, GPT, Gemini depending on task
+
+## Role
+
+- **Day job:** ServiceNow Developer at CDW
+- **Side hustle:** AI builder by night
+- **Location:** South Africa 🇿🇦
+
+## Goals
+
+- Build in public
+- Grow an AI agent brand
+- Document the journey
 
 ## What You Do
 
@@ -16,6 +30,13 @@ _Learn about the person you're helping. Update this as you go._
 - **AI Agent Implementation** — building OpenClaw bots (like me!), browser-use automation
 - **Automation & Integration** — connecting systems, REST APIs, OIDC integrations
 - **Client Work** — creating documentation, setup guides, bot customization for clients
+
+## Style
+
+- Hands-on learner
+- Prefers step-by-step instructions
+- Copy-paste friendly
+- Cost-conscious — MiniMax flat rate, no unnecessary token burn
 
 ## Current Projects
 
@@ -33,7 +54,7 @@ _Learn about the person you're helping. Update this as you go._
 
 ## Things That Annoy You
 
--重复的工作 (repetitive tasks - hence automation interest)
+- 重复的工作 (repetitive tasks - hence automation interest)
 - Bot personality not loading properly (we've been debugging my SOUL.md 😂)
 - WhatsApp disconnecting after reboot
 
