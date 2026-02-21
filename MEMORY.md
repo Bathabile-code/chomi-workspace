@@ -127,4 +127,10 @@ created: "YYYY-MM-DD"
 
 ---
 
+## Daily Improvements Log
+
+- **2026-02-21:** Added 3-item HEARTBEAT.md rotation, updated AGENTS.md/USER.md with new operating rules and profile, enabled memory flush + session search in config
+
+---
+
 _Last updated: 2026-02-21_
