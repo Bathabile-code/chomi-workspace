@@ -17,6 +17,20 @@
 - Validate your own output before reporting back
 - If unsure, ASK — don't guess
 
+## Task Management
+
+- When starting a task: Move status to DOING in ~/ChomiVaultSetup/tasks/
+- When completing a task: Update status to DONE and commit to git
+- Check for stale DOING items (older than 24h) and flag to user
+- Task file format:
+  ```markdown
+  ---
+  status: "todo|doing|done"
+  assignee: "chomi"
+  created: "YYYY-MM-DD"
+  ---
+  ```
+
 ## Tools Available
 
 - X Research (TwitterAPI.io) — use for social listening, trend research, competitor analysis
