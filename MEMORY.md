@@ -122,7 +122,9 @@ created: "YYYY-MM-DD"
 - Set up x-research-but-cheaper for X/Twitter research
 - TwitterAPI.io rate limiting is blocking daily research (free tier = 1 req/5s)
 - Learned: Mission Control has specific path requirements (tasks vs projects vs lessons)
+- Learned: Subagent spawning issue - 2026.2.19-2 security check blocks non-loopback WS
+- X research parked: TwitterAPI.io credits exhausted
 
 ---
 
-_Last updated: 2026-02-20_
+_Last updated: 2026-02-21_
