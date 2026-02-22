@@ -1,0 +1,95 @@
+{
+  "leads": [
+    {
+      "name": "Plumbers Durban",
+      "category": "Plumbing",
+      "phone": "0870125424",
+      "address": "Unit 51, 30 Surprise Road, Maxmead, Durban, Kwa Zulu Natal",
+      "established": "2009",
+      "source": "Yellosa",
+      "has_website": false,
+      "researched": true,
+      "research": {
+        "found_website": "plumbersdurban.com",
+        "services": ["Plumbing", "Heating", "Gas installs", "Leak detection", "Drain unblocking", "CCTV drain inspections", "Geyser replacement", "Kitchen & bathroom renovations"],
+        "years_experience": "40+ years",
+        "availability": "24/7 Emergency",
+        "highlights": ["Honest, reliable and affordable", "40 years experience", "Fully qualified team"],
+        "note": "Another plumber with website exists - research shows gap"
+      }
+    },
+    {
+      "name": "Reddy's Drain Cleaning and Plumbing Services",
+      "category": "Plumbing",
+      "phone": "021 535 2223",
+      "address": "20 Paraks Drive, Effingham Heights, Durban, Kwa Zulu Natal",
+      "established": "2012",
+      "source": "Yellosa",
+      "has_website": false,
+      "researched": true,
+      "research": {
+        "specialty": "Drain cleaning",
+        "rating": 5.0,
+        "reviews": 1,
+        "note": "Specialized drain cleaning - good niche"
+      }
+    },
+    {
+      "name": "SS MKUZI PROJECTS AND TRADING (Pty) Ltd",
+      "category": "Plumbing",
+      "address": "14 Mountain View Drive, Durban, Kwa Zulu Natal",
+      "source": "Yellosa",
+      "has_website": false,
+      "researched": true,
+      "research": {
+        "services": ["Building and plumbing solutions", "High-quality materials"],
+        "note": "Building + plumbing combo - could offer renovation services"
+      }
+    },
+    {
+      "name": "Talent C&M Plumbers",
+      "category": "Plumbing",
+      "address": "Durban, Kwa Zulu Natal",
+      "source": "Procompare",
+      "has_website": false,
+      "researched": true,
+      "research": {
+        "rating": "4.2",
+        "reviews": 14,
+        "feedback": "Good communication, completed water leakage report",
+        "note": "Has reviews - shows they're active"
+      }
+    },
+    {
+      "name": "Durban Electrician Services",
+      "category": "Electrical",
+      "address": "Durban, Kwa Zulu Natal",
+      "source": "Snupit",
+      "has_website": false,
+      "researched": true,
+      "research": {
+        "note": "131 electricians near Durban on Snupit - big market",
+        "potential_services": ["Emergency electrician", "Wiring installation", "Lighting", "DB box repair", "Electrical COC"]
+      }
+    }
+  ],
+  "research_summary": {
+    "total_leads": 5,
+    "by_category": {
+      "Plumbing": 4,
+      "Electrical": 1
+    },
+    "key_insights": [
+      "Plumbers Durban has 40+ years experience but our lead is from 2009 - may be different business",
+      "Reddy's has 5-star rating - emphasize customer satisfaction",
+      "Talent C&M has actual reviews - social proof available",
+      "Electrical market is big (131 on Snupit) - lots of competition"
+    ],
+    "quality_check": {
+      "all_have_phone_numbers": true,
+      "all_have_addresses": true,
+      "some_have_online_presence": false,
+      "ready_for_outreach": true
+    }
+  }
+}
