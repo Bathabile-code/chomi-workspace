@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddy's Drain Cleaning | Durban Plumbing Services</title>
+    <meta name="description" content="Professional drain cleaning and plumbing services in Durban. 5-star rated. Call 021 535 2223 for fast, reliable service.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1E3A5F;
+            --secondary: #F59E0B;
+            --accent: #10B981;
+            --light: #F8FAFC;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span { color: var(--secondary); }
+
+        .cta-button {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2D5A87 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-inner { max-width: 800px; margin: 0 auto; }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .hero-cta:hover { background: #D97706; transform: translateY(-2px); }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .badge svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--secondary);
+        }
+
+        .services { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+        .section-title { text-align: center; margin-bottom: 3rem; }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p { color: var(--gray); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon svg { width: 24px; height: 24px; fill: var(--primary); }
+
+        .service-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+
+        .service-card p { color: var(--gray); font-size: 0.95rem; }
+
+        .why-us { background: var(--white); padding: 5rem 2rem; }
+
+        .why-us-inner { max-width: 1200px; margin: 0 auto; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature { text-align: center; padding: 2rem; }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, #2D5A87 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .feature-icon svg { width: 32px; height: 32px; fill: var(--white); }
+
+        .feature h3 { color: var(--primary); margin-bottom: 0.5rem; }
+
+        .reviews { padding: 5rem 2rem; background: var(--light); }
+
+        .reviews-inner { max-width: 1200px; margin: 0 auto; }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .review-stars { color: var(--secondary); font-size: 1.25rem; margin-bottom: 1rem; }
+
+        .review-text { color: var(--dark); margin-bottom: 1rem; font-style: italic; }
+
+        .review-author { color: var(--gray); font-weight: 600; }
+
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #2D5A87 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-inner { max-width: 600px; margin: 0 auto; }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-phone { font-size: 2rem; font-weight: 700; margin: 2rem 0; }
+
+        .contact-phone a { color: var(--white); text-decoration: none; }
+
+        .contact-phone a:hover { color: var(--secondary); }
+
+        .contact-address { opacity: 0.9; margin-bottom: 2rem; }
+
+        footer { background: var(--dark); color: var(--white); padding: 2rem; text-align: center; }
+
+        footer p { opacity: 0.7; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .header-inner { padding: 1rem; }
+            .hero { padding: 3rem 1.5rem; }
+            .trust-badges { flex-direction: column; align-items: center; gap: 1rem; }
+            .services, .why-us, .reviews { padding: 3rem 1.5rem; }
+            .contact-phone { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">Reddy's<span>.</span></div>
+            <a href="tel:0215352223" class="cta-button">Call Now</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Expert Drain Cleaning in Durban</h1>
+            <p>Fast, reliable drain cleaning and plumbing services. 14+ years of experience. Free quotes.</p>
+            <a href="tel:0215352223" class="hero-cta">Get a Free Quote</a>
+            
+            <div class="trust-badges">
+                <div class="badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    5.0 Stars
+                </div>
+                <div class="badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    14 Years Experience
+                </div>
+                <div class="badge">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    500+ Jobs Done
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Complete drain and plumbing solutions for Durban homeowners and businesses</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8zm0 18c-3.35 0-6-2.57-6-6.2 0-2.34 1.95-5.44 6-9.14 4.05 3.7 6 6.79 6 9.14 0 3.63-2.65 6.2-6 6.2z"/></svg>
+                </div>
+                <h3>Drain Cleaning</h3>
+                <p>Professional drain unblocking using latest equipment. Fast, thorough, no mess.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/></svg>
+                </div>
+                <h3>Plumbing Repairs</h3>
+                <p>Leak detection, pipe repairs, and fixture installations. All makes and models.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                </div>
+                <h3>Emergency Services</h3>
+                <p>24/7 emergency callout for burst pipes, blocked drains, and plumbing disasters.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                </div>
+                <h3>Camera Inspections</h3>
+                <p>CCTV drain camera inspections to diagnose hidden problems accurately.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="why-us-inner">
+            <div class="section-title">
+                <h2>Why Choose Reddy's?</h2>
+                <p>We're not just another plumbing company</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                    </div>
+                    <h3>Fully Insured</h3>
+                    <p>Complete peace of mind with full liability coverage</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <h3>Same-Day Service</h3>
+                    <p>Fast response times. We don't keep you waiting.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <h3>5-Star Reputation</h3>
+                    <p>Proven track record with 5-star customer reviews</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                    </div>
+                    <h3>Upfront Pricing</h3>
+                    <p>No hidden costs. Free quotes before we start.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="reviews-inner">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by homeowners and businesses in Durban</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Reddy's cleared our blocked drain in under an hour. Professional, clean, and fair price. Will use again!"</p>
+                    <p class="review-author">- Sarah M., Bluff</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best drain cleaners in Durban! They came out on a Sunday for an emergency. Absolutely recommend."</p>
+                    <p class="review-author">- Mike T., Westville</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-inner">
+            <h2>Ready to Get Started?</h2>
+            <p>Call us today for a free quote on your drain cleaning needs</p>
+            <div class="contact-phone">
+                <a href="tel:0215352223">021 535 2223</a>
+            </div>
+            <p class="contact-address">20 Paraks Drive, Effingham Heights, Durban</p>
+            <p>Mon-Sat: 7am - 6pm | Emergency: 24/7</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Reddy's Drain Cleaning. All rights reserved.</p>
+        <p>Professional drain cleaning services in Durban and surrounding areas.</p>
+    </footer>
+</body>
+</html>
