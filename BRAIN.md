@@ -17,7 +17,7 @@
 - [x] Daily 9am improvement (completed 2026-02-22)
 
 ## Blocked / Needs Attention
-- None ✓ (WhatsApp tested - reconnected 2x overnight)
+- WhatsApp: Frequent 428 disconnects (4x today), auto-reconnects each time. Monitoring.
 
 ## What Shipped Today
 - Morning skill research delivered (Home Assistant, Media Skills, Excel Automation)
