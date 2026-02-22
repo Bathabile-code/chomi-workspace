@@ -14,12 +14,15 @@
 - [x] Memory flush + session search enabled
 - [x] AGENTS.md safety rails configured
 - [x] Install Exa AI skill (mcporter + exa MCP configured)
-- [ ] Daily 9am improvement (starts tomorrow)
+- [ ] Daily 9am improvement (active as of 2026-02-22)
 
 ## Blocked / Needs Attention
-- WhatsApp gateway — shows 'linked' but untested since update
+- None ✓ (WhatsApp tested - reconnected 2x overnight)
 
 ## What Shipped Today
 - Workspace fully configured (AGENTS.md, SOUL.md, USER.md, HEARTBEAT.md, MEMORY.md)
 - Git backup initialized
 - Health check passing
+
+---
+_Last updated: 2026-02-22_
