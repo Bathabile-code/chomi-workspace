@@ -14,12 +14,13 @@
 - [x] Memory flush + session search enabled
 - [x] AGENTS.md safety rails configured
 - [x] Install Exa AI skill (mcporter + exa MCP configured)
-- [ ] Daily 9am improvement (active as of 2026-02-22)
+- [x] Daily 9am improvement (completed 2026-02-22)
 
 ## Blocked / Needs Attention
 - None ✓ (WhatsApp tested - reconnected 2x overnight)
 
 ## What Shipped Today
+- Morning skill research delivered (Home Assistant, Media Skills, Excel Automation)
 - Workspace fully configured (AGENTS.md, SOUL.md, USER.md, HEARTBEAT.md, MEMORY.md)
 - Git backup initialized
 - Health check passing
