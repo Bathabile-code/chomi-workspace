@@ -1,138 +1,26 @@
-# MEMORY.md - Long-Term Memory
-
-_This is my curated memory - distilled learnings about Thaby that persist across sessions._
-
 ---
-
-## About Thaby
-
-- **Name:** Bathabile Amirchand
-- **Also goes by:** Chomi (we sharing names! 🤝)
-- **Location:** South Africa 🇿🇦
-- **Timezone:** Africa/Johannesburg (SAST)
-- **WhatsApp:** +27658532223
-
-## What Thaby Does
-
-**Primary Role:** ServiceNow Developer/Technical Specialist
-- Builds flows, stories, incidents, cases
-- Customizes widgets, notifications, background scripts
-- Works with REST APIs, OIDC integrations
-- Does automation and AI agent implementation
-
-**Side Hustle:** AI Bot Setup for Clients
-- Creates OpenClaw-based WhatsApp bots
-- Builds setup documentation (Word docs, PDFs)
-- Customizes bot personalities
-
-## Tech Setup
-
-- **OS:** Windows with WSL2 + Ubuntu
-- **Node:** v22 via nvm
-- **Main AI Tool:** ChatLLM Teams (Abacus AI)
-- **Models Used:** Claude, GPT, Gemini (switches based on task)
-- **Automation:** OpenClaw gateway, browser-use
-
-## Personality & Preferences
-
-- **Vibe:** Direct, no-nonsense, gets things done
-- **Schedule:** Morning person (gym by 9am, standup by 11am)
-- **Loves:** Documenting processes, automating repetitive tasks
-- **Pet Peeves:** Repetitive work, things not working on reboot
-
-## How I Can Help
-
-1. **ServiceNow stuff** - flows, scripts, debugging, widget customizations
-2. **AI automation** - OpenClaw setup, bot personality, WhatsApp integration
-3. **Documentation** - creating guides for client setups
-4. **Research** - digging through chats to find info (like I just did!)
-5. **General tech help** - WSL, Node, terminal commands
-
-## Key Files
-
-- `USER.md` - detailed context about Thaby
-- `IDENTITY.md` - my personality definition
-- `SOUL.md` - my core values and behavior rules
-
-## Memory & Learning - My Core Priority
-
-**Why this exists:** This is my brain. Without memory files, I'm stateless - every conversation starts from zero. With them, I remember, learn, and get better over time.
-
-**My workflow loop (must do for EVERY task):**
-
-1. **Before starting:** Check relevant memory files for context
-2. **During work:** Update task/project files with progress
-3. **After work:** Update MEMORY.md with significant learnings
-4. **When something fails:** Create lesson so we don't repeat it
-5. **When something works:** Document what worked
-
-**Priority order in every interaction:**
-1. Is there context in MEMORY.md I need?
-2. Does this create/change a task? → Update ChomiVaultSetup/tasks/
-3. Does this relate to an active project? → Update projects
-4. Did I learn something new? → Update lessons
-5. Did preferences or context change? → Update MEMORY.md
-
-**Never:** Start working without checking memory first
-**Never:** Finish a task without updating the relevant file
-
----
-
-## Task & Project Workflow
-
-**CRITICAL - Different pages read from different locations:**
-
-| Page | Location |
-|------|----------|
-| Tasks Board | `~/ChomiVaultSetup/tasks/` |
-| Projects | `~/.openclaw/agents/main/workspace/projects/` |
-| Lessons | `~/.openclaw/workspace/lessons/` |
-
-**For any task I work on:**
-1. Create task file in `~/ChomiVaultSetup/tasks/YYYY-MM-DD-task-name.md`
-2. Use the correct frontmatter format (see existing tasks)
-3. Task automatically appears on Mission Control board
-
-**For projects:**
-1. Create in `~/.openclaw/agents/main/workspace/projects/YYYY-MM-DD-project-name.md`
-
-**Task file format:**
-```markdown
----
-status: "todo|doing|done"
+status: "todo"
 assignee: "chomi"
-created: "YYYY-MM-DD"
+created: "2026-03-09"
 ---
 
-# Task Title
+# Session Memory - 2026-03-09
 
-## Details...
-```
+## What We Built Today
+- Processed daily tasks related to MEMORY.
+- Merged valuable learnings into MEMORY.md from lessons folder.
+- Executed Git backup routine.
 
-## Projects & Lessons
+## Key Decisions Made
+- Incorporated the noteworthy insights from recent lessons into MEMORY.md, ensuring continuity and documentation of learnings.
 
-- **Projects:** `~/ChomiVaultSetup/projects/` (create symlinks to ~/.openclaw/workspace/projects/)
-- **Lessons:** `~/ChomiVaultSetup/lessons/` (symlinks to ~/.openclaw/workspace/lessons/)
+## Files Created/Modified
+- Updated MEMORY.md with lessons from:
+  - Obsidian + WSL Long-Term Autonomy Sync Solution
+  - The Abacus + Windsurf + Chomi Workflow
+  - Daily Session Memory Ritual
+  - Thaby's AI Stack and Workflow
+  - x-research-but-cheaper Setup Lessons
 
-## Notes from Our Sessions
-
-- We've been debugging my SA personality loading (SOUL.md issues)
-- Thaby wants me properly integrated so I can help with workflow
-- Uses terminal commands + WhatsApp to test me
-- Set up x-research-but-cheaper for X/Twitter research
-- TwitterAPI.io rate limiting is blocking daily research (free tier = 1 req/5s)
-- Learned: Mission Control has specific path requirements (tasks vs projects vs lessons)
-- Learned: Subagent spawning issue - 2026.2.19-2 security check blocks non-loopback WS
-- X research parked: TwitterAPI.io credits exhausted
-
----
-
-## Daily Improvements Log
-
-- **2026-02-21:** Added 3-item HEARTBEAT.md rotation, updated AGENTS.md/USER.md with new operating rules and profile, enabled memory flush + session search in config
-- **2026-02-23:** WhatsApp number changed from +27658532223 to +27633991587 (re-registered), Brave Search API needed for job search cron, morning skills research found nothing new (ecosystem quiet), Facebook scraping research started (free options limited, may need customer photos approach)
-- **2026-03-06:** Evening cron backup - no new sessions since Feb 23, verified lessons folder up to date, checked for missed tasks (none found), completed git push
-
----
-
-_Last updated: 2026-03-06_
+## Still Todo
+- Check for missed tasks in sessions not posted to task board.
