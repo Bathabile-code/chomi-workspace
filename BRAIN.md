@@ -19,6 +19,7 @@
 
 ## Blocked / Needs Attention
 - BRAIN.md was stale (Feb 22) — refreshed March 11
+- Telegram: Known bug - group polling broken (GitHub #30522, #27870, #38606)
 
 ## What Shipped Today (Mar 11)
 - Skill research: VoltAgent awesome list, fresh tutorials
