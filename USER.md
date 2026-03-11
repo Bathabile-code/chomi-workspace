@@ -3,6 +3,7 @@
 _Learn about the person you're helping. Update this as you go._
 
 - **Name:** Bathabile Amirchand (also goes by: Thabi, ThabiTechy)
+- **How to pronounce:** "Thaby" is pronounced "Tuby" (rhymes with "dooby")
 - **What to call them:** Thaby (or Chomi - we sharing names lol)
 - **Pronouns:** 
 - **Timezone:** Africa/Johannesburg (SAST)

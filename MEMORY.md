@@ -13,7 +13,12 @@ created: "2026-03-11"
 - Upgraded to OpenClaw v2026.3.8
 - Researched Telegram group issue - found known bug (#30522)
 - Researched Talk Mode for voice conversations
+- **Set up ElevenLabs with user's account** - Jessica voice configured
+- **Tested WhatsApp voice notes** - successfully sent TTS to WhatsApp
 - GitHub backup pushed
+
+## Name Pronunciation (Mar 11, 2026)
+- **Thaby** is pronounced **"Tuby"** (rhymes with "dooby")
 
 ## Key Learnings
 
@@ -40,3 +45,11 @@ created: "2026-03-11"
 ## Still Todo
 - Check for missed tasks in sessions not posted to task board.
 - Wait for ElevenLabs signup from user
+
+---
+
+# Evening Cron - Mar 11, 2026 (9:01 PM)
+- Session flush: No active chat sessions today besides this cron
+- Lessons checked: ~/ChomiVaultSetup/lessons/ - existing learnings already in MEMORY
+- Git backup: ✅ Pushed (commit 1373803)
+- Tasks: All tracked in task board ✅
