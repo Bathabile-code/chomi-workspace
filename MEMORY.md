@@ -1,26 +1,26 @@
 ---
 status: "todo"
 assignee: "chomi"
-created: "2026-03-10"
+created: "2026-03-11"
 ---
 
-# Session Memory - 2026-03-10
+# Session Memory - 2026-03-11
 
-## What We Built Today
-- Saved pending context from today's sessions to MEMORY.md.
-- Merged valuable learnings into MEMORY.md from lessons folder.
-- Executed Git backup routine.
+## What We Did Today
+- Executed evening cron backup routine
+- Git pushed to origin main (commit c431d6e)
+- Reviewed lessons folder for missed learnings
 
-## Key Decisions Made
-- Ensured all significant insights from lessons were documented.
+## Key Learnings Merged
+### From Mission Control Deletion Incident (2026-02-21)
+Critical file management rules added to knowledge base:
+- **Never delete without running `git status` and `find` first**
+- **When app breaks: STOP → git status → git restore → verify**
+- **Check Tailwind version in package.json before writing CSS** (v3 uses `@tailwind base/components/utilities`, v4 uses `@import "tailwindcss"`)
+- **Only ONE layout.tsx should render `<html>` and `<body>` tags**
 
-## Files Created/Modified
-- Content updated with lessons from:
-  - Obsidian + WSL Long-Term Autonomy Sync Solution
-  - The Abacus + Windsurf + Chomi Workflow
-  - Daily Session Memory Ritual
-  - Thaby's AI Stack and Workflow
-  - x-research-but-cheaper Setup Lessons
+## Git Backup Status
+✅ Pushed: c431d6e - Evening backup 2026-03-11
 
 ## Still Todo
 - Check for missed tasks in sessions not posted to task board.
