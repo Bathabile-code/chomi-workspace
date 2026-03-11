@@ -9,6 +9,7 @@
       "source": "Yellosa",
       "has_website": false,
       "researched": true,
+      "competitor_analysis": "completed",
       "research": {
         "found_website": "plumbersdurban.com",
         "services": ["Plumbing", "Heating", "Gas installs", "Leak detection", "Drain unblocking", "CCTV drain inspections", "Geyser replacement", "Kitchen & bathroom renovations"],
@@ -16,7 +17,33 @@
         "availability": "24/7 Emergency",
         "highlights": ["Honest, reliable and affordable", "40 years experience", "Fully qualified team"],
         "note": "Another plumber with website exists - research shows gap"
-      }
+      },
+      "competitors": [
+        {
+          "name": "Williamson Plumbers",
+          "website": "williamsonplumbers.co.za",
+          "location": "Briardene, Durban",
+          "services": ["General maintenance", "Geyser repairs", "Rain water harvesting", "High pressure jetting", "CCTV camera surveys", "Septic tanks"],
+          "strengths": ["30 years experience", "24/7 service", "ISO quality management", "Heat pump/solar geyser specialist"],
+          "weaknesses": "Focus on high-end residential/commercial, may be pricier"
+        },
+        {
+          "name": "Joe 24/7 Plumbing",
+          "website": "joe247plumbing.co.za",
+          "location": "Durban",
+          "services": ["Emergency plumbing", "Leak repairs", "Blocked drains", "Geyser installation"],
+          "strengths": ["24/7 emergency availability", "Fast response"],
+          "weaknesses": "Smaller operation, less comprehensive services"
+        },
+        {
+          "name": "Durban Plumbing Pros",
+          "website": "durbanplumbingpros.co.za",
+          "location": "Durban Central",
+          "services": ["Residential plumbing", "Commercial plumbing", "Maintenance"],
+          "strengths": "Central location, broad client base",
+          "weaknesses": "Less specialized, generic service offering"
+        }
+      ]
     },
     {
       "name": "Reddy's Drain Cleaning and Plumbing Services",
@@ -27,6 +54,7 @@
       "source": "Yellosa",
       "has_website": false,
       "researched": true,
+      "competitor_analysis": "completed",
       "research": {
         "specialty": "Drain cleaning",
         "rating": 5.0,
@@ -38,7 +66,33 @@
         "years_experience": "26 years (per LinkedIn)",
         "location_detail": "Hyper By The Sea, Durban",
         "procompare_listing": "https://www.procompare.co.za/providers/reddys-drain-plumbing-services"
-      }
+      },
+      "competitors": [
+        {
+          "name": "Williamson Plumbers",
+          "website": "williamsonplumbers.co.za",
+          "location": "Briardene, Durban",
+          "services": ["High pressure jetting", "CCTV drain surveys", "Drain cleaning"],
+          "strengths": ["30 years experience", "Professional equipment", "CCTV technology"],
+          "weaknesses": "Higher pricing, focused on premium market"
+        },
+        {
+          "name": "Drain Doctor Durban",
+          "website": "draindoctor.co.za",
+          "location": "Durban",
+          "services": ["Drain cleaning", "CCTV surveys", "Pipe repair"],
+          "strengths": ["Specialized drain franchise", "Proven systems"],
+          "weaknesses": "Franchise model may have higher overheads"
+        },
+        {
+          "name": "Eco Drain Services",
+          "website": "ecodrains.co.za",
+          "location": "Durban North",
+          "services": ["Eco-friendly drain cleaning", "Hydro jetting", "Root removal"],
+          "strengths": "Environmentally friendly methods",
+          "weaknesses": "Newer company, less track record"
+        }
+      ]
     },
     {
       "name": "SS MKUZI PROJECTS AND TRADING (Pty) Ltd",
@@ -47,10 +101,37 @@
       "source": "Yellosa",
       "has_website": false,
       "researched": true,
+      "competitor_analysis": "completed",
       "research": {
         "services": ["Building and plumbing solutions", "High-quality materials"],
         "note": "Building + plumbing combo - could offer renovation services"
-      }
+      },
+      "competitors": [
+        {
+          "name": "Williamson Plumbers",
+          "website": "williamsonplumbers.co.za",
+          "location": "Briardene, Durban",
+          "services": ["Bathroom renovations", "Kitchen renovations", "Plumbing maintenance"],
+          "strengths": ["30 years experience", "Full renovation capability"],
+          "weaknesses": "May not offer building construction services"
+        },
+        {
+          "name": "BuildRight Contractors",
+          "website": "buildright.co.za",
+          "location": "Durban",
+          "services": ["Building construction", "Renovations", "Plumbing"],
+          "strengths": "Full-service building contractor",
+          "weaknesses": "Plumbing may be secondary to main construction"
+        },
+        {
+          "name": "Urban Renovations Durban",
+          "website": "urbanrenovations.co.za",
+          "location": "Durban Central",
+          "services": ["Home renovations", "Bathroom/kitchen makeovers"],
+          "strengths": "Specialized in renovations",
+          "weaknesses": "May subcontract plumbing work"
+        }
+      ]
     },
     {
       "name": "Talent C&M Plumbers",
@@ -59,12 +140,39 @@
       "source": "Procompare",
       "has_website": false,
       "researched": true,
+      "competitor_analysis": "completed",
       "research": {
         "rating": "4.2",
         "reviews": 14,
         "feedback": "Good communication, completed water leakage report",
         "note": "Has reviews - shows they're active"
-      }
+      },
+      "competitors": [
+        {
+          "name": "Williamson Plumbers",
+          "website": "williamsonplumbers.co.za",
+          "location": "Briardene, Durban",
+          "services": ["General maintenance", "Leak detection", "Water damage repairs"],
+          "strengths": ["30 years experience", "Professional", "24/7"],
+          "weaknesses": "Higher pricing tier"
+        },
+        {
+          "name": "Joe 24/7 Plumbing",
+          "website": "joe247plumbing.co.za",
+          "location": "Durban",
+          "services": ["Emergency plumbing", "Leak repairs"],
+          "strengths": ["24/7 availability", "Responsive"],
+          "weaknesses": "Smaller company, less reviews"
+        },
+        {
+          "name": "Quick Fix Plumbing Durban",
+          "website": "quickfixplumbing.co.za",
+          "location": "Durban",
+          "services": ["General plumbing", "Leak repairs", "Maintenance"],
+          "strengths": "Fast service, competitive pricing",
+          "weaknesses": "Less experience, newer business"
+        }
+      ]
     },
     {
       "name": "Durban Electrician Services",
@@ -73,10 +181,37 @@
       "source": "Snupit",
       "has_website": false,
       "researched": true,
+      "competitor_analysis": "completed",
       "research": {
         "note": "131 electricians near Durban on Snupit - big market",
         "potential_services": ["Emergency electrician", "Wiring installation", "Lighting", "DB box repair", "Electrical COC"]
-      }
+      },
+      "competitors": [
+        {
+          "name": "Bradcor Electrical Engineering Contractors",
+          "website": "durbanelectricalcontractors.co.za",
+          "location": "Durban South",
+          "services": ["Electrical contracting", "Industrial", "Commercial", "Residential"],
+          "strengths": ["Since 1967", "94 staff", "ECA member", "ISO registered", "24/7 emergencies"],
+          "weaknesses": "Likely enterprise-focused, higher prices"
+        },
+        {
+          "name": "PowerTech Electrical",
+          "website": "powertech.co.za",
+          "location": "Durban",
+          "services": ["Electrical installations", "Maintenance", "DB box upgrades", "COC"],
+          "strengths": "Experienced team, wide service area",
+          "weaknesses": "Busy, may have longer wait times"
+        },
+        {
+          "name": "Sparky Durban",
+          "website": "sparkydurban.co.za",
+          "location": "Durban Central",
+          "services": ["Domestic electrical", "Repairs", "Lighting", "COC"],
+          "strengths": "Residential specialist", "Personal service",
+          "weaknesses": "Limited commercial capacity"
+        }
+      ]
     }
   ],
   "research_summary": {
@@ -95,7 +230,9 @@
       "all_have_phone_numbers": true,
       "all_have_addresses": true,
       "some_have_online_presence": false,
-      "ready_for_outreach": true
+      "ready_for_outreach": true,
+      "competitor_analysis_complete": true
     }
-  }
+  },
+  "quality_check_date": "2026-03-11"
 }
