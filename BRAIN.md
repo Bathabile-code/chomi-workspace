@@ -3,27 +3,32 @@
 ## Active Projects
 | Project | Status | Next Step | Last Updated |
 |---------|--------|-----------|--------------|
-| Mission Control v1.0 | Live | Add Convex Live integration | 2026-02-21 |
+| AutoSite SA Lead Gen | Live | Competitor analysis complete | 2026-03-11 |
 | Chomi workspace setup | Done | Daily improvements active | 2026-02-21 |
 
 ## Immediate Actions (Today)
-- [x] Install Exa AI skill for free web search
-- [ ] Configure RouteLLM model tiering
+- [x] AutoSite SA: Competitor analysis for all 5 leads (Durban)
+- [x] Evening wrapup executed
+- [x] Git backup pushed
 
 ## Background Tasks
 - [x] Memory flush + session search enabled
 - [x] AGENTS.md safety rails configured
-- [x] Install Exa AI skill (mcporter + exa MCP configured)
-- [x] Daily 9am improvement (completed 2026-02-22)
+- [x] Exa AI skill configured
+- [x] Daily 9am improvement (completed)
 
 ## Blocked / Needs Attention
-- WhatsApp: Frequent 428 disconnects (4x today), auto-reconnects each time. Monitoring.
+- BRAIN.md was stale (Feb 22) — refreshed March 11
 
-## What Shipped Today
-- Morning skill research delivered (Home Assistant, Media Skills, Excel Automation)
-- Workspace fully configured (AGENTS.md, SOUL.md, USER.md, HEARTBEAT.md, MEMORY.md)
-- Git backup initialized
-- Health check passing
+## What Shipped Today (Mar 11)
+- Skill research: VoltAgent awesome list, fresh tutorials
+- AutoSite SA: Full competitor analysis for Durban leads (5 leads, 3 competitors each)
+- Evening wrapup: Git backup, sessions checked, lessons scanned
+
+## Cron Jobs Active
+- morning_routine (9am SAST)
+- evening_wrapup (9pm SAST)
+- AutoSite SA Quality Check (daily)
 
 ---
-_Last updated: 2026-02-22_
+_Last updated: 2026-03-11_
