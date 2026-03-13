@@ -32,4 +32,6 @@
 - AutoSite SA Quality Check (daily)
 
 ---
-_Last updated: 2026-03-11_
+⚠️ **Stale notice (Mar 13, 8:10 PM):** This file hasn't been updated since Mar 11. No major changes detected, but "What Shipped Today" section is outdated. Needs a refresh next active session.
+
+_Last checked: 2026-03-13_
