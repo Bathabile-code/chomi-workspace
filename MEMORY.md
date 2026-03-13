@@ -115,3 +115,16 @@ last_updated: "2026-03-13"
 - OpenRouter API key stored in `~/.bashrc`
 - Need to verify MetaClaw is running when Thaby starts it
 - Commit MetaClaw installation to git
+
+## Git History Cleanup (Mar 13, 11:35 PM)
+- API key was exposed in memory/2026-03-13.md, pushed to GitHub
+- OpenRouter detected it and disabled the key - Thaby created new key
+- Used `git filter-repo --replace-text` to scrub key from ALL git history
+- Added `memory/*.md` to `.gitignore`
+- **Thaby needs to force push:** `git push --force --all` (needs GitHub PAT)
+- Never store API keys in memory files - env vars only, placeholders in files
+
+## New Golden Rule
+- API keys NEVER go in memory files or committed files
+- Use `<YOUR_KEY_HERE>` placeholders in docs
+- Actual keys go in ~/.bashrc or .env files (gitignored)
