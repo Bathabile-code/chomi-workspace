@@ -70,3 +70,44 @@ last_updated: "2026-03-13"
 - No new skills installed since Mar 11
 - Workspace config stable, no drift detected
 - Task board last updated Mar 9 (backup task marked done)
+
+---
+
+# Session Memory - 2026-03-13 (Evening)
+
+## What Happened Today
+- **OpenClaw upgraded to v2026.3.11** — upgrade broke Chomi's config
+- **Thaby fixed the config** — MiniMax API setup was replaced with OpenRouter (`openrouter/hunter-alpha`)
+- **Researched MetaClaw** (aiming-lab/MetaClaw) — meta-learning agent that evolves from conversations
+- **Security audit on MetaClaw** — found hardcoded API key and suspicious Cloudflare Workers proxy URL in `skill_evolver.py`
+- **Patched MetaClaw** — removed sus code, changed defaults to OpenRouter + Claude Haiku 4.5
+- **Installed MetaClaw** — PyTorch, Transformers, FastAPI, etc. (~3GB disk usage)
+- **Telegram group issue** — still broken even after upgrade (beta didn't fix receiving)
+
+## Key Learnings
+
+### OpenClaw Upgrade Breaks (Mar 13)
+- Upgrades can overwrite `openclaw.json` config (model settings, API keys)
+- Always backup config before upgrading
+- The `update.channel` was set to beta, upgrade brought OpenRouter model support
+
+### MetaClaw Security (Mar 13)
+- `skill_evolver.py` had hardcoded API key (`aB7cD9eF2gH5iJ8kL1mN4oP6qR3sT0uV`)
+- Default proxy URL was `https://openai-api.shenmishajing.workers.dev/v1` (Cloudflare Workers — MITM risk)
+- Fake model name `gpt-5.2` doesn't exist
+- **Patched**: Removed hardcoded key, changed to OpenRouter, real model name
+- Rest of codebase is clean — only `skill_evolver.py` was sus
+
+### MetaClaw Modes
+- `madmax` (default): RL + smart scheduler, skills always on
+- `rl`: RL without scheduler, trains immediately
+- `skills_only`: Just skill injection, no RL (safest)
+
+## Git Backup Status
+- Last push: Mar 11 (commit 1373803)
+- Need to commit today's changes
+
+## Tomorrow Prep
+- MetaClaw setup wizard needs to be run (`metaclaw setup`)
+- Need OpenRouter API key for MetaClaw configuration
+- Telegram group bug still waiting for OpenClaw fix
