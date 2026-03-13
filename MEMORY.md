@@ -108,6 +108,10 @@ last_updated: "2026-03-13"
 - Need to commit today's changes
 
 ## Tomorrow Prep
-- MetaClaw setup wizard needs to be run (`metaclaw setup`)
-- Need OpenRouter API key for MetaClaw configuration
-- Telegram group bug still waiting for OpenClaw fix
+- **MetaClaw installed and working** — config at `~/.metaclaw/config.yaml`, proxy port 30000
+- MetaClaw must be started manually by Thaby in WSL terminal (my exec timeouts kill it)
+  - Command: `export OPENROUTER_API_KEY="REDACTED_API_KEY" && metaclaw start`
+- OpenClaw already configured to route through MetaClaw proxy automatically
+- OpenRouter API key stored in `~/.bashrc`
+- Need to verify MetaClaw is running when Thaby starts it
+- Commit MetaClaw installation to git
