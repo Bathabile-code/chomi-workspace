@@ -21,3 +21,6 @@ Thumbs.db
 *.tmp
 *.bak
 USER.md
+
+# Memory logs (may contain sensitive info)
+memory/*.md
