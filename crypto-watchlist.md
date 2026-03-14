@@ -5,6 +5,19 @@
 
 ## 📈 Current Market Snapshot
 
+## 🎯 THABY'S ACTIVE COINS (Updated by Thaby herself!)
+
+| Coin | Ticker | Status | Notes |
+|------|--------|--------|-------|
+| Bitcoin | BTC | ✅ ACTIVE | Core holding |
+| SPX6900 | SPX6900 | ✅ ACTIVE | Thaby's degen pick 🔥 |
+| Ethereum | ETH | ⏳ PLANNED | "might add" |
+| Zcash | ZEC | ⏳ PLANNED | "might add" |
+
+**spx69daddy will focus research on these 4 coins. The 10-coin watchlist remains as a bonus for future expansion.**
+
+---
+
 **Bitcoin (BTC):** ~$85,000-90,000 range
 - Post-halving cycle, ETFs driving institutional demand
 - Range-bound recently, looking for breakout
