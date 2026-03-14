@@ -8,6 +8,8 @@ _Learn about the person you're helping. Update this as you go._
 - **Pronouns:** 
 - **Timezone:** Africa/Johannesburg (SAST)
 - **WhatsApp:** +27658532223
+- **X/Twitter:** @ThabyAmirchand (2K followers, Premium, Creator Studio)
+- **Fiverr:** bathabileamirch
 - **Platforms:** X, Telegram, WhatsApp
 - **Hardware:** ASUS TUF Gaming F15, Windows + WSL2 Ubuntu
 - **Tech setup:** WSL2 + Ubuntu on Windows, Node.js 22 via nvm, OpenClaw gateway
@@ -52,6 +54,11 @@ _Learn about the person you're helping. Update this as you go._
 - **Multi-model user** - switches between Claude, GPT, Gemini based on needs
 - **Command-line comfortable** - runs openclaw commands directly
 - **Morning person** (gym by 9am, standup by 11am)
+
+## Location & Lifestyle
+- Lives on the KZN North Coast, near "Tweni" beach (Tongaat/Train Beach area)
+- Coastal lifestyle - morning beach swims when possible
+- Been cooped up indoors for weeks (grinding)
 
 ## Things That Annoy You
 

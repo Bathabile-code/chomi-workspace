@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chomi — AI Agent Mission Control</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-card: #12121a;
+      --bg-card-hover: #1a1a25;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.3);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.2);
+      --amber: #f59e0b;
+      --pink: #ec4899;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: #1e293b;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Animated background gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+      z-index: -1;
+      animation: pulse 8s ease-in-out infinite alternate;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+    
+    /* Header */
+    .header {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .logo-icon {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 0 20px var(--accent-glow));
+    }
+    
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f1f5f9, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .logo-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green-glow);
+      border: 1px solid var(--green);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--green);
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    /* Main Content */
+    .main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 3rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3rem 0 4rem;
+    }
+    
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    
+    .hero h2 .gradient {
+      background: linear-gradient(135deg, #6366f1, #ec4899, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: gradient-shift 4s ease infinite;
+    }
+    
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .hero .flag {
+      font-size: 1.5rem;
+      margin: 0 0.25rem;
+    }
+    
+    /* Stats Grid */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+    }
+    
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-card .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    .stat-card .sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+    
+    /* Services Section */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.2s ease;
+    }
+    
+    .service-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+    }
+    
+    .service-icon {
+      font-size: 2rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    
+    .service-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    
+    .service-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .service-status {
+      margin-left: auto;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .service-status.online {
+      background: var(--green-glow);
+      color: var(--green);
+    }
+    
+    /* Projects Section */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+    }
+    
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    
+    .project-header h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .project-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .project-badge.live {
+      background: var(--green-glow);
+      color: var(--green);
+    }
+    
+    .project-badge.draft {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber);
+    }
+    
+    .project-badge.installed {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent);
+    }
+    
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    
+    /* Activity Log */
+    .activity {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .activity ul {
+      list-style: none;
+    }
+    
+    .activity li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .activity li:last-child { border-bottom: none; }
+    
+    .activity .time {
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      margin-left: auto;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .footer a:hover { text-decoration: underline; }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .services { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 2rem; }
+      .header, .main { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">🤖</span>
+      <div class="logo-text">
+        <h1>Chomi</h1>
+        <span>AI Agent Platform</span>
+      </div>
+    </div>
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      All Systems Online
+    </div>
+  </header>
+  
+  <main class="main">
+    <section class="hero">
+      <h2>Your AI Agent, <span class="gradient">Supercharged</span></h2>
+      <p>Built in South Africa <span class="flag">🇿🇦</span> — WhatsApp-first AI assistant with voice, memory, and real intelligence. Not your average chatbot.</p>
+    </section>
+    
+    <div class="stats">
+      <div class="stat-card">
+        <div class="label">Status</div>
+        <div class="value" style="color: var(--green);">Online ✅</div>
+        <div class="sub">99.9% uptime</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Channel</div>
+        <div class="value">💬 WhatsApp</div>
+        <div class="sub">Connected & active</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Voice AI</div>
+        <div class="value">🔊 Ready</div>
+        <div class="sub">ElevenLabs + Whisper</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Memory</div>
+        <div class="value">🧠 Active</div>
+        <div class="sub">Learns from every chat</div>
+      </div>
+    </div>
+    
+    <h3 class="section-title">🔌 Services</h3>
+    <div class="services">
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <div class="service-info">
+          <h4>WhatsApp</h4>
+          <p>Messaging channel</p>
+        </div>
+        <span class="service-status online">Online</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔊</div>
+        <div class="service-info">
+          <h4>ElevenLabs TTS</h4>
+          <p>Voice synthesis — Jessica</p>
+        </div>
+        <span class="service-status online">Online</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎤</div>
+        <div class="service-info">
+          <h4>Whisper STT</h4>
+          <p>Voice transcription</p>
+        </div>
+        <span class="service-status online">Online</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <div class="service-info">
+          <h4>OpenRouter</h4>
+          <p>LLM Provider — Claude</p>
+        </div>
+        <span class="service-status online">Online</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-info">
+          <h4>Exa Search</h4>
+          <p>Web research engine</p>
+        </div>
+        <span class="service-status online">Online</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🐦</div>
+        <div class="service-info">
+          <h4>TwitterAPI</h4>
+          <p>X/Twitter research</p>
+        </div>
+        <span class="service-status online">Online</span>
+      </div>
+    </div>
+    
+    <h3 class="section-title">📁 Active Projects</h3>
+    <div class="projects">
+      <div class="project-card">
+        <div class="project-header">
+          <h4>🚗 AutoSite SA</h4>
+          <span class="project-badge live">Live</span>
+        </div>
+        <p>Durban real estate lead generation — researched & scored 5 property leads with competitor analysis</p>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <h4>💬 Chomi Bot</h4>
+          <span class="project-badge live">Active</span>
+        </div>
+        <p>WhatsApp AI assistant with voice capabilities, memory, and South African personality</p>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <h4>🛒 Fiverr Gig</h4>
+          <span class="project-badge draft">Draft</span>
+        </div>
+        <p>OpenClaw Setup as a Service — R1,500 to R5,000 per setup + R2,500/mo retainer</p>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <h4>🧠 MetaClaw</h4>
+          <span class="project-badge installed">Installed</span>
+        </div>
+        <p>Self-improving AI agent with reinforcement learning — evolves from conversations</p>
+      </div>
+    </div>
+    
+    <h3 class="section-title">🏢 Agent Army — Live Workspace</h3>
+    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">Watch your AI team work in real-time. Like a game, but it's real productivity. 💪</p>
+    
+    <div class="office-view" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; min-height: 280px; position: relative; overflow: hidden;">
+      <!-- Office floor pattern -->
+      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(99, 102, 241, 0.03) 49px, rgba(99, 102, 241, 0.03) 50px), repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(99, 102, 241, 0.03) 49px, rgba(99, 102, 241, 0.03) 50px);"></div>
+      
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; position: relative; z-index: 1;">
+        <!-- Chomi (Orchestrator) -->
+        <div class="agent-desk" id="agent-chomi" style="text-align: center; padding: 1.5rem 1rem; background: rgba(99, 102, 241, 0.15); border: 2px solid var(--accent); border-radius: 12px; position: relative;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤖</div>
+          <div style="font-weight: 600; font-size: 0.9rem;">Chomi</div>
+          <div style="font-size: 0.7rem; color: var(--accent); margin-top: 0.25rem;">Orchestrator</div>
+          <div class="agent-status" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: var(--green-glow); color: var(--green); display: inline-block;">🟢 Online</div>
+          <div class="agent-task" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Managing team...</div>
+        </div>
+        
+        <!-- Kabza (ServiceNow) -->
+        <div class="agent-desk" id="agent-kabza" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚙️</div>
+          <div style="font-weight: 600; font-size: 0.9rem;">Kabza</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">ServiceNow Dev</div>
+          <div class="agent-status" data-agent="kabza" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
+          <div class="agent-task" data-agent="kabza" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
+        </div>
+        
+        <!-- Zuri (Setup) -->
+        <div class="agent-desk" id="agent-zuri" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤖</div>
+          <div style="font-weight: 600; font-size: 0.9rem;">Zuri</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">OpenClaw Setup</div>
+          <div class="agent-status" data-agent="zuri" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
+          <div class="agent-task" data-agent="zuri" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
+        </div>
+        
+        <!-- Jabu (Research) -->
+        <div class="agent-desk" id="agent-jabu" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+          <div style="font-weight: 600; font-size: 0.9rem;">Jabu</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Research Agent</div>
+          <div class="agent-status" data-agent="jabu" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
+          <div class="agent-task" data-agent="jabu" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
+        </div>
+        
+        <!-- Naledi (Content) -->
+        <div class="agent-desk" id="agent-naledi" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✍️</div>
+          <div style="font-weight: 600; font-size: 0.9rem;">Naledi</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Content Writer</div>
+          <div class="agent-status" data-agent="naledi" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
+          <div class="agent-task" data-agent="naledi" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
+        </div>
+        
+        <!-- spx69daddy (Trading) -->
+        <div class="agent-desk" id="agent-spx69daddy" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📈</div>
+          <div style="font-weight: 600; font-size: 0.9rem;">spx69daddy</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Crypto Trading</div>
+          <div class="agent-status" data-agent="spx69daddy" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(16, 185, 129, 0.15); color: var(--green); display: inline-block;">✅ Done</div>
+          <div class="agent-task" data-agent="spx69daddy" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Intro delivered ✓</div>
+        </div>
+      </div>
+    </div>
+    
+    <h3 class="section-title">📋 Recent Activity</h3>
+    <div class="activity">
+      <ul id="activity-feed">
+        <li>✅ spx69daddy — Intro delivered to Thaby <span class="time">just now</span></li>
+        <li>✅ Agent army created & configured <span class="time">1h ago</span></li>
+        <li>✅ Mission Control branded & live <span class="time">2h ago</span></li>
+        <li>✅ Monetization plan created — Fiverr + Upwork <span class="time">2h ago</span></li>
+        <li>✅ GitHub backup configured <span class="time">3h ago</span></li>
+        <li>✅ Voice notes — Whisper + ElevenLabs working <span class="time">15h ago</span></li>
+        <li>✅ AutoSite SA — 5 Durban leads researched <span class="time">6h ago</span></li>
+        <li>✅ MetaClaw installed & configured <span class="time">16h ago</span></li>
+      </ul>
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <p>🤖 Built with OpenClaw · Powered by AI · Made in South Africa 🇿🇦</p>
+    <p style="margin-top: 0.5rem;">Created by <a href="https://x.com/ThabiTechy" target="_blank">@ThabiTechy</a> · Chomi v1.0</p>
+  </footer>
+</body>
+</html>
