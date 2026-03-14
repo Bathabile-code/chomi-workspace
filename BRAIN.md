@@ -5,6 +5,8 @@
 |---------|--------|-----------|--------------|
 | AutoSite SA Lead Gen | Live | Competitor analysis complete | 2026-03-11 |
 | Chomi workspace setup | Done | Daily improvements active | 2026-02-21 |
+| OpenClaw Monetization | Research | Fiverr gig + setup service | 2026-03-14 |
+| GitHub Backup | Blocked | Waiting for PAT token from Thaby | 2026-03-14 |
 
 ## Immediate Actions (Today)
 - [x] AutoSite SA: Competitor analysis for all 5 leads (Durban)
@@ -18,13 +20,22 @@
 - [x] Daily 9am improvement (completed)
 
 ## Blocked / Needs Attention
-- BRAIN.md was stale (Feb 22) — refreshed March 11
-- Telegram: Known bug - group polling broken (GitHub #30522, #27870, #38606)
+- GitHub backup blocked — needs Thaby to set PAT token (task created today)
+- Telegram group bug still open (GitHub #30522) — task created to try webhook workaround
+- ⚠️ **Stale DOING tasks:** Several tasks from Feb 19-22 still marked DOING (20+ days old):
+  - Mission Control build (Feb 19)
+  - X Research Integration (Feb 20)
+  - Apollo Leadgen Setup (Feb 22)
+  - AutoSite SA (Feb 22)
+  - These need status update or archive
 
-## What Shipped Today (Mar 11)
-- Skill research: VoltAgent awesome list, fresh tutorials
-- AutoSite SA: Full competitor analysis for Durban leads (5 leads, 3 competitors each)
-- Evening wrapup: Git backup, sessions checked, lessons scanned
+## What Happened (Mar 14)
+- Monetization research: 5 strategies for making money with OpenClaw (saved to ~/ChomiVaultSetup/research/)
+- Thaby location: KZN North Coast, near "Tweni" beach
+- Windows ASUS TUF power settings help
+- Thaby running on 5 hours sleep, morning swim at Tweni
+- GitHub backup still blocked - needs PAT token
+- **9am Skill Research (Mar 14):** Found debug-skill (106⭐, real debugger for AI agents via DAP), data-viz skill (chart generation with matplotlib), and ClawHub (new skill marketplace). Flagged debug-skill for install.
 
 ## Cron Jobs Active
 - morning_routine (9am SAST)
@@ -34,4 +45,4 @@
 ---
 ⚠️ **Stale notice (Mar 13, 8:10 PM):** This file hasn't been updated since Mar 11. No major changes detected, but "What Shipped Today" section is outdated. Needs a refresh next active session.
 
-_Last checked: 2026-03-13_
+_Last checked: 2026-03-14 09:02 SAST_
