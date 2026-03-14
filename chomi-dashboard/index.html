@@ -20,6 +20,8 @@
       --green-glow: rgba(16, 185, 129, 0.2);
       --amber: #f59e0b;
       --pink: #ec4899;
+      --red: #ef4444;
+      --cyan: #06b6d4;
       --text-primary: #f1f5f9;
       --text-secondary: #94a3b8;
       --text-muted: #64748b;
@@ -34,7 +36,6 @@
       overflow-x: hidden;
     }
     
-    /* Animated background gradient */
     body::before {
       content: '';
       position: fixed;
@@ -54,7 +55,7 @@
     
     /* Header */
     .header {
-      padding: 2rem 3rem;
+      padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -68,12 +69,12 @@
     }
     
     .logo-icon {
-      font-size: 2.5rem;
+      font-size: 2rem;
       filter: drop-shadow(0 0 20px var(--accent-glow));
     }
     
     .logo-text h1 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 700;
       background: linear-gradient(135deg, #f1f5f9, #6366f1);
       -webkit-background-clip: text;
@@ -81,10 +82,22 @@
     }
     
     .logo-text span {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 2px;
+    }
+    
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .time-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
     }
     
     .status-badge {
@@ -93,9 +106,9 @@
       gap: 0.5rem;
       background: var(--green-glow);
       border: 1px solid var(--green);
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 100px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: var(--green);
     }
@@ -117,19 +130,19 @@
     .main {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 2rem 3rem;
+      padding: 1.5rem 2rem;
     }
     
-    /* Hero Section */
+    /* Hero */
     .hero {
       text-align: center;
-      padding: 3rem 0 4rem;
+      padding: 2rem 0 3rem;
     }
     
     .hero h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       line-height: 1.1;
     }
     
@@ -147,31 +160,36 @@
     }
     
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--text-secondary);
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
     }
     
-    .hero .flag {
-      font-size: 1.5rem;
-      margin: 0 0.25rem;
+    /* Section Title */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     
     /* Stats Grid */
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
     
     .stat-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
+      border-radius: 12px;
+      padding: 1.25rem;
       transition: all 0.3s ease;
     }
     
@@ -183,49 +201,352 @@
     }
     
     .stat-card .label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     
     .stat-card .value {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
     }
     
     .stat-card .sub {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-secondary);
-      margin-top: 0.25rem;
+      margin-top: 0.2rem;
     }
     
-    /* Services Section */
-    .section-title {
-      font-size: 1.5rem;
+    /* Agent Office */
+    .office-view {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    
+    .agent-desk {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+    }
+    
+    .agent-desk:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+    
+    .agent-desk.active {
+      border: 2px solid var(--accent);
+      background: rgba(99, 102, 241, 0.08);
+    }
+    
+    .agent-desk.done {
+      border-color: var(--green);
+      background: rgba(16, 185, 129, 0.05);
+    }
+    
+    .agent-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .agent-icon {
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    
+    .agent-info h4 {
+      font-size: 0.95rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
+    }
+    
+    .agent-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .agent-status-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .status-pill {
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    
+    .status-pill.online { background: var(--green-glow); color: var(--green); }
+    .status-pill.idle { background: rgba(100, 116, 139, 0.2); color: var(--text-muted); }
+    .status-pill.working { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+    .status-pill.done { background: var(--green-glow); color: var(--green); }
+    
+    .agent-task-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    
+    .agent-task-value {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+    
+    .agent-history {
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .agent-history-title {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+    
+    .history-item {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      padding: 0.15rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    
+    .history-item .time {
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      margin-left: auto;
+    }
+    
+    /* Social Media Section */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+    }
+    
+    .social-card:hover {
+      border-color: var(--accent);
+    }
+    
+    .social-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .social-icon {
+      font-size: 1.5rem;
+    }
+    
+    .social-header h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    .social-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .social-stat {
+      text-align: center;
+    }
+    
+    .social-stat .num {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .social-stat .lbl {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    
+    .social-content-list {
+      margin-top: 1rem;
+    }
+    
+    .content-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    
+    .content-item:last-child { border-bottom: none; }
+    
+    .content-badge {
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 500;
+    }
+    
+    .content-badge.draft { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+    .content-badge.scheduled { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+    .content-badge.posted { background: var(--green-glow); color: var(--green); }
+    
+    .content-item .time {
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      margin-left: auto;
+    }
+    
+    /* Monetization Dashboard */
+    .monetization-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .money-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    
+    .money-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .money-header h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
     
+    .money-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    
+    .money-badge.live { background: var(--green-glow); color: var(--green); }
+    .money-badge.ready { background: rgba(99, 102, 241, 0.15); color: var(--accent); }
+    .money-badge.draft { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+    
+    .money-metric {
+      text-align: center;
+      padding: 1rem 0;
+    }
+    
+    .money-metric .amount {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .money-metric .period {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .money-details {
+      margin-top: 0.75rem;
+    }
+    
+    .money-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    
+    .money-row:last-child { border-bottom: none; }
+    .money-row .lbl { color: var(--text-secondary); }
+    .money-row .val { font-weight: 600; color: var(--green); }
+    .money-row .val.pending { color: var(--amber); }
+    .money-row .val.inactive { color: var(--text-muted); }
+    
+    .progress-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 100px;
+      margin-top: 0.75rem;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.5s ease;
+    }
+    
+    .progress-fill.green { background: var(--green); }
+    .progress-fill.amber { background: var(--amber); }
+    .progress-fill.accent { background: var(--accent); }
+    
+    /* Services */
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 3rem;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
     
     .service-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
+      border-radius: 10px;
+      padding: 1rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
       transition: all 0.2s ease;
     }
     
@@ -235,109 +556,36 @@
     }
     
     .service-icon {
-      font-size: 2rem;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(99, 102, 241, 0.1);
-      border-radius: 12px;
-      flex-shrink: 0;
+      font-size: 1.5rem;
     }
     
     .service-info h4 {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 0.15rem;
     }
     
     .service-info p {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
     }
     
     .service-status {
       margin-left: auto;
-      padding: 0.25rem 0.75rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 100px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
     }
     
-    .service-status.online {
-      background: var(--green-glow);
-      color: var(--green);
-    }
-    
-    /* Projects Section */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    .project-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-    }
-    
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-    
-    .project-header h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    
-    .project-badge {
-      padding: 0.25rem 0.75rem;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-    
-    .project-badge.live {
-      background: var(--green-glow);
-      color: var(--green);
-    }
-    
-    .project-badge.draft {
-      background: rgba(245, 158, 11, 0.15);
-      color: var(--amber);
-    }
-    
-    .project-badge.installed {
-      background: rgba(99, 102, 241, 0.15);
-      color: var(--accent);
-    }
-    
-    .project-card p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
+    .service-status.online { background: var(--green-glow); color: var(--green); }
     
     /* Activity Log */
     .activity {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 3rem;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
     }
     
     .activity ul {
@@ -345,9 +593,9 @@
     }
     
     .activity li {
-      padding: 0.6rem 0;
+      padding: 0.5rem 0;
       border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -358,17 +606,17 @@
     .activity .time {
       color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       margin-left: auto;
     }
     
     /* Footer */
     .footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1.5rem;
       border-top: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
     
     .footer a {
@@ -379,12 +627,20 @@
     .footer a:hover { text-decoration: underline; }
     
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
+      .agent-grid { grid-template-columns: repeat(2, 1fr); }
+      .social-grid { grid-template-columns: 1fr; }
+      .monetization-grid { grid-template-columns: 1fr; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .hero h2 { font-size: 1.8rem; }
+      .header, .main { padding: 1rem; }
+    }
+    
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: 1fr; }
       .services { grid-template-columns: 1fr; }
-      .projects { grid-template-columns: 1fr; }
-      .hero h2 { font-size: 2rem; }
-      .header, .main { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -394,44 +650,346 @@
       <span class="logo-icon">🤖</span>
       <div class="logo-text">
         <h1>Chomi</h1>
-        <span>AI Agent Platform</span>
+        <span>AI Agent Mission Control</span>
       </div>
     </div>
-    <div class="status-badge">
-      <span class="status-dot"></span>
-      All Systems Online
+    <div class="header-right">
+      <div class="time-display" id="current-time">--:--:--</div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        All Systems Online
+      </div>
     </div>
   </header>
   
   <main class="main">
     <section class="hero">
       <h2>Your AI Agent, <span class="gradient">Supercharged</span></h2>
-      <p>Built in South Africa <span class="flag">🇿🇦</span> — WhatsApp-first AI assistant with voice, memory, and real intelligence. Not your average chatbot.</p>
+      <p>Built in South Africa 🇿🇦 — 6 agents working 24/7. WhatsApp, voice, social media, trading, and more. Your digital empire runs here.</p>
     </section>
     
+    <!-- Quick Stats -->
     <div class="stats">
       <div class="stat-card">
-        <div class="label">Status</div>
-        <div class="value" style="color: var(--green);">Online ✅</div>
-        <div class="sub">99.9% uptime</div>
+        <div class="label">Agents Online</div>
+        <div class="value" style="color: var(--green);">6 / 6</div>
+        <div class="sub">All systems operational</div>
       </div>
       <div class="stat-card">
-        <div class="label">Channel</div>
-        <div class="value">💬 WhatsApp</div>
-        <div class="sub">Connected & active</div>
+        <div class="label">Tasks Completed</div>
+        <div class="value">12</div>
+        <div class="sub">Today's count</div>
       </div>
       <div class="stat-card">
-        <div class="label">Voice AI</div>
-        <div class="value">🔊 Ready</div>
-        <div class="sub">ElevenLabs + Whisper</div>
+        <div class="label">Channels</div>
+        <div class="value">3</div>
+        <div class="sub">WhatsApp · X · Telegram</div>
       </div>
       <div class="stat-card">
-        <div class="label">Memory</div>
-        <div class="value">🧠 Active</div>
-        <div class="sub">Learns from every chat</div>
+        <div class="label">Revenue Potential</div>
+        <div class="value" style="color: var(--cyan);">R50k/mo</div>
+        <div class="sub">Fiverr + CashClaw + Trading</div>
       </div>
     </div>
     
+    <!-- Agent Army — Real-Time Workspace -->
+    <h3 class="section-title">🏢 Agent Army — Live Workspace</h3>
+    
+    <div class="office-view">
+      <div class="agent-grid">
+        <!-- Chomi -->
+        <div class="agent-desk active" id="agent-chomi">
+          <div class="agent-header">
+            <div class="agent-icon">🤖</div>
+            <div class="agent-info">
+              <h4>Chomi</h4>
+              <span>Orchestrator · Opus 4.5</span>
+            </div>
+          </div>
+          <div class="agent-status-row">
+            <span class="status-pill online">🟢 Online</span>
+            <span class="agent-task-label">Managing team</span>
+          </div>
+          <div class="agent-history">
+            <div class="agent-history-title">📋 Completed Today</div>
+            <div class="history-item">✅ Deployed 4 agents for Thaby <span class="time">20:00</span></div>
+            <div class="history-item">✅ Dashboard upgrade (this page) <span class="time">22:30</span></div>
+            <div class="history-item">✅ Research: Buffer.com automation <span class="time">21:00</span></div>
+          </div>
+        </div>
+        
+        <!-- Kabza -->
+        <div class="agent-desk" id="agent-kabza">
+          <div class="agent-header">
+            <div class="agent-icon">⚙️</div>
+            <div class="agent-info">
+              <h4>Kabza</h4>
+              <span>ServiceNow Dev · GPT-4o</span>
+            </div>
+          </div>
+          <div class="agent-status-row">
+            <span class="status-pill idle">⚫ Idle</span>
+            <span class="agent-task-label">Waiting for tasks</span>
+          </div>
+          <div class="agent-history">
+            <div class="agent-history-title">📋 Completed Today</div>
+            <div class="history-item">⏳ No tasks yet today <span class="time">—</span></div>
+          </div>
+        </div>
+        
+        <!-- Zuri -->
+        <div class="agent-desk" id="agent-zuri">
+          <div class="agent-header">
+            <div class="agent-icon">🤖</div>
+            <div class="agent-info">
+              <h4>Zuri</h4>
+              <span>OpenClaw Setup · GPT-4o</span>
+            </div>
+          </div>
+          <div class="agent-status-row">
+            <span class="status-pill done">✅ Done</span>
+            <span class="agent-task-label">Fiverr checklist delivered</span>
+          </div>
+          <div class="agent-history">
+            <div class="agent-history-title">📋 Completed Today</div>
+            <div class="history-item">✅ Fiverr setup checklist <span class="time">20:02</span></div>
+          </div>
+        </div>
+        
+        <!-- Jabu -->
+        <div class="agent-desk" id="agent-jabu">
+          <div class="agent-header">
+            <div class="agent-icon">🔍</div>
+            <div class="agent-info">
+              <h4>Jabu</h4>
+              <span>Research · Qwen 2.5</span>
+            </div>
+          </div>
+          <div class="agent-status-row">
+            <span class="status-pill done">✅ Done</span>
+            <span class="agent-task-label">AI repos research complete</span>
+          </div>
+          <div class="agent-history">
+            <div class="agent-history-title">📋 Completed Today</div>
+            <div class="history-item">✅ Trending AI repos thread <span class="time">20:01</span></div>
+            <div class="history-item">✅ CashClaw + MetaClaw research <span class="time">17:00</span></div>
+          </div>
+        </div>
+        
+        <!-- Naledi -->
+        <div class="agent-desk" id="agent-naledi">
+          <div class="agent-header">
+            <div class="agent-icon">✍️</div>
+            <div class="agent-info">
+              <h4>Naledi</h4>
+              <span>Content Writer · GPT-4o-mini</span>
+            </div>
+          </div>
+          <div class="agent-status-row">
+            <span class="status-pill done">✅ Done</span>
+            <span class="agent-task-label">8-tweet thread ready</span>
+          </div>
+          <div class="agent-history">
+            <div class="agent-history-title">📋 Completed Today</div>
+            <div class="history-item">✅ "I built an AI company" thread <span class="time">20:01</span></div>
+            <div class="history-item">✅ Monetization strategy doc <span class="time">15:00</span></div>
+          </div>
+        </div>
+        
+        <!-- spx69daddy -->
+        <div class="agent-desk" id="agent-spx69daddy">
+          <div class="agent-header">
+            <div class="agent-icon">📈</div>
+            <div class="agent-info">
+              <h4>spx69daddy</h4>
+              <span>Trading · Claude Haiku</span>
+            </div>
+          </div>
+          <div class="agent-status-row">
+            <span class="status-pill done">✅ Done</span>
+            <span class="agent-task-label">Watchlist + profile built</span>
+          </div>
+          <div class="agent-history">
+            <div class="agent-history-title">📋 Completed Today</div>
+            <div class="history-item">✅ 10-coin watchlist created <span class="time">20:02</span></div>
+            <div class="history-item">✅ Thaby's trading profile built <span class="time">20:24</span></div>
+            <div class="history-item">✅ BTC/SPX watchlist featured <span class="time">20:30</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Social Media Section -->
+    <h3 class="section-title">📱 Social Media Command Center</h3>
+    
+    <div class="social-grid">
+      <!-- X/Twitter -->
+      <div class="social-card">
+        <div class="social-header">
+          <span class="social-icon">🐦</span>
+          <div>
+            <h4>X / Twitter</h4>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">@ThabyAmirchand · 2,007 followers</span>
+          </div>
+        </div>
+        <div class="social-stats">
+          <div class="social-stat">
+            <div class="num">2.0K</div>
+            <div class="lbl">Followers</div>
+          </div>
+          <div class="social-stat">
+            <div class="num">8</div>
+            <div class="lbl">Drafts Ready</div>
+          </div>
+          <div class="social-stat">
+            <div class="num">0</div>
+            <div class="lbl">Scheduled</div>
+          </div>
+        </div>
+        <div class="social-content-list">
+          <div class="content-item">
+            <span class="content-badge draft">Draft</span>
+            <span>"I built an AI company in one afternoon"</span>
+            <span class="time">Naledi</span>
+          </div>
+          <div class="content-item">
+            <span class="content-badge draft">Draft</span>
+            <span>Trending AI repos thread</span>
+            <span class="time">Jabu</span>
+          </div>
+          <div class="content-item">
+            <span class="content-badge draft">Draft</span>
+            <span>OpenClaw Fiverr launch</span>
+            <span class="time">Naledi</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Buffer / Scheduling -->
+      <div class="social-card">
+        <div class="social-header">
+          <span class="social-icon">📅</span>
+          <div>
+            <h4>Content Pipeline</h4>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Buffer + Chomi Auto-Post</span>
+          </div>
+        </div>
+        <div class="social-stats">
+          <div class="social-stat">
+            <div class="num">0</div>
+            <div class="lbl">Buffer Posts</div>
+          </div>
+          <div class="social-stat">
+            <div class="num" style="color: var(--amber);">Pending</div>
+            <div class="lbl">Buffer Setup</div>
+          </div>
+          <div class="social-stat">
+            <div class="num" style="color: var(--text-muted);">N/A</div>
+            <div class="lbl">X API Write</div>
+          </div>
+        </div>
+        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(245, 158, 11, 0.1); border-radius: 8px; font-size: 0.8rem; color: var(--amber);">
+          ⏳ <strong>Next:</strong> Set up Buffer Free → schedule Naledi's thread for Monday 9 AM
+        </div>
+      </div>
+    </div>
+    
+    <!-- Monetization Dashboard -->
+    <h3 class="section-title">💰 Monetization Dashboard</h3>
+    
+    <div class="monetization-grid">
+      <!-- Fiverr -->
+      <div class="money-card">
+        <div class="money-header">
+          <h4>🛒 Fiverr Gigs</h4>
+          <span class="money-badge draft">Draft Ready</span>
+        </div>
+        <div class="money-metric">
+          <div class="amount">R1,500 – R5,000</div>
+          <div class="period">per setup · 2 gigs ready</div>
+        </div>
+        <div class="money-details">
+          <div class="money-row">
+            <span class="lbl">OpenClaw Setup</span>
+            <span class="val pending">Draft</span>
+          </div>
+          <div class="money-row">
+            <span class="lbl">ServiceNow Automation</span>
+            <span class="val pending">Draft</span>
+          </div>
+          <div class="money-row">
+            <span class="lbl">Profile: bathabileamirch</span>
+            <span class="val" style="color: var(--accent);">Live</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill amber" style="width: 20%;"></div>
+        </div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem;">20% ready — needs paste to Fiverr</div>
+      </div>
+      
+      <!-- CashClaw / Moltlaunch -->
+      <div class="money-card">
+        <div class="money-header">
+          <h4>🤖 CashClaw Agent</h4>
+          <span class="money-badge ready">Install Pending</span>
+        </div>
+        <div class="money-metric">
+          <div class="amount">$50 – $100</div>
+          <div class="period">per task · ETH on Base</div>
+        </div>
+        <div class="money-details">
+          <div class="money-row">
+            <span class="lbl">Phase 1: Train</span>
+            <span class="val pending">Waiting</span>
+          </div>
+          <div class="money-row">
+            <span class="lbl">Phase 2: Supervised</span>
+            <span class="val inactive">Locked</span>
+          </div>
+          <div class="money-row">
+            <span class="lbl">Phase 3: Full Autonomy</span>
+            <span class="val inactive">Locked</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill amber" style="width: 10%;"></div>
+        </div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem;">10% ready — overnight install task queued</div>
+      </div>
+      
+      <!-- Trading Bot -->
+      <div class="money-card">
+        <div class="money-header">
+          <h4>📈 spx69daddy Trading</h4>
+          <span class="money-badge live">Phase 1 Active</span>
+        </div>
+        <div class="money-metric">
+          <div class="amount" style="background: linear-gradient(135deg, var(--amber), var(--pink)); -webkit-background-clip: text;">BTC · SPX · ETH</div>
+          <div class="period">Day trading · YOLO with rules</div>
+        </div>
+        <div class="money-details">
+          <div class="money-row">
+            <span class="lbl">Watchlist Coins</span>
+            <span class="val">10</span>
+          </div>
+          <div class="money-row">
+            <span class="lbl">Thaby's Profile</span>
+            <span class="val">Locked ✅</span>
+          </div>
+          <div class="money-row">
+            <span class="lbl">Paper Trading</span>
+            <span class="val pending">Paused</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill accent" style="width: 40%;"></div>
+        </div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem;">40% ready — profile locked, awaiting Thaby's go-live</div>
+      </div>
+    </div>
+    
+    <!-- Services -->
     <h3 class="section-title">🔌 Services</h3>
     <div class="services">
       <div class="service-card">
@@ -446,7 +1004,7 @@
         <div class="service-icon">🔊</div>
         <div class="service-info">
           <h4>ElevenLabs TTS</h4>
-          <p>Voice synthesis — Jessica</p>
+          <p>Voice — Jessica</p>
         </div>
         <span class="service-status online">Online</span>
       </div>
@@ -462,7 +1020,7 @@
         <div class="service-icon">🧠</div>
         <div class="service-info">
           <h4>OpenRouter</h4>
-          <p>LLM Provider — Claude</p>
+          <p>LLM — Claude Haiku</p>
         </div>
         <span class="service-status online">Online</span>
       </div>
@@ -470,7 +1028,7 @@
         <div class="service-icon">🔍</div>
         <div class="service-info">
           <h4>Exa Search</h4>
-          <p>Web research engine</p>
+          <p>Web research</p>
         </div>
         <span class="service-status online">Online</span>
       </div>
@@ -478,119 +1036,24 @@
         <div class="service-icon">🐦</div>
         <div class="service-info">
           <h4>TwitterAPI</h4>
-          <p>X/Twitter research</p>
+          <p>X research (read-only)</p>
         </div>
         <span class="service-status online">Online</span>
       </div>
     </div>
     
-    <h3 class="section-title">📁 Active Projects</h3>
-    <div class="projects">
-      <div class="project-card">
-        <div class="project-header">
-          <h4>🚗 AutoSite SA</h4>
-          <span class="project-badge live">Live</span>
-        </div>
-        <p>Durban real estate lead generation — researched & scored 5 property leads with competitor analysis</p>
-      </div>
-      <div class="project-card">
-        <div class="project-header">
-          <h4>💬 Chomi Bot</h4>
-          <span class="project-badge live">Active</span>
-        </div>
-        <p>WhatsApp AI assistant with voice capabilities, memory, and South African personality</p>
-      </div>
-      <div class="project-card">
-        <div class="project-header">
-          <h4>🛒 Fiverr Gig</h4>
-          <span class="project-badge draft">Draft</span>
-        </div>
-        <p>OpenClaw Setup as a Service — R1,500 to R5,000 per setup + R2,500/mo retainer</p>
-      </div>
-      <div class="project-card">
-        <div class="project-header">
-          <h4>🧠 MetaClaw</h4>
-          <span class="project-badge installed">Installed</span>
-        </div>
-        <p>Self-improving AI agent with reinforcement learning — evolves from conversations</p>
-      </div>
-    </div>
-    
-    <h3 class="section-title">🏢 Agent Army — Live Workspace</h3>
-    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">Watch your AI team work in real-time. Like a game, but it's real productivity. 💪</p>
-    
-    <div class="office-view" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; min-height: 280px; position: relative; overflow: hidden;">
-      <!-- Office floor pattern -->
-      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(99, 102, 241, 0.03) 49px, rgba(99, 102, 241, 0.03) 50px), repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(99, 102, 241, 0.03) 49px, rgba(99, 102, 241, 0.03) 50px);"></div>
-      
-      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; position: relative; z-index: 1;">
-        <!-- Chomi (Orchestrator) -->
-        <div class="agent-desk" id="agent-chomi" style="text-align: center; padding: 1.5rem 1rem; background: rgba(99, 102, 241, 0.15); border: 2px solid var(--accent); border-radius: 12px; position: relative;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤖</div>
-          <div style="font-weight: 600; font-size: 0.9rem;">Chomi</div>
-          <div style="font-size: 0.7rem; color: var(--accent); margin-top: 0.25rem;">Orchestrator</div>
-          <div class="agent-status" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: var(--green-glow); color: var(--green); display: inline-block;">🟢 Online</div>
-          <div class="agent-task" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Managing team...</div>
-        </div>
-        
-        <!-- Kabza (ServiceNow) -->
-        <div class="agent-desk" id="agent-kabza" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚙️</div>
-          <div style="font-weight: 600; font-size: 0.9rem;">Kabza</div>
-          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">ServiceNow Dev</div>
-          <div class="agent-status" data-agent="kabza" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
-          <div class="agent-task" data-agent="kabza" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
-        </div>
-        
-        <!-- Zuri (Setup) -->
-        <div class="agent-desk" id="agent-zuri" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤖</div>
-          <div style="font-weight: 600; font-size: 0.9rem;">Zuri</div>
-          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">OpenClaw Setup</div>
-          <div class="agent-status" data-agent="zuri" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
-          <div class="agent-task" data-agent="zuri" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
-        </div>
-        
-        <!-- Jabu (Research) -->
-        <div class="agent-desk" id="agent-jabu" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
-          <div style="font-weight: 600; font-size: 0.9rem;">Jabu</div>
-          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Research Agent</div>
-          <div class="agent-status" data-agent="jabu" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
-          <div class="agent-task" data-agent="jabu" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
-        </div>
-        
-        <!-- Naledi (Content) -->
-        <div class="agent-desk" id="agent-naledi" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✍️</div>
-          <div style="font-weight: 600; font-size: 0.9rem;">Naledi</div>
-          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Content Writer</div>
-          <div class="agent-status" data-agent="naledi" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(100, 116, 139, 0.2); color: var(--text-muted); display: inline-block;">⚫ Idle</div>
-          <div class="agent-task" data-agent="naledi" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Waiting for tasks...</div>
-        </div>
-        
-        <!-- spx69daddy (Trading) -->
-        <div class="agent-desk" id="agent-spx69daddy" style="text-align: center; padding: 1.5rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📈</div>
-          <div style="font-weight: 600; font-size: 0.9rem;">spx69daddy</div>
-          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Crypto Trading</div>
-          <div class="agent-status" data-agent="spx69daddy" style="margin-top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.7rem; background: rgba(16, 185, 129, 0.15); color: var(--green); display: inline-block;">✅ Done</div>
-          <div class="agent-task" data-agent="spx69daddy" style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted); min-height: 1.5em;">Intro delivered ✓</div>
-        </div>
-      </div>
-    </div>
-    
-    <h3 class="section-title">📋 Recent Activity</h3>
+    <!-- Recent Activity -->
+    <h3 class="section-title">📋 Activity Feed</h3>
     <div class="activity">
-      <ul id="activity-feed">
-        <li>✅ spx69daddy — Intro delivered to Thaby <span class="time">just now</span></li>
-        <li>✅ Agent army created & configured <span class="time">1h ago</span></li>
-        <li>✅ Mission Control branded & live <span class="time">2h ago</span></li>
-        <li>✅ Monetization plan created — Fiverr + Upwork <span class="time">2h ago</span></li>
-        <li>✅ GitHub backup configured <span class="time">3h ago</span></li>
-        <li>✅ Voice notes — Whisper + ElevenLabs working <span class="time">15h ago</span></li>
-        <li>✅ AutoSite SA — 5 Durban leads researched <span class="time">6h ago</span></li>
-        <li>✅ MetaClaw installed & configured <span class="time">16h ago</span></li>
+      <ul>
+        <li>✅ spx69daddy — Thaby's trading profile locked (BTC, SPX, day trader, YOLO w/ rules) <span class="time">20:26</span></li>
+        <li>✅ Thaby answered risk tolerance — picked C (YOLO but with rules) 🔥 <span class="time">20:22</span></li>
+        <li>✅ Thaby answered trading style — picked B (Day trades) 💰 <span class="time">20:24</span></li>
+        <li>✅ Buffer.com research — pricing & alternatives documented <span class="time">21:00</span></li>
+        <li>✅ Dashboard V3 — real-time agents, social, monetization <span class="time">22:30</span></li>
+        <li>✅ Agent team deployed — 4 agents fired simultaneously <span class="time">20:00</span></li>
+        <li>✅ All 4 agent deliverables completed & committed <span class="time">20:02</span></li>
+        <li>✅ Landing page Agent Army section added <span class="time">19:30</span></li>
       </ul>
     </div>
   </main>
@@ -599,5 +1062,23 @@
     <p>🤖 Built with OpenClaw · Powered by AI · Made in South Africa 🇿🇦</p>
     <p style="margin-top: 0.5rem;">Created by <a href="https://x.com/ThabiTechy" target="_blank">@ThabiTechy</a> · Chomi v1.0</p>
   </footer>
+  
+  <script>
+    // Live clock
+    function updateTime() {
+      const now = new Date();
+      const options = { 
+        timeZone: 'Africa/Johannesburg',
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: false
+      };
+      document.getElementById('current-time').textContent = 
+        now.toLocaleTimeString('en-ZA', options) + ' SAST';
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
 </body>
 </html>
