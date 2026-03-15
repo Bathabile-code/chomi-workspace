@@ -20,14 +20,9 @@
 - [x] Daily 9am improvement (completed)
 
 ## Blocked / Needs Attention
-- GitHub backup blocked — needs Thaby to set PAT token (task created today)
-- Telegram group bug still open (GitHub #30522) — task created to try webhook workaround
-- ⚠️ **Stale DOING tasks:** Several tasks from Feb 19-22 still marked DOING (20+ days old):
-  - Mission Control build (Feb 19)
-  - X Research Integration (Feb 20)
-  - Apollo Leadgen Setup (Feb 22)
-  - AutoSite SA (Feb 22)
-  - These need status update or archive
+- GitHub backup blocked — needs Thaby to set PAT token
+- Telegram group bug still open (GitHub #30522) — webhook workaround task created
+- ⏸️ **Parked:** Mission Control build (subagent issues), Apollo Leadgen (not pursuing)
 
 ## What Happened (Mar 14)
 - Monetization research: 5 strategies for making money with OpenClaw (saved to ~/ChomiVaultSetup/research/)
@@ -45,4 +40,4 @@
 ---
 ⚠️ **Stale notice (Mar 13, 8:10 PM):** This file hasn't been updated since Mar 11. No major changes detected, but "What Shipped Today" section is outdated. Needs a refresh next active session.
 
-_Last checked: 2026-03-14 09:02 SAST_
+_Last checked: 2026-03-15 08:00 SAST_
