@@ -2,7 +2,7 @@
 status: "done"
 assignee: "chomi"
 created: "2026-03-11"
-last_updated: "2026-03-14"
+last_updated: "2026-03-15"
 ---
 
 # Session Memory - 2026-03-11 → 2026-03-13
@@ -128,3 +128,42 @@ last_updated: "2026-03-14"
 - API keys NEVER go in memory files or committed files
 - Use `<YOUR_KEY_HERE>` placeholders in docs
 - Actual keys go in ~/.bashrc or .env files (gitignored)
+
+---
+
+# Session Memory - 2026-03-14
+
+## What Happened Today
+- **Monetization research** — 5 strategies for making money with OpenClaw (saved to ~/ChomiVaultSetup/research/)
+- **Thaby location noted** — KZN North Coast, near "Tweni" beach (Tongaat/Train Beach area)
+- **Windows ASUS TUF** — power settings help
+- Thaby on 5 hours sleep, morning swim at Tweni
+- **9am Skill Research** — Found debug-skill (106⭐, real debugger via DAP), data-viz skill (matplotlib charts), ClawHub marketplace. Flagged debug-skill for install
+- **GitHub backup** — still blocked, needs PAT token from Thaby
+
+---
+
+# Session Memory - 2026-03-15 (Morning)
+
+## What Happened Today
+- **8:00 AM — BRAIN.md Scan**: Cleaned up 4 stale DOING tasks from February (20+ days old):
+  - Mission Control → parked (subagent issues)
+  - X Research Integration → done (using Exa)
+  - Apollo Leadgen → parked (not pursuing)
+  - AutoSite SA → done (live since Mar 9)
+- **8:30 AM — Quick X Scan**: No @ThabiTechy mentions. #BuildInPublic trending with AI agent content. AgentDesk (verify agent deployments) gained attention. OpenClaw mentioned in build-in-public guide.
+- **9:00 AM — Morning Skill Research**:
+  - **airadar** — AI trend radar for discovering trending AI tools (flagged for install, fits BuildInPublic brand)
+  - **alex-session-wrap-up** — end-of-session automation (commits work, extracts lessons)
+  - VoltAgent awesome list now has 5,400+ curated skills
+  - Security note: Snyk found 36% of agent skills have vulnerabilities
+- **9:31 AM — Message Summarize**: WhatsApp connected, no urgent messages. Quiet Sunday morning.
+
+## Key Learnings
+- Brain cleanup should happen early in the week — Feb stale tasks were embarrassing
+- #BuildInPublic content opportunity: "AI agents build, humans verify" narrative is hot
+- Skill ecosystem growing fast — 13,700+ on ClawHub, 5,400+ curated on VoltAgent list
+
+## Git Backup Status
+- Local commits: ✅ (Mar 15 brain cleanup committed)
+- Remote push: Still blocked (needs PAT from Thaby)
