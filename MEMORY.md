@@ -2,10 +2,33 @@
 status: "done"
 assignee: "chomi"
 created: "2026-03-11"
-last_updated: "2026-03-15"
+last_updated: "2026-03-18"
 ---
 
-# Session Memory - 2026-03-11 → 2026-03-13
+# Session Memory - 2026-03-18
+
+## What Happened Today
+- **Morning routine fired late** (3:21pm instead of 9am) — cron timing might need check
+- **Evening wrapup ran early** (3:23pm) — same cron timing issue
+- **WhatsApp reconnected** after 2-day outage (Mar 16-18, status 408)
+- **Skill research findings:**
+  - GrowExx security guide (Mar 10): 1,184 malicious skills on ClawHub, 135K+ exposed instances
+  - OpenMolt: new competing AI agent framework, enterprise-focused
+  - VoltAgent list now at 5,490+ filtered skills
+- **BRAIN.md refreshed** — was 3 days stale
+- **Git committed** morning routine changes (local only, push still blocked)
+- **No active WhatsApp messages** to summarize
+
+## Task Board Status
+- GitHub Push: DONE (but PAT still needed for actual push)
+- Telegram Groups: TODO (upstream bug #30522, no fix yet)
+- Mission Control: PARKED (subagent issues)
+- Apollo Leadgen: PARKED
+
+## System Notes
+- GitHub push still blocked — needs Thaby's PAT token
+- No new lessons learned today
+- Only 1 active session (WhatsApp main)
 
 ## What We Did Today
 - Morning skill research: Found VoltAgent awesome list, installed 3 skills (agent-self-reflection, elite-longterm-memory, memory-maintenance)
