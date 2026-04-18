@@ -242,3 +242,11 @@ last_updated: "2026-03-18"
 ## Git Backup Status
 - Last push: Mar 15 (commit 1373803)
 - Today's changes need committing
+
+## AutoSite SA Pipeline Update - Apr 18
+- emails.dev: chomi-agent@mails.dev working, 2/100 sends used, API key saved in bashrc
+- opentwitter: skill installed at ~/.openclaw/workspace/skills/opentwitter, needs TWITTER_TOKEN from 6551.io
+- mxgo-core: self-hosted lead gen pipeline, requires Docker (not available on WSL2), parked
+- coldr: CLI tool tested and working, needs Resend API key for live sends
+- landing-page-generator: installed, ready to test
+- de-ai-ify + human-writing: installed for content humanization
