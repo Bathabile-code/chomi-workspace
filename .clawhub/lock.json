@@ -28,6 +28,18 @@
     "mcf-lead-gen-pipeline": {
       "version": "1.0.0",
       "installedAt": 1776507827313
+    },
+    "de-ai-ify": {
+      "version": "1.0.0",
+      "installedAt": 1776508279029
+    },
+    "human-writing": {
+      "version": "1.0.0",
+      "installedAt": 1776508280755
+    },
+    "landing-page-generator": {
+      "version": "1.0.0",
+      "installedAt": 1776508282930
     }
   }
 }
