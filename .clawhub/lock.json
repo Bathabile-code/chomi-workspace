@@ -16,6 +16,18 @@
     "memory-maintenance": {
       "version": "1.0.0",
       "installedAt": 1773239971515
+    },
+    "agents-mail": {
+      "version": "0.4.4",
+      "installedAt": 1776507802819
+    },
+    "lead-generation": {
+      "version": "2.2.0",
+      "installedAt": 1776507818254
+    },
+    "mcf-lead-gen-pipeline": {
+      "version": "1.0.0",
+      "installedAt": 1776507827313
     }
   }
 }

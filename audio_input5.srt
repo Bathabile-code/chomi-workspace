@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:07,600
+No, it's okay to me. I'm looking at your workspace skills currently. I see the elite
+
+2
+00:00:07,600 --> 00:00:15,280
+long-time memory skill is blocked because it's missing an open AI API key. The
+
+3
+00:00:15,280 --> 00:00:24,080
+exact website free skill is eligible. Memory maintenance skill is blocked. It's
+
+4
+00:00:24,080 --> 00:00:37,040
+missing Gemana API key. Proactivity. Proactivity agent is eligible and self-improving
+
+5
+00:00:37,040 --> 00:00:45,040
+eligible, self-reflection, eligible, eligible, sand claw is also blocked. Ex-research is
+
+6
+00:00:45,040 --> 00:00:51,040
+eligible. Which of these are you able to access successfully?
+

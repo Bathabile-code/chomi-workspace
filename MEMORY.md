@@ -190,3 +190,55 @@ last_updated: "2026-03-18"
 ## Git Backup Status
 - Local commits: ✅ (Mar 15 brain cleanup committed)
 - Remote push: Still blocked (needs PAT from Thaby)
+
+---
+
+# Session Memory - 2026-04-18 (Saturday)
+
+## What Happened Today
+- **Telegram topics debugging** — Topics in groups not working (known OpenClaw bug, multiple issues #30522, #66797, #29637). Group messages silently dropped since v2026.2.24.
+- **Skills installed today:** agents-mail, lead-generation, mcf-lead-gen-pipeline
+- **Research agent spawned** — named "Kwazi" (previously called "Scout" but Thaby wanted a SA name)
+- **Open-source alternatives research** — Kwazi researching free alternatives to paid skills (agents-mail, mcf-lead-gen-pipeline, Xpoz lead gen)
+- **agents-mail API issue** — endpoint returned `{"error":"Not found"}`, investigating
+- **Voice notes working** — successfully transcribed multiple voice notes via Whisper + ffmpeg pipeline
+- **Morning routine** delivered via TTS voice note (Jessica/ElevenLabs) — first attempt, sounded robotic
+- **AutoSite SA pipeline** — goal is DM outreach to prospects via free channels instead of Sendclaw
+
+## Research Agent "Kwazi"
+- **Location:** `~/.openclaw/agents/research-agent/`
+- **Name origin:** Thaby named it "Kwazi" (SA name, easier to remember)
+- **Previous name:** "Scout" (updated in AGENTS.md to "Kwazi")
+- **Role:** Research specialist — finds AI tools, trends, opportunities
+- **Current task:** Open-source alternatives to paid skills (running as subagent, session key: agent:main:subagent:2f2d55c1-b460-4a4e-a1fb-641df3c343d5)
+
+## Skills Currently Installed
+| Skill | Status | Notes |
+|---|---|---|
+| agent-self-reflection | ✅ Working | |
+| exa-web-search-free | ✅ Working | |
+| agents-mail | ✅ Installed | API endpoint down, investigating |
+| lead-generation | ✅ Installed | Needs Xpoz MCP setup |
+| mcf-lead-gen-pipeline | ✅ Installed | $1/run via USDC/Base, 6-agent pipeline |
+| proactivity | ✅ Working | |
+| self-improving-agent | ✅ Working | |
+| elite-longterm-memory | ❌ Blocked | Needs OPENAI_API_KEY |
+| memory-maintenance | ❌ Blocked | Needs GEMINI_API_KEY |
+| sendclaw | ❌ Blocked | Needs SENDCLAW_API_KEY |
+
+## AutoSite SA - Status
+- **Goal:** Build landing pages for SA small businesses, DM prospects with links
+- **Lead source:** AllThePlaces.xyz (free, 20M+ POIs)
+- **Hosting:** Cloudflare Pages (free, unlimited bandwidth)
+- **Email outreach:** Need to fix — agents-mail endpoint down, alternatives being researched
+- **Pipeline:** Find leads → Build site → DM prospect
+- **DM channel:** Preference is WhatsApp or Telegram (we're already connected)
+
+## Key GitHub Issues for Telegram Bug
+- #30522: Group polling broken since v2026.2.24 (still open)
+- #66797: Group messages silently dropped in 2026.4.11+ regression (still open, Apr 14)
+- #29637: Same issue, recommends downgrading to v2026.2.23
+
+## Git Backup Status
+- Last push: Mar 15 (commit 1373803)
+- Today's changes need committing
