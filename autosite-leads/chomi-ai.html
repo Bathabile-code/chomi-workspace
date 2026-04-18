@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chomi AI | South Africa's AI Agent Builder 🇿🇦</title>
+    <meta name="description" content="Chomi AI builds smart AI agents for South African businesses. Automate your leads, customer service, and operations with custom agents that actually work.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --purple: #2D1B69;
+            --blue: #00D4FF;
+            --dark: #0a0a1a;
+            --light: #f0f4ff;
+            --white: #ffffff;
+            --gray: #8888a0;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6; }
+
+        /* NAV */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: var(--dark); color: white; }
+        nav .logo { font-size: 1.4em; font-weight: 800; }
+        nav .logo span { color: var(--blue); }
+        nav .links a { color: #aaa; text-decoration: none; margin-left: 25px; font-size: 0.95em; }
+        nav .links a:hover { color: var(--blue); }
+        nav .cta-btn { background: var(--blue); color: var(--dark) !important; padding: 10px 22px; border-radius: 6px; font-weight: 700; }
+
+        /* HERO */
+        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(135deg, #0a0a1a 0%, #1a1050 100%); color: white; }
+        .hero .badge { display: inline-block; background: rgba(0,212,255,0.15); border: 1px solid rgba(0,212,255,0.3); color: var(--blue); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; margin-bottom: 25px; }
+        .hero h1 { font-size: 3.5em; font-weight: 900; margin-bottom: 20px; line-height: 1.1; }
+        .hero h1 span { background: linear-gradient(90deg, var(--blue), #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2em; color: #b0b0c8; max-width: 600px; margin: 0 auto 35px; }
+        .hero .cta-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .hero .cta-primary { background: var(--blue); color: var(--dark); padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 1.05em; }
+        .hero .cta-secondary { border: 2px solid var(--blue); color: var(--blue); padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+        .hero .cta-primary:hover { background: #00bde6; }
+        .hero .cta-secondary:hover { background: rgba(0,212,255,0.1); }
+
+        /* WHAT WE DO */
+        .what-we-do { padding: 80px 20px; background: var(--light); }
+        .section-label { text-align: center; color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85em; margin-bottom: 10px; }
+        .section-title { text-align: center; font-size: 2.2em; font-weight: 800; margin-bottom: 15px; color: var(--purple); }
+        .section-sub { text-align: center; color: var(--gray); max-width: 550px; margin: 0 auto 50px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .card { background: white; border-radius: 14px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(45,27,105,0.12); }
+        .card .icon { font-size: 2.5em; margin-bottom: 15px; }
+        .card h3 { font-size: 1.2em; font-weight: 800; margin-bottom: 10px; color: var(--purple); }
+        .card p { color: var(--gray); font-size: 0.95em; }
+
+        /* HOW IT WORKS */
+        .how-it-works { padding: 80px 20px; background: white; }
+        .steps { max-width: 900px; margin: 0 auto; }
+        .step { display: flex; align-items: flex-start; gap: 25px; margin-bottom: 40px; }
+        .step-num { background: var(--purple); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2em; flex-shrink: 0; }
+        .step-num.blue { background: var(--blue); color: var(--dark); }
+        .step-content h3 { font-weight: 800; font-size: 1.15em; margin-bottom: 5px; color: var(--purple); }
+        .step-content p { color: var(--gray); }
+
+        /* TESTIMONIAL / PICTURE */
+        .social-proof { padding: 80px 20px; background: linear-gradient(135deg, var(--purple) 0%, #1a1050 100%); color: white; text-align: center; }
+        .quote { font-size: 1.3em; font-style: italic; max-width: 700px; margin: 0 auto 25px; line-height: 1.7; }
+        .quote-mark { font-size: 3em; color: var(--blue); line-height: 0.5; }
+        .client-name { font-weight: 700; color: var(--blue); }
+        .client-role { color: #aaa; font-size: 0.9em; }
+
+        /* PRICING */
+        .pricing { padding: 80px 20px; background: var(--light); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 900px; margin: 0 auto; }
+        .price-card { background: white; border-radius: 14px; padding: 35px; text-align: center; border: 2px solid transparent; transition: all 0.2s; }
+        .price-card.popular { border-color: var(--blue); transform: scale(1.03); box-shadow: 0 8px 30px rgba(0,212,255,0.15); }
+        .price-card h3 { font-weight: 800; font-size: 1.1em; color: var(--purple); margin-bottom: 8px; }
+        .price-card .price { font-size: 2.5em; font-weight: 900; color: var(--purple); margin: 15px 0; }
+        .price-card .price span { font-size: 0.4em; color: var(--gray); font-weight: 500; }
+        .price-card ul { list-style: none; text-align: left; margin: 20px 0; }
+        .price-card li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; color: #555; font-size: 0.92em; }
+        .price-card li::before { content: "✓ "; color: #27ae60; font-weight: bold; }
+        .price-card .get-btn { display: block; width: 100%; padding: 13px; background: var(--purple); color: white; text-decoration: none; border-radius: 8px; font-weight: 700; margin-top: 15px; transition: background 0.2s; }
+        .price-card .get-btn:hover { background: #3d2a8a; }
+        .price-card.popular .get-btn { background: var(--blue); color: var(--dark); }
+        .price-card.popular .get-btn:hover { background: #00bde6; }
+        .popular-label { background: var(--blue); color: var(--dark); font-size: 0.75em; font-weight: 800; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 10px; }
+
+        /* BRANDS */
+        .brands { padding: 50px 20px; background: white; text-align: center; }
+        .brand-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.5; font-size: 1.3em; font-weight: 800; color: #999; margin-top: 20px; }
+        .brand-logos span { font-family: monospace; }
+
+        /* CTA FINAL */
+        .cta-final { padding: 80px 20px; background: var(--dark); color: white; text-align: center; }
+        .cta-final h2 { font-size: 2.2em; margin-bottom: 15px; }
+        .cta-final p { color: #aaa; margin-bottom: 30px; }
+        .cta-final a { background: var(--blue); color: var(--dark); padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 1.1em; display: inline-block; }
+        .cta-final a:hover { background: #00bde6; }
+
+        /* FOOTER */
+        footer { background: #060612; color: #666; padding: 30px 20px; text-align: center; font-size: 0.85em; }
+        footer a { color: var(--blue); text-decoration: none; }
+        footer .social { margin: 15px 0; }
+        footer .social a { margin: 0 10px; font-size: 1.1em; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            nav .links { display: none; }
+            .hero h1 { font-size: 2.2em; }
+            .step { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">Chomi <span>AI</span></div>
+        <div class="links">
+            <a href="#services">Services</a>
+            <a href="#how">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="https://wa.me/27742336904" class="cta-btn">WhatsApp Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="badge">🇿🇦 Built for South African Businesses</div>
+        <h1>Your Business.<br><span>Running Itself.</span></h1>
+        <p>Chomi AI builds custom AI agents that find your leads, answer your customers, and handle the admin — while you sleep.</p>
+        <div class="cta-row">
+            <a href="https://wa.me/27742336904" class="cta-primary">💬 Chat on WhatsApp</a>
+            <a href="#how" class="cta-secondary">See How It Works →</a>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="what-we-do" id="services">
+        <div class="section-label">What We Build</div>
+        <h2 class="section-title">AI Agents That Actually Work</h2>
+        <p class="section-sub">Not hype. Not chatbots. Real agents that do the job without you watching over them.</p>
+        <div class="grid-3">
+            <div class="card">
+                <div class="icon">🔍</div>
+                <h3>Lead Generation Agents</h3>
+                <p>Agents that find your ideal customers on Twitter/X, SA directories, and LinkedIn — and send them straight to your WhatsApp.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📬</div>
+                <h3>Auto-Response Systems</h3>
+                <p>Instant, intelligent replies to WhatsApp, Telegram, and website enquiries. Never miss a lead again.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Landing Page Pipeline</h3>
+                <p>We find a lead → we build them a website → they come to YOU. Complete local business online presence in 24 hours.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>CRM & Follow-Up Agents</h3>
+                <p>Automated follow-up sequences, reminders, and pipeline management. Your sales on autopilot.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>Custom Agent Builds</h3>
+                <p>Tell us what you need. We'll design, build, and deploy an AI agent tailored to your business flow.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>WhatsApp Business Setup</h3>
+                <p>Full WhatsApp Business API setup — auto-replies, catalogues, lead routing. Everything you need to sell on WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how">
+        <div class="section-label">Simple Process</div>
+        <h2 class="section-title">From Idea to Live Agent in Days</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Tell Us What You Need</h3>
+                    <p>WhatsApp, Telegram, or voice note — just explain your business and what you want automated.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num blue">2</div>
+                <div class="step-content">
+                    <h3>We Design Your Solution</h3>
+                    <p>We research your market, design the agent flow, and plan the full pipeline before writing a single line of code.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>We Build & Deploy</h3>
+                    <p>Your agent gets built, tested, and connected to your WhatsApp or website. You sign off before it goes live.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num blue">4</div>
+                <div class="step-content">
+                    <h3>You Reap the Rewards</h3>
+                    <p>Leads come in. Agent responds. You close the deal. Simple.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="social-proof">
+        <div class="quote-mark">"</div>
+        <p class="quote">Chomi built my business website and set up my WhatsApp auto-replies in two days. Now I get enquiries while I'm on the tools. This is the real deal.</p>
+        <p class="client-name">Philisiwe Buleni</p>
+        <p class="client-role">MASGWAZI PROJECTS — Durban Plumber 🇿🇦</p>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-label">Transparent Pricing</div>
+        <h2 class="section-title">Packages That Scale With You</h2>
+        <p class="section-sub">From a single landing page to a full AI team — we have options for every stage.</p>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Landing Page</h3>
+                <div class="price">R1,500<span> once-off</span></div>
+                <ul>
+                    <li>Professional single-page website</li>
+                    <li>Mobile-optimised & fast</li>
+                    <li>WhatsApp & phone CTA buttons</li>
+                    <li>Social links integrated</li>
+                    <li>"Powered by Chomi AI" badge</li>
+                </ul>
+                <a href="https://wa.me/27742336904?text=Hi%20Chomi%20AI%2C%20I%20want%20a%20landing%20page" class="get-btn">Get Started →</a>
+            </div>
+            <div class="price-card popular">
+                <span class="popular-label">Most Popular</span>
+                <h3>Growth Package</h3>
+                <div class="price">R3,500<span> once-off</span></div>
+                <ul>
+                    <li>Everything in Landing Page</li>
+                    <li>AI lead research (we find your leads)</li>
+                    <li>Landing page + brand design</li>
+                    <li>WhatsApp auto-response setup</li>
+                    <li>30 days free support</li>
+                </ul>
+                <a href="https://wa.me/27742336904?text=Hi%20Chomi%20AI%2C%20I%20want%20the%20Growth%20Package" class="get-btn">Get Started →</a>
+            </div>
+            <div class="price-card">
+                <h3>Agent Pro</h3>
+                <div class="price">R6,500<span> once-off</span></div>
+                <ul>
+                    <li>Everything in Growth Package</li>
+                    <li>Custom AI agent (lead gen + CRM)</li>
+                    <li>Full WhatsApp Business API</li>
+                    <li>Ongoing monthly support available</li>
+                    <li>White-label options available</li>
+                </ul>
+                <a href="https://wa.me/27742336904?text=Hi%20Chomi%20AI%2C%20I%20want%20the%20Agent%20Pro%20Package" class="get-btn">Get Started →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="brands">
+        <p style="color:#999; font-size:0.85em; text-transform:uppercase; letter-spacing:2px;">Built with</p>
+        <div class="brand-logos">
+            <span>OpenClaw</span>
+            <span>WhatsApp API</span>
+            <span>6551.io</span>
+            <span>Cloudflare</span>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <h2>Ready to Automate Your Business?</h2>
+        <p>Message us on WhatsApp. No commitment, no hard sell — just a real conversation about what you need.</p>
+        <a href="https://wa.me/27742336904">💬 Chat on WhatsApp Now</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="social">
+            <a href="https://x.com/thabyamirchand" target="_blank">𝕏 Twitter</a>
+            <a href="https://wa.me/27742336904">WhatsApp</a>
+        </div>
+        <p>&copy; 2026 Chomi AI — South Africa's AI Agent Builder 🇿🇦</p>
+        <p style="margin-top:5px;">Built with 🖤 on <a href="https://openclaw.ai" target="_blank">OpenClaw</a></p>
+    </footer>
+
+</body>
+</html>
