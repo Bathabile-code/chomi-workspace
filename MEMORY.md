@@ -250,3 +250,68 @@ last_updated: "2026-03-18"
 - coldr: CLI tool tested and working, needs Resend API key for live sends
 - landing-page-generator: installed, ready to test
 - de-ai-ify + human-writing: installed for content humanization
+
+---
+
+# Session Memory - 2026-04-18 (Afternoon)
+
+## What Happened Today
+- **opentwitter skill installed** with 6551.io API (token: in ~/.bashrc as TWITTER_TOKEN)
+  - ✅ Fully tested - found MASGWAZI PROJECTS (plumber lead) + qualified Durban plumber (065 338 0036)
+  - Twitter search gives real SA plumber leads with contact numbers FOR FREE
+- **MASGWAZI PROJECTS landing page built** (v2 with WhatsApp CTAs, social links, Chomi AI badge)
+  - Live: https://scenario-css-podcasts-directed.trycloudflare.com/masgwazi-landing.html
+- **Chomi AI website built** — our own landing page showcasing services + pricing
+  - Live: https://scenario-css-podcasts-directed.trycloudflare.com/chomi-ai.html
+  - WhatsApp: +27 63 991 587 (corrected from old MASGWAZI number)
+  - Pricing: R1,500 / R5,000 / Custom — "start with website, upsell AI agents"
+- **Facebook groups research done** (Kwazi subagent) — API dead since Apr 2024, scraping ToS/POPIA risky
+- **Kandua directory research done** (Kwazi subagent) — plumbing category suspended, data gated
+- **Google Maps pipeline** — free options limited; recommended Google Cloud free tier ($200/mo credit)
+- **Cloudflare tunnel running** — cloudflared binary at /tmp/cloudflared, tunnel URL expires on restart
+  - Current URL: https://scenario-css-podcasts-directed.trycloudflare.com
+  - Server: python3 -m http.server 8080 on autosite-leads directory
+
+## Key Learnings
+- Landing page template: WhatsApp CTA (green), social links bar, "Powered by Chomi AI" badge linking to our site
+- The upsell model: R1,500 website → upsell to AI agents that run it. Don't want to be fixing websites on Sunday nights
+- Landing page must use client's own WhatsApp number (not ours)
+- All client landing pages must link back to our Chomi AI site
+
+## WhatsApp Number (Correct)
+- Thaby: +27 63 991 587 (063 991 587) — wa.me/2763991587
+
+## Tomorrow's Mission (Priority 1)
+1. **WhatsApp gateway setup** — set up WhatsApp Business API / gateway so we can send landing pages to leads via WhatsApp
+2. **Send MASGWAZI link** — test by sending our own landing page to ourselves via WhatsApp
+3. **First client outreach** — use opentwitter to find 1-2 Durban plumbers, build them a landing page, send via WhatsApp
+4. **Consider: cloudflared as persistent daemon** — current tunnel URL changes on restart, need to find permanent solution
+
+## Still Blocked
+- GitHub push: needs PAT token from Thaby (SSH not configured)
+- Cloudflare tunnel: URL not permanent (need Pages deployment or registered domain)
+
+## Skills Installed Today
+- opentwitter (Twitter/X via 6551.io)
+
+## Skills Available But Not Installed
+- google-maps-leadgen-skill (flagged suspicious by VirusTotal — requires review before install)
+- brand-dna, logo-generator (branding skills available on ClawHub)
+- capture-website (needs npm install -g capture-website-cli — timed out, retry)
+- coldr (tested, works, needs Resend API for live sends)
+
+
+## mails.dev Email Updates (Apr 18, 2026)
+- **API key**: `mk_9cbfc705ccc84e6887a0dffb36763bdd`
+- **Send endpoint**: `POST https://api.mails.dev/v1/send` returns HTTP 500 but email DELIVERS (SLOW ~10 min)
+- **IMPORTANT**: Don't trust the 500 response — email arrives 10 min later regardless
+- **Resend**: mk_ key rejected (401) — coldr needs re_Qm... key format, not mk_
+- **gropeedy@gmail.com**: Thaby's email — IMAP auth failed with `880827Thaby!`
+- **kgengineeringpumps@gmail.com**: Email SENT and DELIVERED ✅ (Apr 18, 2026)
+- **Email sent to KG Engineering** (Apr 18): Supplier database request — awaiting Darren's reply
+
+## Email Pipeline (Working End-to-End ✅)
+1. Compose email → POST to api.mails.dev/v1/send → 500 error but email sends
+2. ~10 min later → email arrives in recipient inbox ✅
+3. **Next step**: Get Darren's supplier reply → build database
+
