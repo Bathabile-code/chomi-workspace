@@ -24,3 +24,15 @@ USER.md
 
 # Memory logs (may contain sensitive info)
 memory/*.md
+
+# Audio/image transcriptions and media metadata
+audio_input*.json
+audio_input*.srt
+audio_input*.tsv
+audio_input*.txt
+audio_input*.vtt
+file_*.json
+file_*.srt
+file_*.tsv
+file_*.txt
+file_*.vtt
