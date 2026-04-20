@@ -5,6 +5,9 @@
     },
     "exa-full": {
       "baseUrl": "https://mcp.exa.ai/mcp?tools=web_search_exa,web_search_advanced_exa,get_code_context_exa,deep_search_exa,crawling_exa,company_research_exa,people_search_exa,deep_researcher_start,deep_researcher_check"
+    },
+    "servicenow": {
+      "command": "npx @aartiq/servicenow-mcp"
     }
   },
   "imports": []

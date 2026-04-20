@@ -36,3 +36,6 @@ file_*.srt
 file_*.tsv
 file_*.txt
 file_*.vtt
+
+# ServiceNow credentials
+servicenow.env
