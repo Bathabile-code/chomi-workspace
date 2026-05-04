@@ -402,10 +402,36 @@ last_updated: "2026-03-18"
 - Trading-bot: New project, needs investigation
 - GitHub: ✅ Synced and up to date
 
-## Next Steps
-- Get bug details from Thaby
-- Review trading-bot project scope
-- Update BRAIN.md with current status
+## Session Memory - 2026-05-04 (Morning Continued)
+
+### Team Synced & Equipped
+- ✅ **Lakshmi** (ServiceNow Expert) — equipped with official OpenClaw docs
+- ✅ **Kwazi** (Builder) — researched OpenClaw documentation links
+- ✅ **Thuluzi** (Review Agent) — standing by
+- ✅ **Claire** (Social Media) — content strategy ready
+
+### EP02 Status
+- **Status:** Implemented ✅
+- **Infrastructure:** Bridge MCP operational at `/home/chomi/ChomiVaultSetup/bridge-mcp/`
+- **ServiceNow Instance:** https://dev228466.service-now.com
+- **Email Integration:** mails.dev + SendClaw API configured
+- **Audit:** Lakshmi reviewing for production readiness
+
+### The Real Play: Mission Control Dashboard
+**Goal:** Visual dashboard for LinkedIn showing entire agentic pipeline:
+1. Agents spawning
+2. MCP Bridge traffic
+3. Email ingestion from mails.dev
+4. ServiceNow case creation
+
+**Lakshmi's Recommendation:** EP03 = "Agentic Mission Control Dashboard"
+
+**Awaiting from Thaby:**
+- Flow Designer flow names/screenshots
+- mails.dev current status
+- Demo scope (happy path vs error handling)
+- Dashboard tech preference (live web UI vs recorded clip)
+- Agent spawning code location
 
 ## Dhiren's Letterhead (May 4, 2026)
 - ✅ Created professional KG Engineering letterhead
