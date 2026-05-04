@@ -447,3 +447,42 @@ last_updated: "2026-03-18"
 - **Solution needed:** Set up IMAP to read incoming emails from chomi-agent@mails.dev
 - **Options:** Gmail IMAP, SendClaw API, or find mails.dev IMAP credentials
 - **Status:** Awaiting Thaby's preference
+
+---
+
+# Session Memory - 2026-05-04 (Afternoon Update)
+
+## Thaby's Vision for EP03 (May 4, 2026)
+
+**The Real Play:**
+- Showcase **ServiceNow + OpenClaw + headless task completion**
+- Thaby issues a task to an orchestration layer AI agent
+- That agent spawns a relevant team (Kwazi, Lakshmi, Thuluzi, Claire)
+- Tools are selected/researched (mails.dev, MCP server, etc.)
+- Work is built, audited
+- Thaby can go into ServiceNow instance and show **physical proof** of configuration and what's been done
+
+**Deadline: May 8, 2026**
+- Mission Control Dashboard MUST be running before then
+- Blog post + video content ready
+- Claire handling blog posts (she's been amazing)
+- Vercel deployment approved
+
+**Team Status:**
+- ✅ **Kwazi** — BUILDING Mission Control Dashboard NOW
+- ✅ **Lakshmi** — Audit complete, gave human timeline (corrected: build now)
+- ✅ **Thuluzi** — Standing by to audit built work
+- ✅ **Claire** — Writing EP03 blog post draft
+- ✅ **Chomi** — Orchestrating, will show physical proof in ServiceNow
+
+**Key Insight:**
+Lakshmi is an AI agent — she should BUILD not give timelines. The whole point is headless task completion where AI agents do the work while humans show proof.
+
+## Next Actions
+- Wait for Kwazi's initial build (2 hours)
+- Claire's blog post draft ready
+- Thuluzi audits when build is done
+- Physical proof demo in ServiceNow instance
+- Deploy to Vercel
+- Record demo video
+- Publish May 8
