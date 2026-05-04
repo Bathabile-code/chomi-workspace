@@ -386,3 +386,38 @@ last_updated: "2026-03-18"
 - **BRAIN.md is 4 days stale** — needs refresh (last was Apr 18)
 - AutoSite SA status unclear — last quality review Apr 18
 - No new learnings to merge
+
+---
+
+# Session Memory - 2026-05-04 (Sunday Morning)
+
+## What Happened Today
+- **GitHub sync done** — pushed trading-bot project + workspace state (commit 727b7a6)
+- **AutoSite SA status:** Cruising nicely (per Thaby)
+- **New project discovered:** trading-bot/ (separate workspace, now tracked)
+- **Bugs flagged:** Thaby mentioned "a few bugs" — need details
+
+## Current State
+- AutoSite SA: Live and moving
+- Trading-bot: New project, needs investigation
+- GitHub: ✅ Synced and up to date
+
+## Next Steps
+- Get bug details from Thaby
+- Review trading-bot project scope
+- Update BRAIN.md with current status
+
+## Dhiren's Letterhead (May 4, 2026)
+- ✅ Created professional KG Engineering letterhead
+- ✅ Used actual KG logo (background removed, sized proportionally)
+- ✅ Includes company name, tagline, contact details
+- ✅ Dhiren's direct info on right side
+- ✅ Professional footer with company info
+- ✅ Sent to kgengineeringpumps@gmail.com via mails.dev
+- **File:** `/home/chomi/.openclaw/workspace/dhiren-kg-engineering-letterhead.png`
+
+## Email Body Reading Issue (Still Blocked)
+- **Problem:** mails.dev API read endpoints broken (return version info instead of bodies)
+- **Solution needed:** Set up IMAP to read incoming emails from chomi-agent@mails.dev
+- **Options:** Gmail IMAP, SendClaw API, or find mails.dev IMAP credentials
+- **Status:** Awaiting Thaby's preference
