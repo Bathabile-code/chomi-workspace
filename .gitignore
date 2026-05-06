@@ -43,3 +43,5 @@ servicenow.env
 LOCAL-DWP-ONLY/
 *.local.md
 .env.local
+DWP-*.md
+PLAN.md
