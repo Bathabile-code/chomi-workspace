@@ -39,3 +39,6 @@ file_*.vtt
 
 # ServiceNow credentials
 servicenow.env
+# Local-only files - never commit
+LOCAL-DWP-ONLY/
+*.local.md
