@@ -42,3 +42,4 @@ servicenow.env
 # Local-only files - never commit
 LOCAL-DWP-ONLY/
 *.local.md
+.env.local
