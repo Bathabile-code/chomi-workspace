@@ -184,7 +184,8 @@ If Thaby says any of these, I should know what to do:
 
 ## 📝 Last Known State (2026-05-06)
 
-- **Current Task:** DWP Integration foundation build (parked for upgrade)
+- **Current Task:** DWP Integration foundation build (parked for tonight)
+- **Tomorrow's Priority:** KG Engineering email body project (kgengineeringpumps@gmail.com)
 - **Thaby's Action:** Building foundation in work instance, will send update set XML
 - **My Action:** Waiting for XML to import into PDI
 - **Git Status:** Clean, committed
