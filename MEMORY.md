@@ -511,6 +511,103 @@ Lakshmi is an AI agent — she should BUILD not give timelines. The whole point 
 - [x] Session flush: No new sessions to flush
 - [x] Lessons check: No new lessons to merge
 - [x] Git backup: Added untracked dashboard files, committed, pushed
-- [x] Task board: Added EP03 Mission Control Dashboard task (DONE)
+---
+
+# Session Memory - 2026-05-10 (Sunday Morning)
+
+## EP02 Demo Recording Session
+
+### What We Tested Today
+- **Browser Harness connection** — successfully tested and working
+- **Chrome Remote Debugging** — running on port 9222
+- **ServiceNow Instance** — discovered it's HIBERNATING (needs wakeup)
+
+### Browser Harness Status
+| Component | Status | Details |
+|-----------|--------|---------|
+| Browser Harness Install | ✅ Working | Installed at `~/ChomiVaultSetup/browser-harness` |
+| Chrome Remote Debugging | ✅ Running | Port 9222 active, headless mode |
+| Browser Harness Daemon | ✅ Connected | 1 active browser connection |
+| ServiceNow PDI | ❌ Hibernating | `dev228466` instance asleep |
+| Demo Script | ✅ Written | `EP02_DEMO_SCRIPT.md` ready |
+| Bridge MCP | ✅ Built | `server.py` operational |
+
+### Key Technical Details
+
+**Browser Harness Commands (Working):**
+```bash
+# Set Chrome CDP URL
+export BU_CDP_URL="http://localhost:9222"
+
+# Test connection
+browser-harness --doctor
+
+# Get page info
+browser-harness -c '
+ensure_real_tab()
+print(page_info())
+'
+
+# Navigate (function name is goto_url NOT goto)
+browser-harness -c '
+ensure_real_tab()
+goto_url("https://example.com")
+wait_for_load()
+info = page_info()
+print("URL:", info["url"])
+'
+```
+
+**Important Discovery — Function Names:**
+- ✅ `goto_url()` — NOT `goto()`
+- ✅ `page_info()` — works after `wait_for_load()`
+- ✅ `ensure_real_tab()` — required before operations
+- ✅ `wait_for_load()` — needed after navigation
+- ❌ `screenshot()` — use `capture_screenshot()` instead (not tested yet)
+
+**Chrome Startup Command (WSL2):**
+```bash
+nohup chromium-browser --remote-debugging-port=9222 --no-sandbox --disable-gpu --headless=new --disable-dev-shm-usage > /tmp/chrome-debug.log 2>&1 &
+```
+
+### ServiceNow Instance Issue
+- **Instance:** dev228466.service-now.com
+- **Status:** 🐴 Hibernating (free PDI sleeps after inactivity)
+- **Fix:** Thaby needs to wake it up via https://developer.servicenow.com
+- **Impact:** EP02 demo cannot proceed until instance is awake
+
+### Files & Locations
+- Browser Harness: `/home/chomi/ChomiVaultSetup/browser-harness/`
+- Demo Script: `/home/chomi/ChomiVaultSetup/EP02_DEMO_SCRIPT.md`
+- Demo Setup: `/home/chomi/ChomiVaultSetup/browser-harness/ep02-demo-setup.sh`
+- Bridge MCP: `/home/chomi/ChomiVaultSetup/bridge-mcp/server.py`
+- Chrome Log: `/tmp/chrome-debug.log`
+
+### Next Steps for EP02 Recording
+1. **Wake up ServiceNow instance** (Thaby — login to developer portal)
+2. **Test full Browser Harness flow** (navigate → login → screenshot)
+3. **Set up OBS** for screen recording
+4. **Run through demo script** with voiceover
+5. **Record and publish**
+
+### Thuluzi's Recommendation (May 9, 2026)
+- Browser Harness + OBS (both FREE)
+- Avoid VideoDB ($0.084/hour — "giving 'I have money to burn' energy")
+- Browser Harness = built for browser automation
+- OBS = industry standard screen recording
+
+### Team Status (from May 4-9)
+- ✅ **Kwazi** — Built Mission Control Dashboard (EP03)
+- ✅ **Lakshmi** — ServiceNow expert, audit complete
+- ✅ **Thuluzi** — Review agent, gave Browser Harness recommendation
+- ✅ **Claire** — Writing EP03 blog post
+- ✅ **Chomi** — Orchestrating, testing Browser Harness today
+
+### Key Lesson
+Browser Harness function names differ from documentation:
+- Docs say `goto()` — actual function is `goto_url()`
+- Docs say `screenshot()` — actual function might be `capture_screenshot()`
+- Always use `ensure_real_tab()` before operations
+- Always use `wait_for_load()` after navigation
 
 ---
