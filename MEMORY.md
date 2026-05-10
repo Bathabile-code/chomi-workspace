@@ -606,8 +606,82 @@ nohup chromium-browser --remote-debugging-port=9222 --no-sandbox --disable-gpu -
 ### Key Lesson
 Browser Harness function names differ from documentation:
 - Docs say `goto()` — actual function is `goto_url()`
-- Docs say `screenshot()` — actual function might be `capture_screenshot()`
+- Docs say `screenshot()` — actual function is `capture_screenshot()`
 - Always use `ensure_real_tab()` before operations
 - Always use `wait_for_load()` after navigation
+
+---
+
+# Session Memory - 2026-05-10 (Sunday Morning - CONTINUED)
+
+## ServiceNow Instance Now AWAKE! ✅
+
+Thaby woke up the ServiceNow instance. Testing resumed:
+
+### Browser Harness + ServiceNow Tests
+
+**Test 1: Navigate to ServiceNow Login**
+```bash
+browser-harness -c '
+ensure_real_tab()
+goto_url("https://dev228466.service-now.com")
+wait_for_load()
+info = page_info()
+print("URL:", info["url"])
+print("Title:", info["title"])
+'
+```
+✅ Result: `URL: https://dev228466.service-now.com/` | `Title: 🐴 Log in | ServiceNow`
+
+**Test 2: Screenshot**
+```bash
+browser-harness -c '
+ensure_real_tab()
+goto_url("https://dev228466.service-now.com")
+wait_for_load()
+capture_screenshot("/tmp/servicenow-login.png")
+'
+```
+✅ Result: Screenshot saved successfully
+
+**Test 3: Login Attempt**
+```bash
+browser-harness -c '
+ensure_real_tab()
+goto_url("https://dev228466.service-now.com")
+wait_for_load()
+fill_input("#user_name", "admin")
+fill_input("#user_password", "yb*qaLD/T26X")
+js("document.querySelector(\"#sysverb_login\").click()")
+wait_for_load()
+info = page_info()
+print("After login - URL:", info["url"])
+'
+```
+❌ Result: Still on login page — password may be incorrect or CAPTCHA present
+
+### Updated Function Reference (from testing)
+| Function | Status | Notes |
+|----------|--------|-------|
+| `goto_url()` | ✅ Working | Use instead of `goto()` |
+| `page_info()` | ✅ Working | Needs `wait_for_load()` first |
+| `ensure_real_tab()` | ✅ Working | Required before operations |
+| `wait_for_load()` | ✅ Working | Wait for page load |
+| `capture_screenshot()` | ✅ Working | Use instead of `screenshot()` |
+| `fill_input()` | ✅ Working | For form fields |
+| `js()` | ✅ Working | For custom JavaScript |
+| `click_at_xy()` | ⚠️ Needs x,y | Not element selector |
+
+### Current Blockers for EP02 Demo
+1. **ServiceNow login** — password needs verification or CAPTCHA handling
+2. **No click_element function** — need to use `js()` for clicking
+3. **Need to test sys_email table navigation** after login
+
+### Next Steps
+1. Verify ServiceNow password with Thaby
+2. Test login + sys_email navigation
+3. Test Bridge MCP email ingestion flow
+4. Set up OBS for recording
+5. Record EP02 demo
 
 ---
