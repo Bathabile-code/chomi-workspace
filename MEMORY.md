@@ -678,10 +678,11 @@ print("After login - URL:", info["url"])
 3. **Need to test sys_email table navigation** after login
 
 ### Next Steps
-1. Verify ServiceNow password with Thaby
-2. Test login + sys_email navigation
-3. Test Bridge MCP email ingestion flow
-4. Set up OBS for recording
-5. Record EP02 demo
+1. ~~Verify ServiceNow password with Thaby~~ ✅ DONE
+2. ~~Test login + sys_email navigation~~ ✅ DONE - Logged in with MFA
+3. ~~Disable MFA~~ ✅ DONE - Thaby gave authority, disabled for easier access
+4. Test Bridge MCP email ingestion flow
+5. Set up OBS for recording
+6. Record EP02 demo
 
 ---
