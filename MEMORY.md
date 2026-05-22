@@ -2,7 +2,7 @@
 status: "done"
 assignee: "chomi"
 created: "2026-03-11"
-last_updated: "2026-03-18"
+last_updated: "2026-05-22"
 ---
 
 # Session Memory - 2026-03-18
@@ -502,10 +502,119 @@ Lakshmi is an AI agent — she should BUILD not give timelines. The whole point 
 
 ## State
 - Mission Control Dashboard: ✅ Built and running (localhost:3001)
-- EP03 deadline: May 8, 2026 (3 days away)
+- EP02: Reframing to show autonomous ServiceNow (no manual architect layer)
+- EP03: Building on Luca Morlupi's CSDM 5.0 Explorer concept
 - AutoSite SA: Live and cruising (per Thaby)
 - Trading-bot: New project discovered May 4
 - All systems stable
+
+---
+
+# Session Memory - 2026-05-22 (Thursday Morning)
+
+## EP02 Vision Clarity
+
+**The Problem:** EP02 was mixing "here's what we built" with "here's the future"
+
+**The Solution:** Focus ONLY on the outcome — email injection → ServiceNow updates → done. No visible scaffolding.
+
+**Key Insight from Thaby:**
+- We're at the point where we should be automating colleague roles
+- Don't just automate tasks — spawn AI expert agents that understand the operating model
+- Counter the "AI accelerates bad data" narrative with "AI experts fix the foundation first"
+
+## LinkedIn Posts Analyzed (May 22)
+
+### Post 1: Luca Morlupi - CSDM 5.0 Explorer
+- Built entirely inside ServiceNow with Build Agent
+- One conversation = complete 3D WebGL app, REST API, live CMDB queries
+- No external tools, no credentials exposed, no code transiting through third parties
+- Everything stays within platform governance
+- **Key takeaway:** This is what EP03 will build on
+
+### Post 2: B. Wilson - Hiring for Judgment
+- "AI agents can only reason over the operating model you give them"
+- Bad CMDB data doesn't become strategy — it becomes faster confusion
+- Need people who understand service models, ownership, event correlation, operational risk
+- **Key takeaway:** This is what Thaby is countering — spawn AI experts, not just task executors
+
+### Post 3: Tushar Mishra - Build Agent Limitations
+- Build Agent can't update ServiceNow-owned apps (HRSD, SecOps, CSM)
+- System property "sn_appauthor.all_company_keys" blocks non-company scopes
+- Workaround: Use Anthropic Claude + ServiceNow MCP server for safe updates
+- **Key takeaway:** Know the boundaries of what agents can do
+
+### Post 4: Ian Cox - Build Agent in IDE
+- ServiceNow moved into developer IDEs (Cursor, Windsurf, Claude Code, GitHub Copilot)
+- AEMC (governance layer) went free this month
+- **The real issue:** Governance discipline is patchy, environment promotion is a Word doc
+- Customers who win aren't the ones who adopt Build Agent first — they're the ones who finally stand up SDLC discipline
+- **Key takeaway:** Tooling caught up, governance has to catch up
+
+### Post 5: Ian Cox - AI Control Tower
+- ServiceNow's AI Control Tower runs on CMDB
+- **Critical insight:** AI Control Tower is only as honest as the CMDB it sits on
+- If CIs are stale, relationships are guessed, service map is half-finished → you're hallucinating governance
+- Teams that win treat CMDB as system of record for AI workforce, not leftover from human one
+- **Key takeaway:** CMDB hygiene is the gap, not technology
+
+### Post 6: Guilherme Batista da Silva - OOTB-First
+- OOTB-First is about senior teams forgetting how much the platform evolved
+- Example: Teams quoted 6 months + 3 devs for Major Incident Command Center
+- Major Incident Workbench shipped most of it since Tokyo release
+- 6 months custom dev → replaced by 2 weeks config, zero upgrade tax
+- **Key takeaway:** Know what's OOTB before customizing
+
+## ServiceNow Open-Source Documentation
+
+**Repository:** https://github.com/ServiceNow/ServiceNowDocs
+
+**What it is:** ServiceNow AI Platform documentation optimized for LLM consumption (no images, markdown only)
+
+**Updated:** Monthly (last update May 10, 2026)
+
+**Coverage includes:**
+- Building applications
+- API implementation and reference
+- IT Operations Management (ITOM)
+- IT Service Management (ITSM)
+- Cloud Observability
+- Governance, Risk, and Compliance
+- Platform Administration
+- Platform Security
+- And 50+ other modules
+
+**How to use:** Point all spawned agents to this repo as the authoritative source for ServiceNow knowledge
+
+## Daily Cron Job: Agentic AI + ServiceNow Takes
+
+**Purpose:** Find LinkedIn posts about agentic AI + ServiceNow and flag them for elevation from pure automation to agentic teams perspective
+
+**Search terms to monitor:**
+- #BuildAgent + #ServiceNow
+- #AgenticAI + #ServiceNow
+- #AIControlTower
+- #ServiceNowAI
+- ServiceNow + "AI agents"
+- ServiceNow + "autonomous"
+
+**What to look for:**
+- Posts showing task automation (flag as "can be elevated to agentic teams")
+- Posts about CMDB/governance (flag as "foundation for agentic AI")
+- Posts about Build Agent limitations (flag as "design constraints")
+- Posts about OOTB-first (flag as "platform knowledge")
+
+**Output:** Daily summary with links, key insights, and elevation opportunities
+
+**Elevation angle:** "This is what's possible with task automation. Here's what's possible with agentic teams that reason about the operating model."
+
+## Next Steps
+
+1. ✅ Reframe EP02 script (email injection as autonomous outcome, no scaffolding)
+2. ✅ Build EP03 on Luca's CSDM Explorer concept
+3. ⏳ Create daily cron job for agentic AI + ServiceNow takes
+4. ⏳ Add ServiceNow docs repo as tool for all spawned agents
+5. ⏳ Align team (Lakshmi, Kwazi, Thuluzi, Claire) on vision
 
 ## Actions Taken This Run
 - [x] Session flush: No new sessions to flush
