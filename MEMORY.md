@@ -942,3 +942,48 @@ print("After login - URL:", info["url"])
 - Can be scaled (spawn multiple agents for multiple emails)
 - Results announced back to parent (not blocking)
 
+
+---
+
+# CRITICAL FIX: Sub-Agent Timeout (May 22, 2026)
+
+## The Problem
+- Kwazi (and other sub-agents) timing out on long research/build jobs
+- Error: "Request timed out before a response was generated"
+- Looked like agents were broken, but they weren't — they were timing out
+
+## The Solution
+Add to `~/.openclaw/openclaw.json`:
+
+```json
+{
+  "agents": {
+    "defaults": {
+      "timeoutSeconds": 7200
+    }
+  }
+}
+```
+
+Then restart:
+```bash
+openclaw gateway restart
+```
+
+## Key Points
+- Default timeout is too short for real background work
+- 7200 seconds = 2 hours (proper runway for research/build jobs)
+- **IMPORTANT:** Don't set to 0 (OpenClaw won't accept it properly)
+- This is a small setting with massive difference for real agent work
+
+## Impact
+- Before: Sub-agents died after longer jobs
+- After: 2 hour runway for proper background work
+- Kwazi can now do real research without timing out
+
+## Why This Matters for EP02
+- Email processing sub-agents need time to reason + validate
+- CMDB checks, duplicate detection, incident creation all take time
+- 2-hour timeout ensures sub-agents complete their work
+- No more "Request timed out" errors on real work
+
