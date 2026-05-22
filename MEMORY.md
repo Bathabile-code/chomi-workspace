@@ -512,16 +512,44 @@ Lakshmi is an AI agent — she should BUILD not give timelines. The whole point 
 
 # Session Memory - 2026-05-22 (Thursday Morning)
 
-## EP02 Vision Clarity
+## EP02 Vision Clarity (LOCKED IN - May 22)
 
-**The Problem:** EP02 was mixing "here's what we built" with "here's the future"
+**The Angle:** OpenClaw + ServiceNow = Spawning Expert Agents
 
-**The Solution:** Focus ONLY on the outcome — email injection → ServiceNow updates → done. No visible scaffolding.
+**The Stack:**
+1. **OpenClaw** — Agent orchestration, spawning, reasoning
+2. **ServiceNow** — The platform (Build Agent, SDK, or custom apps)
+3. **LLM-Optimized Docs** — ServiceNow open-source documentation (GitHub)
+4. **Expert Agents** — Spawned by OpenClaw to reason about ServiceNow operating models
 
-**Key Insight from Thaby:**
-- We're at the point where we should be automating colleague roles
-- Don't just automate tasks — spawn AI expert agents that understand the operating model
-- Counter the "AI accelerates bad data" narrative with "AI experts fix the foundation first"
+**What EP02 Shows:**
+- Email arrives
+- OpenClaw spawns an expert agent (process expert, architect, data steward)
+- Agent reasons about the email using ServiceNow docs + CMDB context
+- Agent validates: Is this real? Does it belong to a known service? Is assignment correct?
+- Agent creates incident in ServiceNow (via API, respecting governance)
+- Result: Autonomous, intelligent incident creation
+
+**The Edge (vs. pure Build Agent/SDK automation):**
+- Build Agent = "execute tasks"
+- OpenClaw + ServiceNow = "spawn experts that reason about the operating model, then execute"
+- This counters "AI accelerates bad data" — our experts validate first
+
+**Why This Matters:**
+- You don't need architects reviewing every email
+- You need OpenClaw spawning expert agents that ARE architects
+- They understand the business, validate the data, execute with confidence
+- Everything stays in ServiceNow (governance, ACLs, audit trail)
+
+**The Competitive Angle:**
+- Build Agent: "I can execute tasks"
+- OpenClaw + ServiceNow: "I can spawn experts that understand your business, validate your data, and execute intelligently"
+
+**Why LLM-Optimized Docs Matter:**
+- ServiceNow open-sourced their docs for LLM consumption
+- OpenClaw agents can read these docs, understand the platform deeply
+- Agents reason about CMDB, governance, relationships, not just execute blindly
+- This is the "expert layer" — not just automation, but intelligent reasoning
 
 ## LinkedIn Posts Analyzed (May 22)
 
