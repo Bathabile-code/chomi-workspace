@@ -514,42 +514,72 @@ Lakshmi is an AI agent — she should BUILD not give timelines. The whole point 
 
 ## EP02 Vision Clarity (LOCKED IN - May 22)
 
-**The Angle:** OpenClaw + ServiceNow = Spawning Expert Agents
+**The Angle:** OpenClaw + ServiceNow = Spawning Independent Expert Agents
+
+**The Architecture (Corrected):**
+
+OpenClaw has a **multi-agent architecture** where:
+1. **Main agent** (Chomi) = orchestrator with workspace, auth, sessions
+2. **Spawned sub-agents** = isolated, independent agents with:
+   - Their own session context (forked or isolated)
+   - Their own reasoning capability
+   - Independent of the parent agent (not just executing parent commands)
+   - Can be given specific expertise/knowledge
+   - Can reason about the task autonomously
 
 **The Stack:**
-1. **OpenClaw** — Agent orchestration, spawning, reasoning
+1. **OpenClaw** — Multi-agent orchestration platform
+   - Main agent (Chomi) spawns sub-agents via `sessions_spawn`
+   - Sub-agents are **independent** (not puppets of parent)
+   - Sub-agents can have forked context (inherit parent transcript) or isolated context (clean slate)
+   - Sub-agents reason autonomously, then report back
 2. **ServiceNow** — The platform (Build Agent, SDK, or custom apps)
 3. **LLM-Optimized Docs** — ServiceNow open-source documentation (GitHub)
-4. **Expert Agents** — Spawned by OpenClaw to reason about ServiceNow operating models
+   - Passed to sub-agents as knowledge context
+   - Agents reason about CMDB, governance, relationships
+4. **Expert Sub-Agents** — Spawned by OpenClaw to reason about ServiceNow operating models
+   - Independent reasoning (not just executing parent instructions)
+   - Can validate, question, improve decisions
+   - Can reason about the operating model deeply
 
 **What EP02 Shows:**
 - Email arrives
-- OpenClaw spawns an expert agent (process expert, architect, data steward)
-- Agent reasons about the email using ServiceNow docs + CMDB context
-- Agent validates: Is this real? Does it belong to a known service? Is assignment correct?
-- Agent creates incident in ServiceNow (via API, respecting governance)
-- Result: Autonomous, intelligent incident creation
+- Chomi (main agent) spawns an expert sub-agent
+- Sub-agent is **independent** — it reasons about the email autonomously
+- Sub-agent reads ServiceNow docs + CMDB context
+- Sub-agent validates: Is this real? Does it belong to a known service? Is assignment correct?
+- Sub-agent creates incident in ServiceNow (via API, respecting governance)
+- Sub-agent reports back to Chomi
+- Result: Autonomous, intelligent incident creation by an independent expert
+
+**The Key Insight (from Thaby):**
+- Agents spawned by OpenClaw are **under you but independent of you**
+- They're not just executing your commands
+- They have their own reasoning capability
+- They can validate, improve, and reason about the operating model
+- This is the "expert layer" — independent agents that reason, not just execute
 
 **The Edge (vs. pure Build Agent/SDK automation):**
-- Build Agent = "execute tasks"
-- OpenClaw + ServiceNow = "spawn experts that reason about the operating model, then execute"
-- This counters "AI accelerates bad data" — our experts validate first
+- Build Agent = "execute tasks" (no independent reasoning)
+- OpenClaw + ServiceNow = "spawn independent experts that reason about the operating model, then execute"
+- This counters "AI accelerates bad data" — our experts validate first, independently
 
 **Why This Matters:**
 - You don't need architects reviewing every email
-- You need OpenClaw spawning expert agents that ARE architects
+- You spawn independent expert agents that ARE architects
 - They understand the business, validate the data, execute with confidence
+- They're independent — they can reason, question, improve
 - Everything stays in ServiceNow (governance, ACLs, audit trail)
 
 **The Competitive Angle:**
 - Build Agent: "I can execute tasks"
-- OpenClaw + ServiceNow: "I can spawn experts that understand your business, validate your data, and execute intelligently"
+- OpenClaw + ServiceNow: "I can spawn independent experts that reason about your business, validate your data, and execute intelligently"
 
 **Why LLM-Optimized Docs Matter:**
 - ServiceNow open-sourced their docs for LLM consumption
-- OpenClaw agents can read these docs, understand the platform deeply
-- Agents reason about CMDB, governance, relationships, not just execute blindly
-- This is the "expert layer" — not just automation, but intelligent reasoning
+- OpenClaw sub-agents can read these docs, understand the platform deeply
+- Agents reason about CMDB, governance, relationships independently
+- This is the "expert layer" — independent reasoning, not just automation
 
 ## LinkedIn Posts Analyzed (May 22)
 
