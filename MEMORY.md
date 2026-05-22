@@ -867,3 +867,78 @@ print("After login - URL:", info["url"])
 6. Record EP02 demo
 
 ---
+
+---
+
+# Research: @steipete on OpenClaw Sub-Agents (May 22, 2026)
+
+## Key Findings from GitHub
+
+### Sub-Agent Architecture (from docs/tools/subagents.md)
+- Sub-agents run in their own session: `agent:<agentId>:subagent:<uuid>`
+- Each sub-agent has its own context and token usage by default
+- Sub-agents announce results back to requester chat channel
+- Sub-agents are tracked as background tasks
+
+### Context Modes (from PR #75943 & docs)
+
+**Isolated (default):**
+- Fresh research, independent implementation, slow tool work
+- Creates a clean child transcript (lower token use)
+- No parent context inherited
+- Best for: independent tasks, research, implementation
+
+**Forked:**
+- Work that depends on current conversation
+- Branches requester transcript into child session
+- Child sees what parent saw
+- Use sparingly — for context-sensitive delegation
+- Requires same target agent as requester
+- Has token limit (default 100k, configurable via `session.parentForkMaxTokens`)
+
+### Key Quote from @steipete
+> "Use `fork` sparingly. It is for context-sensitive delegation, not a replacement for writing a clear task prompt."
+
+### Sub-Agent Tool Restrictions
+- Sub-agents do NOT get session tools by default
+- Depth-1 orchestrators (when `maxSpawnDepth >= 2`) get: `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history`
+- Leaf agents (depth 1 or 2) cannot spawn further children
+- All other tools available (exec, read, write, browser, etc.)
+
+### Workspace Context Injection (from Issue #40825, fixed in #40176)
+- When spawning sub-agent with `agentId="X"`, use agent X's configured workspace
+- Inject AGENTS.md, SOUL.md, USER.md from agent's own workspace (not parent's)
+- Per-agent identity is now properly preserved
+
+### Context Overflow Handling (from PR #26912)
+- Parent fork skipped if parent context exceeds threshold (100k tokens)
+- Prevents silent message failures
+- Configurable via `session.parentForkMaxTokens`
+
+## Application to EP02
+
+**For Email → Incident Processing:**
+- Use **isolated context** (default)
+- Email processing is independent work
+- Doesn't need parent conversation history
+- Lower token usage
+- Cleaner reasoning (no parent context noise)
+- Sub-agent focuses on the task, not parent's context
+
+**The Sub-Agent Flow:**
+1. Chomi (main agent) receives email
+2. Spawns independent sub-agent with isolated context
+3. Sub-agent reads ServiceNow docs + CMDB context
+4. Sub-agent reasons independently about email
+5. Sub-agent validates: Is this real? Does it belong? Is assignment correct?
+6. Sub-agent executes via MCP Bridge → ServiceNow API
+7. Sub-agent announces results back to Chomi
+8. Chomi reports to user
+
+**Why This Matters:**
+- Sub-agent is truly independent (not just executing parent commands)
+- Has its own reasoning capability
+- Has its own token budget
+- Can be scaled (spawn multiple agents for multiple emails)
+- Results announced back to parent (not blocking)
+
