@@ -512,7 +512,7 @@ Lakshmi is an AI agent — she should BUILD not give timelines. The whole point 
 
 # Session Memory - 2026-05-22 (Thursday Morning)
 
-## EP02 Vision Clarity (LOCKED IN - May 22)
+## EP02 Vision Clarity (FINAL - May 22)
 
 **The Angle:** OpenClaw + ServiceNow = Spawning Independent Expert Agents
 
@@ -542,15 +542,29 @@ OpenClaw has a **multi-agent architecture** where:
    - Can validate, question, improve decisions
    - Can reason about the operating model deeply
 
-**What EP02 Shows:**
-- Email arrives
-- Chomi (main agent) spawns an expert sub-agent
+**What We Already Built:**
+- Email ingestion (mails.dev)
+- MCP Bridge (processes emails)
+- ServiceNow API integration (creates incidents/cases)
+- CMDB context (services, CIs, relationships)
+
+**What EP02 Shows (The OpenClaw Angle):**
+- Email arrives at mails.dev
+- OpenClaw (Chomi) detects email
+- Chomi spawns an independent expert sub-agent
 - Sub-agent is **independent** — it reasons about the email autonomously
 - Sub-agent reads ServiceNow docs + CMDB context
-- Sub-agent validates: Is this real? Does it belong to a known service? Is assignment correct?
-- Sub-agent creates incident in ServiceNow (via API, respecting governance)
+- Sub-agent validates independently: Is this real? Does it belong to a service? Is assignment correct?
+- Sub-agent executes via MCP Bridge → ServiceNow incident created
 - Sub-agent reports back to Chomi
 - Result: Autonomous, intelligent incident creation by an independent expert
+
+**The Presentation:**
+- We're not showing the MCP Bridge or technical scaffolding
+- We're showing the OpenClaw orchestration layer
+- We're showing independent expert agents reasoning about the operating model
+- We're showing validation before execution
+- We're showing scale without human overhead
 
 **The Key Insight (from Thaby):**
 - Agents spawned by OpenClaw are **under you but independent of you**
