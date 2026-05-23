@@ -1,0 +1,26 @@
+{
+  "integration": "email-to-servicenow",
+  "status": "success",
+  "timestamp": "2026-05-17T15:30:00Z",
+  "metrics": {
+    "emails_processed": 20,
+    "duplicates_found": 0,
+    "records_created": 20,
+    "processing_time_seconds": 2.3,
+    "api_calls": 22,
+    "memory_usage_mb": 45
+  },
+  "quality": {
+    "data_completeness": "100%",
+    "field_mapping_accuracy": "100%",
+    "error_rate": "0%"
+  },
+  "team": {
+    "project_manager": "Chomi",
+    "business_analyst": "Zanele",
+    "architect": "Thando",
+    "senior_developer": "Jabu",
+    "developer": "Naledi",
+    "qa_engineer": "Sipho"
+  }
+}

@@ -302,10 +302,10 @@ last_updated: "2026-05-22"
 
 
 ## mails.dev Email Updates (Apr 18, 2026)
-- **API key**: `mk_9cbfc705ccc84e6887a0dffb36763bdd`
+- **API key**: `***`
 - **Send endpoint**: `POST https://api.mails.dev/v1/send` returns HTTP 500 but email DELIVERS (SLOW ~10 min)
 - **IMPORTANT**: Don't trust the 500 response — email arrives 10 min later regardless
-- **Resend**: mk_ key rejected (401) — coldr needs re_Qm... key format, not mk_
+- **Resend**: `***` key rejected (401) — coldr needs re_Qm... key format, not `mk_`
 - **gropeedy@gmail.com**: Thaby's email — IMAP auth failed with `880827Thaby!`
 - **kgengineeringpumps@gmail.com**: Email SENT and DELIVERED ✅ (Apr 18, 2026)
 - **Email sent to KG Engineering** (Apr 18): Supplier database request — awaiting Darren's reply
@@ -507,6 +507,54 @@ Lakshmi is an AI agent — she should BUILD not give timelines. The whole point 
 - AutoSite SA: Live and cruising (per Thaby)
 - Trading-bot: New project discovered May 4
 - All systems stable
+
+---
+
+---
+
+# Session Memory - 2026-05-23 (Saturday Morning)
+
+## Current State
+- **Date:** May 23, 2026 - 9:47 AM SAST
+- **Git status:** 12 untracked files, 1 modified (AGENTS.md)
+- **Last user session:** May 22, 2026 (full article completion)
+- **Sub-agent timeout fix:** Applied (7200 seconds = 2 hours)
+
+## What Happened Yesterday (May 22, 2026)
+- **Full article completed:** "OpenClaw + ServiceNow: Teams of Expert Agents"
+- **EP02 script finalized** with team of experts angle
+- **Daily scout job created** for agentic AI + ServiceNow LinkedIn monitoring
+- **ServiceNow docs reference** compiled for all spawned agents
+- **Team brief updated** (TEAM_BRIEF_EP02_EP03.md)
+- **AGENTS.md updated** — subagent spawning confirmed working (Kwazi, Lakshmi, Thuluzi built May 4)
+
+## Key Files Completed May 22
+- FULL_ARTICLE_SUMMARY.md — Article overview and key insights
+- memory/2026-05-22.md — Full article with upgrade notes
+- EP02_DEMO_SCRIPT_FINAL.md — Final demo script
+- EP02_EXECUTION_PLAN.md — Execution plan
+- email-servicenow-ba-analysis.md — Business analysis
+
+## Pending for Next Session
+- Review & refine article language
+- Brief team (Lakshmi, Kwazi, Thuluzi, Claire)
+- Record EP02 demo
+- Deploy EP03 Mission Control to Vercel
+- Publish article + LinkedIn posts
+
+## Systems Status
+- GitHub push: ✅ Working (PAT confirmed)
+- ServiceNow instance: dev228466 (hibernates after inactivity)
+- Browser Harness: ✅ Working (port 9222)
+- WhatsApp: ✅ Connected
+- Telegram: ⚠️ Group bug still open (#30522)
+
+## Task Board Status
+- EP03 Mission Control: ✅ DONE (May 4, needs Vercel deploy)
+- EP02 Demo Recording: ⏳ In progress (script done, needs recording)
+- Full Article: ✅ DONE (May 22, needs refinement + publish)
+- AutoSite SA: ✅ Live and cruising
+- GitHub Backup: 🔄 This run
 
 ---
 
@@ -832,7 +880,7 @@ ensure_real_tab()
 goto_url("https://dev228466.service-now.com")
 wait_for_load()
 fill_input("#user_name", "admin")
-fill_input("#user_password", "yb*qaLD/T26X")
+fill_input("#user_password", "***")
 js("document.querySelector(\"#sysverb_login\").click()")
 wait_for_load()
 info = page_info()

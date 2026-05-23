@@ -161,7 +161,7 @@ curl http://localhost:3000/api/stream
 # ServiceNow
 SERVICENOW_INSTANCE=https://dev228466.service-now.com
 SERVICENOW_USERNAME=admin
-SERVICENOW_PASSWORD=yb*qaLD/T26X
+SERVICENOW_PASSWORD=***
 
 # SendClaw
 SENDCLAW_API_KEY=mk_your_key_here

@@ -1,0 +1,55 @@
+#!/bin/bash
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  📸 EP02 Screenshot Wrapper — Enhanced chomi-screenshot                      ║
+# ║  Integrates with Naledi's demo layer                                        ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+set -euo pipefail
+
+# Configuration
+OUTPUT_DIR="${EP02_SCREENSHOT_DIR:-/home/chomi/.openclaw/workspace/ep02-demo/screenshots}"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+# Parse arguments
+FILENAME="${1:-screenshot_${TIMESTAMP}.png}"
+
+# Ensure output directory exists
+mkdir -p "$OUTPUT_DIR"
+
+# Full path
+OUTPUT_PATH="${OUTPUT_DIR}/${FILENAME}"
+
+echo "📸 Taking screenshot: $OUTPUT_PATH"
+
+# Try multiple screenshot tools in order of preference
+if command -v gnome-screenshot &> /dev/null; then
+    gnome-screenshot -f "$OUTPUT_PATH" 2>/dev/null && success=true
+elif command -v scrot &> /dev/null; then
+    scrot "$OUTPUT_PATH" 2>/dev/null && success=true
+elif command -v import &> /dev/null; then
+    import -window root "$OUTPUT_PATH" 2>/dev/null && success=true
+elif command -v ffmpeg &> /dev/null; then
+    ffmpeg -f x11grab -i :0.0 -vframes 1 "$OUTPUT_PATH" 2>/dev/null && success=true
+else
+    success=false
+fi
+
+if [ "${success:-false}" = "true" ] && [ -f "$OUTPUT_PATH" ]; then
+    echo "✅ Screenshot saved: $OUTPUT_PATH"
+    
+    # Get image info if possible
+    if command -v identify &> /dev/null; then
+        identify "$OUTPUT_PATH" 2>/dev/null || true
+    fi
+    
+    exit 0
+else
+    echo "⚠️ Screenshot failed. Creating placeholder..."
+    
+    # Create a placeholder text file
+    echo "Screenshot placeholder: $FILENAME" > "${OUTPUT_PATH}.txt"
+    echo "Timestamp: $(date -Iseconds)" >> "${OUTPUT_PATH}.txt"
+    echo "Note: No screenshot tool available on this system" >> "${OUTPUT_PATH}.txt"
+    
+    exit 1
+fi

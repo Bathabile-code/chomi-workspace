@@ -1,0 +1,66 @@
+#!/bin/bash
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  🎙️ EP02 Voice Wrapper — Enhanced chomi-demo-voice                         ║
+# ║  Integrates with Naledi's demo layer                                        ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+set -euo pipefail
+
+# Configuration
+API_KEY="${ELEVENLABS_API_KEY:-sk_c93cb636ce532579e3dcf3889bcb8481bbc98074f5cc4c55}"
+VOICE_ID="${ELEVENLABS_VOICE_ID:-cgSgspJ2msm6clMCkdW9}"
+OUTPUT_DIR="${EP02_VOICE_DIR:-/home/chomi/.openclaw/workspace/ep02-demo/voice}"
+
+# Ensure output directory exists
+mkdir -p "$OUTPUT_DIR"
+
+# Get phrase
+PHRASE="$1"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+# Map phrases to text
+ case "$PHRASE" in
+    "ask")      TEXT="I need ServiceNow credentials, email access, and API keys." ;;
+    "see")      TEXT="I see the sys_email table. I'll create a bridge." ;;
+    "done")     TEXT="Done. 20 emails ingested, zero duplicates." ;;
+    "learn")    TEXT="I've learned from this. Next time will be faster." ;;
+    "intro")    TEXT="Hello, I am Chomi 2 point 0. The future of agentic development is here." ;;
+    "team")     TEXT="Assembling team of specialists now." ;;
+    "start")    TEXT="Starting the email to ServiceNow integration." ;;
+    "reflect")  TEXT="Reflecting on the session to improve next time." ;;
+    *)          TEXT="$PHRASE" ;;
+ esac
+
+echo "🎙️ Generating voice: $TEXT"
+
+# Generate unique filename
+SAFE_TEXT=$(echo "$TEXT" | tr ' ' '_' | cut -c1-30)
+OUTPUT_FILE="${OUTPUT_DIR}/${TIMESTAMP}_${SAFE_TEXT}.mp3"
+
+# Call ElevenLabs API
+curl -s -X POST \
+  "https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}" \
+  -H "xi-api-key: ${API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{\"text\":\"${TEXT}\",\"model_id\":\"eleven_turbo_v2\",\"voice_settings\":{\"stability\":0.5,\"similarity_boost\":0.5}}" \
+  -o "$OUTPUT_FILE"
+
+# Check if file was created and has content
+if [ -f "$OUTPUT_FILE" ] && [ -s "$OUTPUT_FILE" ]; then
+    echo "✅ Voice clip saved: $OUTPUT_FILE"
+    
+    # Try to play it
+    if command -v ffplay &> /dev/null; then
+        ffplay -nodisp -autoexit "$OUTPUT_FILE" 2>/dev/null || true
+    elif command -v mpg123 &> /dev/null; then
+        mpg123 "$OUTPUT_FILE" 2>/dev/null || true
+    elif command -v aplay &> /dev/null; then
+        aplay "$OUTPUT_FILE" 2>/dev/null || true
+    else
+        echo "⚠️ No audio player found. File saved but not played."
+    fi
+else
+    echo "⚠️ Voice generation failed or returned empty"
+    rm -f "$OUTPUT_FILE"
+    exit 1
+fi

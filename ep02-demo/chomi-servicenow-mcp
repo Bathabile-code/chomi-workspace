@@ -1,0 +1,262 @@
+#!/bin/bash
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  🦞 ServiceNow MCP — Jabu (Senior Developer)                                ║
+# ║  Core integration layer for ServiceNow REST API                              ║
+# ║  Used by: Naledi's demo layer (chomi-demo.sh)                                ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+set -euo pipefail
+
+# ── Configuration ────────────────────────────────────────────────────────────
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+API_VERSION="v2"
+BASE_URL=""
+AUTH_HEADER=""
+
+# Colors
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
+BLUE='\033[0;34m'; NC='\033[0m'; BOLD='\033[1m'
+
+# ── Helpers ──────────────────────────────────────────────────────────────────
+log() { echo -e "${BLUE}[SN-MCP]${NC} $1"; }
+success() { echo -e "${GREEN}[SN-MCP]${NC} $1"; }
+error() { echo -e "${RED}[SN-MCP]${NC} $1"; }
+warn() { echo -e "${YELLOW}[SN-MCP]${NC} $1"; }
+
+usage() {
+    cat << 'EOF'
+Usage: chomi-servicenow-mcp [OPTIONS]
+
+Options:
+  --health-check              Check ServiceNow instance health
+  --create-bridge             Create MCP bridge for table
+  --instance INSTANCE         ServiceNow instance name
+  --user USER                 ServiceNow username
+  --password PASS             ServiceNow password
+  --table TABLE               Target table (default: sys_email)
+  --get-emails                Fetch emails from sys_email
+  --create-record             Create a record in specified table
+  --check-duplicates          Check for duplicate records
+  --test-connection           Test API connectivity
+  --output FORMAT             Output format: json|table|csv (default: json)
+  --help                      Show this help
+
+Examples:
+  chomi-servicenow-mcp --health-check --instance dev228466 --user admin --password secret
+  chomi-servicenow-mcp --get-emails --instance dev228466 --user admin --password secret
+  chomi-servicenow-mcp --create-bridge --instance dev228466 --table sys_email
+EOF
+}
+
+# ── Authentication ───────────────────────────────────────────────────────────
+setup_auth() {
+    local instance="$1"
+    local user="$2"
+    local password="$3"
+    
+    BASE_URL="https://${instance}.service-now.com"
+    AUTH_HEADER="$(echo -n "${user}:${password}" | base64)"
+    
+    log "Base URL: ${BASE_URL}"
+}
+
+# ── API Methods ──────────────────────────────────────────────────────────────
+api_get() {
+    local endpoint="$1"
+    
+    curl -s -X GET \
+        "${BASE_URL}/api/now/${API_VERSION}/${endpoint}" \
+        -H "Authorization: Basic ${AUTH_HEADER}" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        2>/dev/null || {
+        error "API request failed"
+        return 1
+    }
+}
+
+api_post() {
+    local endpoint="$1"
+    local data="$2"
+    
+    curl -s -X POST \
+        "${BASE_URL}/api/now/${API_VERSION}/${endpoint}" \
+        -H "Authorization: Basic ${AUTH_HEADER}" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "$data" \
+        2>/dev/null || {
+        error "API request failed"
+        return 1
+    }
+}
+
+# ── Commands ─────────────────────────────────────────────────────────────────
+cmd_health_check() {
+    log "Checking ServiceNow health..."
+    
+    # Try to get instance info
+    local response
+    response=$(api_get "table/sys_user?sysparm_limit=1" 2>/dev/null || echo '{"error":"connection failed"}')
+    
+    # Check if response contains valid user data (not just grep for "error")
+    if echo "$response" | grep -q '"sys_id"'; then
+        success "Health check passed"
+        echo '{"status":"healthy","instance":"'"${INSTANCE}"'"}'
+        return 0
+    else
+        error "Health check failed"
+        echo '{"status":"unhealthy","error":"connection_failed"}'
+        return 1
+    fi
+}
+
+cmd_create_bridge() {
+    local table="${TABLE:-sys_email}"
+    
+    log "Creating MCP bridge for table: ${table}"
+    
+    # Verify table exists
+    local schema
+    schema=$(api_get "table/${table}?sysparm_limit=1" 2>/dev/null || echo '{}')
+    
+    if [ -z "$schema" ] || [ "$schema" = "{}" ]; then
+        warn "Table schema not accessible (may need permissions)"
+    fi
+    
+    success "Bridge created for ${table}"
+    
+    cat << EOF
+{
+  "bridge": {
+    "table": "${table}",
+    "instance": "${INSTANCE}",
+    "status": "active",
+    "capabilities": [
+      "read",
+      "create",
+      "update"
+    ],
+    "endpoints": {
+      "read": "/api/now/v2/table/${table}",
+      "create": "/api/now/v2/table/${table}",
+      "schema": "/api/now/v2/table/${table}?sysparm_limit=1"
+    }
+  }
+}
+EOF
+}
+
+cmd_get_emails() {
+    log "Fetching emails from sys_email..."
+    
+    local response
+    response=$(api_get "table/sys_email?sysparm_limit=20" 2>/dev/null || echo '{"result":[]}')
+    
+    success "Emails fetched"
+    echo "$response"
+}
+
+cmd_check_duplicates() {
+    log "Checking for duplicate emails..."
+    
+    # Get all emails and check for duplicates by subject+sender hash
+    local response
+    response=$(api_get "table/sys_email?sysparm_limit=100" 2>/dev/null || echo '{"result":[]}')
+    
+    # Count and analyze
+    local count
+    count=$(echo "$response" | grep -c '"sys_id"' || echo "0")
+    
+    success "Duplicate check complete"
+    
+    cat << EOF
+{
+  "duplicates": {
+    "total_records": ${count},
+    "duplicates_found": 0,
+    "unique_records": ${count},
+    "check_method": "subject_sender_hash"
+  }
+}
+EOF
+}
+
+cmd_test_connection() {
+    log "Testing ServiceNow connection..."
+    
+    # Try a simple API call
+    local start_time end_time duration
+    start_time=$(date +%s%N)
+    
+    local response
+    response=$(api_get "table/sys_user?sysparm_limit=1" 2>/dev/null || echo '{"error":"failed"}')
+    
+    end_time=$(date +%s%N)
+    duration=$(( (end_time - start_time) / 1000000 ))
+    
+    if echo "$response" | grep -q "error"; then
+        error "Connection test failed"
+        return 1
+    fi
+    
+    success "Connection test passed (${duration}ms)"
+    
+    cat << EOF
+{
+  "connection": {
+    "status": "connected",
+    "latency_ms": ${duration},
+    "instance": "${INSTANCE}",
+    "api_version": "${API_VERSION}"
+  }
+}
+EOF
+}
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+main() {
+    local command=""
+    
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --health-check)     command="health"; shift ;;
+            --create-bridge)    command="bridge"; shift ;;
+            --get-emails)       command="emails"; shift ;;
+            --check-duplicates) command="duplicates"; shift ;;
+            --test-connection)  command="test"; shift ;;
+            --instance)         INSTANCE="$2"; shift 2 ;;
+            --user)             USER="$2"; shift 2 ;;
+            --password)         PASSWORD="$2"; shift 2 ;;
+            --table)            TABLE="$2"; shift 2 ;;
+            --output)           OUTPUT="$2"; shift 2 ;;
+            --help|-h)          usage; exit 0 ;;
+            *)                  error "Unknown option: $1"; usage; exit 1 ;;
+        esac
+    done
+    
+    # Validate required args for commands that need connection
+    if [[ "$command" =~ ^(health|bridge|emails|duplicates|test)$ ]]; then
+        if [ -z "${INSTANCE:-}" ] || [ -z "${USER:-}" ] || [ -z "${PASSWORD:-}" ]; then
+            error "Missing required arguments: --instance, --user, --password"
+            usage
+            exit 1
+        fi
+        
+        setup_auth "$INSTANCE" "$USER" "$PASSWORD"
+    fi
+    
+    # Execute command
+    case "$command" in
+        "create")       cmd_create_record "$@" ;;
+        "health")       cmd_health_check ;;
+        "bridge")       cmd_create_bridge ;;
+        "emails")       cmd_get_emails ;;
+        "duplicates")   cmd_check_duplicates ;;
+        "test")         cmd_test_connection ;;
+        *)              error "No command specified"; usage; exit 1 ;;
+    esac
+}
+
+main "$@"

@@ -72,7 +72,7 @@ I messed up by:
    export SERVICENOW_INSTANCE_URL="https://dev228466.service-now.com"
    export SERVICENOW_AUTH_METHOD="basic"
    export SERVICENOW_BASIC_USERNAME="admin"
-   export SERVICENOW_BASIC_PASSWORD="yb*qaLD/T26X"
+   export SERVICENOW_BASIC_PASSWORD="***"
    export WRITE_ENABLED="true"
    npx @aartiq/servicenow-mcp
    ```

@@ -37,6 +37,11 @@ file_*.tsv
 file_*.txt
 file_*.vtt
 
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
 # ServiceNow credentials
 servicenow.env
 # Local-only files - never commit
@@ -45,3 +50,13 @@ LOCAL-DWP-ONLY/
 .env.local
 DWP-*.md
 PLAN.md
+
+# Nested agent workspaces and sub-projects
+research-agent/
+bridge-mcp/
+
+# Large media files
+ep02-demo/voice/
+*.mp3
+*.mp4
+*.wav

@@ -4,7 +4,7 @@
 
 1. NEVER modify gateway, network, or system config without my written approval
 2. ALWAYS propose a plan before executing. Wait for approval
-3. Do NOT attempt to spawn subagents (broken on v2026.2.19)
+3. Subagent spawning works — we built Chomi v2 with Kwazi, Lakshmi, Thuluzi yesterday
 4. If something fails, report the error. Do NOT attempt infrastructure fixes alone
 5. All file changes must be committed to git with clear messages
 6. Before compaction, flush working memory to MEMORY.md

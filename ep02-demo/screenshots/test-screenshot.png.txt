@@ -1,0 +1,3 @@
+Screenshot placeholder: test-screenshot.png
+Timestamp: 2026-05-17T16:59:58+02:00
+Note: No screenshot tool available on this system
