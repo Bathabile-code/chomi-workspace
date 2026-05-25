@@ -1,11 +1,280 @@
 ---
 status: "done"
 assignee: "chomi"
-created: "2026-03-11"
-last_updated: "2026-05-22"
+created: "2026-05-25"
 ---
 
-# Session Memory - 2026-03-18
+# Cron Run - 2026-05-25 (Monday Morning, 7:58 AM SAST)
+
+## Summary
+- **Session flush**: Found 2 sessions from May 24 — both failed due to API errors, context captured below
+- **Lessons checked**: No new lessons since Feb 21 — all merged in MEMORY.md
+- **Git working tree**: Clean (nothing to commit before this update)
+- **Task board review**: EP02 task marked "done" but demo recording still pending — flagged
+- **Chomi 2.0**: Still "doing" since May 17, Phase 2 not started
+- **EP03 Vercel deploy**: Still "todo" since May 4 — build complete, needs deployment
+
+## Session Flush Findings (May 24)
+
+### Morning Skill Research Cron (May 24, 12:11 PM SAST)
+- **Status**: FAILED ❌
+- **Error**: OpenRouter 400 — context length exceeded (~278k tokens requested vs 262k limit)
+- **Model**: moonshotai/kimi-k2.6 via OpenRouter
+- **Impact**: No skill research completed on May 24
+- **Note**: This is the 3rd consecutive failure of morning skill research cron — context keeps growing. May need compaction or model switch.
+
+### Thaby's EP02 Angle Refinement (May 24, 4:01 PM SAST)
+- **Status**: FAILED ❌ (Assistant 402 payment error)
+- **Content**: Thaby sent detailed Telegram notes refining EP02 narrative — TWO angles captured
+- **Angle 1 — Autonomous ServiceNow**: Email → Incident with validation layers (surface, middle, deep)
+- **Angle 2 — Corrected OpenClaw Architecture**: Sub-agents are independent experts, NOT task executors
+  - "Under you but independent of you"
+  - Have own reasoning, can validate/question/improve
+  - Read ServiceNow docs + CMDB context autonomously
+  - Create configurations in ServiceNow (BA, dev, architect, service desk roles)
+- **Impact**: Valuable strategic thinking lost because assistant couldn't respond — captured here for next session
+
+## Task Board Flags
+- **EP02 Demo Recording**: Task file says "done" (May 22) but description says "⏳ DEMO RECORDING — Script done, needs recording session" — potential inconsistency
+- **EP03 Vercel Deploy**: 3 weeks stale as "todo" — either deploy or park
+- **Chomi 2.0 Phase 2**: 8 days since foundation complete, no implementation started
+
+## Git Backup Status
+- Last push: May 23 (commit fa3652e)
+- Working tree: Clean before this MEMORY.md update
+- This run will commit the MEMORY.md update
+
+---
+
+# Session Memory - 2026-05-23 (Saturday Morning)
+
+## Current State
+- **Date:** May 23, 2026 - 9:47 AM SAST
+- **Git status:** 12 untracked files, 1 modified (AGENTS.md)
+- **Last user session:** May 22, 2026 (full article completion)
+- **Sub-agent timeout fix:** Applied (7200 seconds = 2 hours)
+
+## What Happened Yesterday (May 22, 2026)
+- **Full article completed:** "OpenClaw + ServiceNow: Teams of Expert Agents"
+- **EP02 script finalized** with team of experts angle
+- **Daily scout job created** for agentic AI + ServiceNow LinkedIn monitoring
+- **ServiceNow docs reference** compiled for all spawned agents
+- **Team brief updated** (TEAM_BRIEF_EP02_EP03.md)
+- **AGENTS.md updated** — subagent spawning confirmed working (Kwazi, Lakshmi, Thuluzi built May 4)
+
+## Key Files Completed May 22
+- FULL_ARTICLE_SUMMARY.md — Article overview and key insights
+- memory/2026-05-22.md — Full article with upgrade notes
+- EP02_DEMO_SCRIPT_FINAL.md — Final demo script
+- EP02_EXECUTION_PLAN.md — Execution plan
+- email-servicenow-ba-analysis.md — Business analysis
+
+## Pending for Next Session
+- Review & refine article language
+- Brief team (Lakshmi, Kwazi, Thuluzi, Claire)
+- Record EP02 demo
+- Deploy EP03 Mission Control to Vercel
+- Publish article + LinkedIn posts
+
+## Systems Status
+- GitHub push: ✅ Working (PAT confirmed)
+- ServiceNow instance: dev228466 (hibernates after inactivity)
+- Browser Harness: ✅ Working (port 9222)
+- WhatsApp: ✅ Connected
+- Telegram: ⚠️ Group bug still open (#30522)
+
+## Task Board Status
+- EP03 Mission Control: ✅ DONE (May 4, needs Vercel deploy)
+- EP02 Demo Recording: ⏳ In progress (script done, needs recording)
+- Full Article: ✅ DONE (May 22, needs refinement + publish)
+- AutoSite SA: ✅ Live and cruising
+- GitHub Backup: 🔄 This run
+
+---
+
+# Session Memory - 2026-05-22 (Thursday Morning)
+
+## EP02 Vision Clarity (FINAL - May 22)
+
+**The Angle:** OpenClaw + ServiceNow = Spawning Independent Expert Agents
+
+**The Architecture (Corrected):**
+
+OpenClaw has a **multi-agent architecture** where:
+1. **Main agent** (Chomi) = orchestrator with workspace, auth, sessions
+2. **Spawned sub-agents** = isolated, independent agents with:
+   - Their own session context (forked or isolated)
+   - Their own reasoning capability
+   - Independent of the parent agent (not just executing parent commands)
+   - Can be given specific expertise/knowledge
+   - Can reason about the task autonomously
+
+**The Stack:**
+1. **OpenClaw** — Multi-agent orchestration platform
+   - Main agent (Chomi) spawns sub-agents via `sessions_spawn`
+   - Sub-agents are **independent** (not puppets of parent)
+   - Sub-agents can have forked context (inherit parent transcript) or isolated context (clean slate)
+   - Sub-agents reason autonomously, then report back
+2. **ServiceNow** — The platform (Build Agent, SDK, or custom apps)
+3. **LLM-Optimized Docs** — ServiceNow open-source documentation (GitHub)
+   - Passed to sub-agents as knowledge context
+   - Agents reason about CMDB, governance, relationships
+4. **Expert Sub-Agents** — Spawned by OpenClaw to reason about ServiceNow operating models
+   - Independent reasoning (not just executing parent instructions)
+   - Can validate, question, improve decisions
+   - Can reason about the operating model deeply
+
+**What We Already Built:**
+- Email ingestion (mails.dev)
+- MCP Bridge (processes emails)
+- ServiceNow API integration (creates incidents/cases)
+- CMDB context (services, CIs, relationships)
+
+**What EP02 Shows (The OpenClaw Angle):**
+- Email arrives at mails.dev
+- OpenClaw (Chomi) detects email
+- Chomi spawns an independent expert sub-agent
+- Sub-agent is **independent** — it reasons about the email autonomously
+- Sub-agent reads ServiceNow docs + CMDB context
+- Sub-agent validates independently: Is this real? Does it belong to a service? Is assignment correct?
+- Sub-agent executes via MCP Bridge → ServiceNow incident created
+- Sub-agent reports back to Chomi
+- Result: Autonomous, intelligent incident creation by an independent expert
+
+**The Presentation:**
+- We're not showing the MCP Bridge or technical scaffolding
+- We're showing the OpenClaw orchestration layer
+- We're showing independent expert agents reasoning about the operating model
+- We're showing validation before execution
+- We're showing scale without human overhead
+
+**The Key Insight (from Thaby):**
+- Agents spawned by OpenClaw are **under you but independent of you**
+- They're not just executing your commands
+- They have their own reasoning capability
+- They can validate, improve, and reason about the operating model
+- This is the "expert layer" — independent agents that reason, not just execute
+
+**The Edge (vs. pure Build Agent/SDK automation):**
+- Build Agent = "execute tasks" (no independent reasoning)
+- OpenClaw + ServiceNow = "spawn independent experts that reason about the operating model, then execute"
+- This counters "AI accelerates bad data" — our experts validate first, independently
+
+**Why This Matters:**
+- You don't need architects reviewing every email
+- You spawn independent expert agents that ARE architects
+- They understand the business, validate the data, execute with confidence
+- They're independent — they can reason, question, improve
+- Everything stays in ServiceNow (governance, ACLs, audit trail)
+
+**The Competitive Angle:**
+- Build Agent: "I can execute tasks"
+- OpenClaw + ServiceNow: "I can spawn independent experts that reason about your business, validate your data, and execute intelligently"
+
+**Why LLM-Optimized Docs Matter:**
+- ServiceNow open-sourced their docs for LLM consumption
+- OpenClaw sub-agents can read these docs, understand the platform deeply
+- Agents reason about CMDB, governance, relationships independently
+- This is the "expert layer" — independent reasoning, not just automation
+
+## LinkedIn Posts Analyzed (May 22)
+
+### Post 1: Luca Morlupi - CSDM 5.0 Explorer
+- Built entirely inside ServiceNow with Build Agent
+- One conversation = complete 3D WebGL app, REST API, live CMDB queries
+- No external tools, no credentials exposed, no code transiting through third parties
+- Everything stays within platform governance
+- **Key takeaway:** This is what EP03 will build on
+
+### Post 2: B. Wilson - Hiring for Judgment
+- "AI agents can only reason over the operating model you give them"
+- Bad CMDB data doesn't become strategy — it becomes faster confusion
+- Need people who understand service models, ownership, event correlation, operational risk
+- **Key takeaway:** This is what Thaby is countering — spawn AI experts, not just task executors
+
+### Post 3: Tushar Mishra - Build Agent Limitations
+- Build Agent can't update ServiceNow-owned apps (HRSD, SecOps, CSM)
+- System property "sn_appauthor.all_company_keys" blocks non-company scopes
+- Workaround: Use Anthropic Claude + ServiceNow MCP server for safe updates
+- **Key takeaway:** Know the boundaries of what agents can do
+
+### Post 4: Ian Cox - Build Agent in IDE
+- ServiceNow moved into developer IDEs (Cursor, Windsurf, Claude Code, GitHub Copilot)
+- AEMC (governance layer) went free this month
+- **The real issue:** Governance discipline is patchy, environment promotion is a Word doc
+- Customers who win aren't the ones who adopt Build Agent first — they're the ones who finally stand up SDLC discipline
+- **Key takeaway:** Tooling caught up, governance has to catch up
+
+### Post 5: Ian Cox - AI Control Tower
+- ServiceNow's AI Control Tower runs on CMDB
+- **Critical insight:** AI Control Tower is only as honest as the CMDB it sits on
+- If CIs are stale, relationships are guessed, service map is half-finished → you're hallucinating governance
+- Teams that win treat CMDB as system of record for AI workforce, not leftover from human one
+- **Key takeaway:** CMDB hygiene is the gap, not technology
+
+### Post 6: Guilherme Batista da Silva - OOTB-First
+- OOTB-First is about senior teams forgetting how much the platform evolved
+- Example: Teams quoted 6 months + 3 devs for Major Incident Command Center
+- Major Incident Workbench shipped most of it since Tokyo release
+- 6 months custom dev → replaced by 2 weeks config, zero upgrade tax
+- **Key takeaway:** Know what's OOTB before customizing
+
+## ServiceNow Open-Source Documentation
+
+**Repository:** https://github.com/ServiceNow/ServiceNowDocs
+
+**What it is:** ServiceNow AI Platform documentation optimized for LLM consumption (no images, markdown only)
+
+**Updated:** Monthly (last update May 10, 2026)
+
+**Coverage includes:**
+- Building applications
+- API implementation and reference
+- IT Operations Management (ITOM)
+- IT Service Management (ITSM)
+- Cloud Observability
+- Governance, Risk, and Compliance
+- Platform Administration
+- Platform Security
+- And 50+ other modules
+
+**How to use:** Point all spawned agents to this repo as the authoritative source for ServiceNow knowledge
+
+## Daily Cron Job: Agentic AI + ServiceNow Takes
+
+**Purpose:** Find LinkedIn posts about agentic AI + ServiceNow and flag them for elevation from pure automation to agentic teams perspective
+
+**Search terms to monitor:**
+- #BuildAgent + #ServiceNow
+- #AgenticAI + #ServiceNow
+- #AIControlTower
+- #ServiceNowAI
+- ServiceNow + "AI agents"
+- ServiceNow + "autonomous"
+
+**What to look for:**
+- Posts showing task automation (flag as "can be elevated to agentic teams")
+- Posts about CMDB/governance (flag as "foundation for agentic AI")
+- Posts about Build Agent limitations (flag as "design constraints")
+- Posts about OOTB-first (flag as "platform knowledge")
+
+**Output:** Daily summary with links, key insights, and elevation opportunities
+
+**Elevation angle:** "This is what's possible with task automation. Here's what's possible with agentic teams that reason about the operating model."
+
+## Next Steps
+
+1. ✅ Reframe EP02 script (email injection as autonomous outcome, no scaffolding)
+2. ✅ Build EP03 on Luca's CSDM Explorer concept
+3. ⏳ Create daily cron job for agentic AI + ServiceNow takes
+4. ⏳ Add ServiceNow docs repo as tool for all spawned agents
+5. ⏳ Align team (Lakshmi, Kwazi, Thuluzi, Claire) on vision
+
+## Actions Taken This Run
+- [x] Session flush: No new sessions to flush
+- [x] Lessons check: No new lessons to merge
+- [x] Git backup: Added untracked dashboard files, committed, pushed
+---
 
 ## What Happened Today
 - **Morning routine fired late** (3:21pm instead of 9am) — cron timing might need check
