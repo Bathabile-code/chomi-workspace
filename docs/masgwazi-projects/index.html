@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASGWAZI PROJECTS | Professional Plumbing Durban</title>
+    <meta name="description" content="MASGWAZI PROJECTS - Female-owned plumbing business in Umlazi, Durban. Reliable, affordable, and professionally certified.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        /* HERO */
+        .hero { text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #1a5276 0%, #2874a6 100%); color: white; }
+        .hero h1 { font-size: 2.8em; margin-bottom: 15px; font-weight: 800; }
+        .hero .tagline { font-size: 1.2em; opacity: 0.95; margin-bottom: 8px; }
+        .hero .location { font-size: 0.95em; opacity: 0.8; margin-bottom: 30px; }
+        .cta-button { display: inline-block; padding: 16px 36px; background: #e74c3c; color: white; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1em; transition: background 0.2s; }
+        .cta-button:hover { background: #c0392b; }
+        .whatsapp-cta { background: #25D366 !important; }
+        .whatsapp-cta:hover { background: #1da851 !important; }
+        /* TRUST BAR */
+        .trust-bar { background: #f8f9fa; padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .trust-bar span { margin: 0 15px; font-size: 0.9em; color: #666; }
+        .trust-bar strong { color: #1a5276; }
+        /* SOCIAL LINKS */
+        .social-links { padding: 20px; background: #f8f9fa; text-align: center; border-bottom: 1px solid #eee; }
+        .social-links a { display: inline-block; margin: 0 12px; padding: 8px 18px; background: white; border-radius: 6px; text-decoration: none; color: #1a5276; font-weight: 600; font-size: 0.9em; border: 1px solid #e0e0e0; transition: all 0.2s; }
+        .social-links a:hover { background: #1a5276; color: white; border-color: #1a5276; }
+        /* SERVICES */
+        .section { padding: 60px 20px; }
+        .section h2 { text-align: center; font-size: 2em; margin-bottom: 40px; color: #1a5276; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .service-card { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; text-align: center; transition: box-shadow 0.2s; }
+        .service-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .service-icon { font-size: 2.5em; margin-bottom: 15px; }
+        .service-card h3 { margin-bottom: 10px; color: #1a5276; }
+        .service-card p { font-size: 0.95em; color: #666; }
+        /* ABOUT */
+        .about-section { background: #f0f7fb; }
+        .about-content { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-text h2 { text-align: left; }
+        .about-text p { margin-bottom: 15px; font-size: 1.05em; }
+        .about-highlights { background: white; border-radius: 12px; padding: 25px; }
+        .about-highlights h3 { color: #1a5276; margin-bottom: 15px; }
+        .about-highlights ul { list-style: none; }
+        .about-highlights li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .about-highlights li::before { content: "✓"; position: absolute; left: 0; color: #27ae60; font-weight: bold; }
+        /* TESTIMONIALS */
+        .testimonial-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); margin-bottom: 20px; border-left: 4px solid #2874a6; }
+        .testimonial-card p { font-size: 1.05em; font-style: italic; margin-bottom: 12px; }
+        .testimonial-card cite { color: #666; font-size: 0.9em; }
+        /* CTA SECTION */
+        .cta-section { background: #1a5276; color: white; text-align: center; padding: 60px 20px; }
+        .cta-section h2 { margin-bottom: 20px; }
+        .cta-section p { margin-bottom: 30px; font-size: 1.1em; opacity: 0.9; }
+        .cta-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        /* CONTACT */
+        .contact-section { background: #f8f9fa; }
+        .contact-info { max-width: 600px; margin: 0 auto; text-align: center; }
+        .contact-info h2 { margin-bottom: 30px; color: #1a5276; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; text-align: left; background: white; padding: 15px 20px; border-radius: 8px; }
+        .contact-item .icon { font-size: 1.5em; }
+        /* FOOTER */
+        footer { background: #222; color: #aaa; text-align: center; padding: 20px; font-size: 0.85em; }
+        footer a { color: #00D4FF; text-decoration: none; }
+        /* BRAND BADGE */
+        .powered-by { background: #2D1B69; color: white; padding: 12px 20px; text-align: center; font-size: 0.85em; }
+        .powered-by a { color: #00D4FF; font-weight: 600; text-decoration: none; }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2em; }
+            .about-content { grid-template-columns: 1fr; }
+            .cta-row { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BRAND BADGE -->
+    <div class="powered-by">
+        🔷 Website built by <a href="https://scenario-css-podcasts-directed.trycloudflare.com/chomi-ai.html" target="_blank">Chomi AI</a> — SA AI Agent Builder
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <p class="tagline">Female-Owned &amp; Operated in Durban</p>
+            <h1>MASGWAZI PROJECTS</h1>
+            <p class="location">Serving Umlazi &amp; Greater Durban | 074 233 6904</p>
+            <div class="cta-row">
+                <a href="tel:0742336904" class="cta-button">📞 Call Now</a>
+                <a href="https://wa.me/27742336904?text=Hi%20MASGWAZI%2C%20I%20need%20a%20plumber%20in%20Durban" class="cta-button whatsapp-cta" target="_blank">💬 WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL LINKS -->
+    <div class="social-links">
+        <a href="https://facebook.com/masgwaziprojects" target="_blank">📘 Facebook</a>
+        <a href="https://instagram.com/masgwaziprojects" target="_blank">📷 Instagram</a>
+        <a href="tel:0742336904">📞 074 233 6904</a>
+    </div>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <span><strong>✅ Certified Plumber</strong></span>
+        <span><strong>⚡ Emergency Work</strong></span>
+        <span><strong>📋 COC Issued</strong></span>
+        <span><strong>🏠 Residential &amp; Commercial</strong></span>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Leak &amp; Pipe Repairs</h3>
+                    <p>Burst pipes, leaking taps, and faulty connections — fast, lasting fixes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3>Drain Cleaning</h3>
+                    <p>Blocked drains cleared using professional equipment. No mess, no fuss.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚽</div>
+                    <h3>Bathroom &amp; Kitchen</h3>
+                    <p>Full installations and renovations. Taps, toilets, basins — we handle it all.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>COC Inspections</h3>
+                    <p>Official Compliance Certificates for property sales and insurance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Emergency Call-Outs</h3>
+                    <p>Water emergencies don't wait. Available for urgent jobs across Durban.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Geyser Work</h3>
+                    <p>Installations, repairs, and thermostat replacements on all geyser types.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Who We Are</h2>
+                    <p>MASGWAZI PROJECTS is a female-owned plumbing business based in Umlazi, Durban. We bring hands-on expertise to every job — from small repairs to full installations.</p>
+                    <p>Owner Philisiwe Buleni has built a reputation for doing the job right the first time, at prices that make sense for Durban families and businesses.</p>
+                    <p>We don't do shortcuts. We show up on time, we charge fair rates, and we leave the site clean.</p>
+                </div>
+                <div class="about-highlights">
+                    <h3>Why Choose MASGWAZI?</h3>
+                    <ul>
+                        <li>Females in trade — we support local SA businesses</li>
+                        <li>Free quotes on all work</li>
+                        <li>Work guaranteed for 30 days</li>
+                        <li>Fully equipped for residential and commercial</li>
+                        <li>Quick turnaround on urgent jobs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="section">
+        <div class="container">
+            <h2>What People Are Saying</h2>
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="testimonial-card">
+                    <p>"Philisiwe fixed our kitchen tap in under an hour. She was professional, respectful, and the price was fair. Highly recommended!"</p>
+                    <cite>— Homeowner, Umlazi</cite>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Called MASGWAZI for an emergency leak on a Saturday. She arrived within the hour and had it sorted before my kids got home from school. Top service."</p>
+                    <cite>— Property Manager, Durban CBD</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need a Plumber in Durban?</h2>
+            <p>Same-day quotes. No obligation. We serve all Durban and surrounding areas.</p>
+            <div class="cta-row">
+                <a href="tel:0742336904" class="cta-button">📞 Call 074 233 6904</a>
+                <a href="https://wa.me/27742336904?text=Hi%20MASGWAZI%2C%20I%20need%20a%20plumber%20in%20Durban" class="cta-button whatsapp-cta" target="_blank">💬 WhatsApp 074 233 6904</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section">
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <div class="contact-item">
+                <span class="icon">📞</span>
+                <span><strong>074 233 6904</strong> — Call or WhatsApp</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon">📍</span>
+                <span>Umlazi, Durban — Serving Greater Durban</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon">⏰</span>
+                <span>Mon–Sat 7am–6pm | Emergency calls available</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 MASGWAZI PROJECTS | Female-Owned Plumbing Business | Durban, South Africa</p>
+        <p style="margin-top:8px;">Powered by <a href="https://scenario-css-podcasts-directed.trycloudflare.com/chomi-ai.html" target="_blank">Chomi AI</a> — Building smart SA businesses online 🇿🇦</p>
+    </footer>
+
+</body>
+</html>
