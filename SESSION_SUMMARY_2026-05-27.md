@@ -50,3 +50,12 @@ https://bathabile-code.github.io/chomi-workspace/ngcebo-awnings/
 - Wait for Ngcebo's detailed feedback / change requests
 - Prepare for EP02 when ServiceNow PDI is back online
 - Continue #BuildInPublic content creation
+
+## Cron Jobs Updated (2026-05-27)
+- ✅ Fixed: EU Remote ServiceNow Jobs (simplified prompt, was failing with context overflow)
+- ✅ Fixed: SA ServiceNow Jobs (simplified prompt, was failing with context overflow)
+- ✅ Added: AI Forward Engineer Jobs Weekly — runs every Monday 9am SAST
+
+## Next Steps
+- Wait for Ngcebo's detailed feedback / change requests
+- Prepare for EP02 when ServiceNow PDI is back online
