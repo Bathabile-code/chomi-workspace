@@ -3,669 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MASGWAZI PROJECTS | Female-Owned Plumbing Durban</title>
+    <title>MASGWAZI PROJECTS | Professional Plumbing Durban</title>
     <meta name="description" content="MASGWAZI PROJECTS - Female-owned plumbing business in Umlazi, Durban. Reliable, affordable, and professionally certified.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --bg: #0c0a09;
-            --bg-elevated: #1c1917;
-            --bg-warm: #292524;
-            --surface: #44403c;
-            --surface-hover: #57534e;
-            --text: #fafaf9;
-            --text-secondary: #a8a29e;
-            --text-muted: #78716c;
-            --text-inverse: #1c1917;
-            --accent: #ec4899;
-            --accent-hover: #db2777;
-            --accent-glow: rgba(236, 72, 153, 0.3);
-            --accent-bg: rgba(236, 72, 153, 0.1);
-            --material: rgba(28, 25, 23, 0.85);
-            --material-thick: rgba(28, 25, 23, 0.95);
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: var(--material);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            letter-spacing: -0.02em;
-        }
-        .logo-icon {
-            width: 36px; height: 36px;
-            background: var(--accent);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-inverse);
-            font-size: 1.125rem;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        nav {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--text); }
-        .nav-cta {
-            background: var(--accent);
-            color: var(--text-inverse);
-            padding: 0.625rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        .nav-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 24px var(--accent-glow);
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, #1c1917 0%, #312e81 50%, #0c0a09 100%);
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at top, rgba(236, 72, 153, 0.15) 0%, transparent 60%);
-        }
-        .hero-inner {
-            max-width: 900px;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-        }
-        .hero h1 span {
-            color: var(--accent);
-            text-shadow: 0 0 40px var(--accent-glow);
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-        .hero-cta {
-            display: inline-flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: var(--text-inverse);
-            padding: 1.125rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-glow);
-        }
-        .btn-secondary {
-            background: var(--glass);
-            color: var(--text);
-            padding: 1.125rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        .stats {
-            background: var(--bg-elevated);
-            padding: 4rem 2rem;
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .stats-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-        .stat-item h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px var(--accent-glow);
-        }
-        .stat-item p {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .section { padding: 6rem 2rem; }
-        .section-alt { background: var(--bg-elevated); }
-        .section-warm { background: var(--bg-warm); }
-        .section-inner { max-width: 1200px; margin: 0 auto; }
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-        .section-label {
-            display: inline-block;
-            color: var(--accent);
-            font-size: 0.875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.75rem, 5vw, 3rem);
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .service-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px var(--accent-glow);
-        }
-        .service-icon {
-            width: 56px; height: 56px;
-            background: var(--accent-bg);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        .service-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.75rem;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-            line-height: 1.7;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-        }
-        .feature-item {
-            display: flex;
-            gap: 1.25rem;
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: all 0.3s;
-        }
-        .feature-item:hover { background: var(--glass); }
-        .feature-icon {
-            width: 48px; height: 48px;
-            background: var(--accent-bg);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.25rem;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        .feature-content h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-        .feature-content p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .about-section {
-            background: var(--bg-elevated);
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        .about-text h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-        .about-text p {
-            color: var(--text-secondary);
-            font-size: 1.0625rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-        .about-highlights {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-        }
-        .about-highlights h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-        .about-highlights ul {
-            list-style: none;
-        }
-        .about-highlights li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-        }
-        .about-highlights li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.125rem;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-        .testimonial-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.3s;
-        }
-        .testimonial-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        .testimonial-stars {
-            color: var(--accent);
-            font-size: 1.25rem;
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.1em;
-        }
-        .testimonial-text {
-            font-size: 1.0625rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-style: italic;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .testimonial-avatar {
-            width: 44px; height: 44px;
-            background: var(--surface);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--text);
-            font-size: 0.875rem;
-        }
-        .testimonial-name { font-weight: 700; font-size: 0.9375rem; color: var(--text); }
-        .testimonial-location { font-size: 0.875rem; color: var(--text-muted); }
-
-        .contact-section {
-            background: var(--bg-elevated);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 600px; height: 600px;
-            background: var(--accent);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.1;
-            transform: translate(-50%, -50%);
-        }
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-top: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 1.25rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-        }
-        .contact-method:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-        .contact-method span { font-size: 1.25rem; }
-        .address-block {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-            position: relative;
-            z-index: 1;
-        }
-        .address-block p { font-size: 0.9375rem; color: var(--text-muted); }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text);
-            border-color: var(--glass-border);
-        }
-
-        footer {
-            background: var(--bg);
-            color: var(--text-muted);
-            padding: 2.5rem;
-            text-align: center;
-            border-top: 1px solid var(--glass-border);
-        }
-        footer p { font-size: 0.875rem; }
-        footer a { color: var(--accent); text-decoration: none; }
-
-        .powered-by {
-            background: var(--bg-elevated);
-            color: var(--text-muted);
-            padding: 0.75rem;
-            text-align: center;
-            font-size: 0.8rem;
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .powered-by a { color: var(--accent); font-weight: 600; text-decoration: none; }
-
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        /* HERO */
+        .hero { text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #1a5276 0%, #2874a6 100%); color: white; }
+        .hero h1 { font-size: 2.8em; margin-bottom: 15px; font-weight: 800; }
+        .hero .tagline { font-size: 1.2em; opacity: 0.95; margin-bottom: 8px; }
+        .hero .location { font-size: 0.95em; opacity: 0.8; margin-bottom: 30px; }
+        .cta-button { display: inline-block; padding: 16px 36px; background: #e74c3c; color: white; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1em; transition: background 0.2s; }
+        .cta-button:hover { background: #c0392b; }
+        .whatsapp-cta { background: #25D366 !important; }
+        .whatsapp-cta:hover { background: #1da851 !important; }
+        /* TRUST BAR */
+        .trust-bar { background: #f8f9fa; padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .trust-bar span { margin: 0 15px; font-size: 0.9em; color: #666; }
+        .trust-bar strong { color: #1a5276; }
+        /* SOCIAL LINKS */
+        .social-links { padding: 20px; background: #f8f9fa; text-align: center; border-bottom: 1px solid #eee; }
+        .social-links a { display: inline-block; margin: 0 12px; padding: 8px 18px; background: white; border-radius: 6px; text-decoration: none; color: #1a5276; font-weight: 600; font-size: 0.9em; border: 1px solid #e0e0e0; transition: all 0.2s; }
+        .social-links a:hover { background: #1a5276; color: white; border-color: #1a5276; }
+        /* SERVICES */
+        .section { padding: 60px 20px; }
+        .section h2 { text-align: center; font-size: 2em; margin-bottom: 40px; color: #1a5276; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .service-card { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; text-align: center; transition: box-shadow 0.2s; }
+        .service-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .service-icon { font-size: 2.5em; margin-bottom: 15px; }
+        .service-card h3 { margin-bottom: 10px; color: #1a5276; }
+        .service-card p { font-size: 0.95em; color: #666; }
+        /* ABOUT */
+        .about-section { background: #f0f7fb; }
+        .about-content { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-text h2 { text-align: left; }
+        .about-text p { margin-bottom: 15px; font-size: 1.05em; }
+        .about-highlights { background: white; border-radius: 12px; padding: 25px; }
+        .about-highlights h3 { color: #1a5276; margin-bottom: 15px; }
+        .about-highlights ul { list-style: none; }
+        .about-highlights li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .about-highlights li::before { content: "✓"; position: absolute; left: 0; color: #27ae60; font-weight: bold; }
+        /* TESTIMONIALS */
+        .testimonial-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); margin-bottom: 20px; border-left: 4px solid #2874a6; }
+        .testimonial-card p { font-size: 1.05em; font-style: italic; margin-bottom: 12px; }
+        .testimonial-card cite { color: #666; font-size: 0.9em; }
+        /* CTA SECTION */
+        .cta-section { background: #1a5276; color: white; text-align: center; padding: 60px 20px; }
+        .cta-section h2 { margin-bottom: 20px; }
+        .cta-section p { margin-bottom: 30px; font-size: 1.1em; opacity: 0.9; }
+        .cta-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        /* CONTACT */
+        .contact-section { background: #f8f9fa; }
+        .contact-info { max-width: 600px; margin: 0 auto; text-align: center; }
+        .contact-info h2 { margin-bottom: 30px; color: #1a5276; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; text-align: left; background: white; padding: 15px 20px; border-radius: 8px; }
+        .contact-item .icon { font-size: 1.5em; }
+        /* FOOTER */
+        footer { background: #222; color: #aaa; text-align: center; padding: 20px; font-size: 0.85em; }
+        footer a { color: #00D4FF; text-decoration: none; }
+        /* BRAND BADGE */
+        .powered-by { background: #2D1B69; color: white; padding: 12px 20px; text-align: center; font-size: 0.85em; }
+        .powered-by a { color: #00D4FF; font-weight: 600; text-decoration: none; }
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .header-inner { padding: 0.75rem 1rem; }
-            nav { display: none; }
-            .hero { min-height: auto; padding: 8rem 1rem 4rem; }
-            .hero h1 { font-size: 2.5rem; }
-            .section { padding: 4rem 1rem; }
-            .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-            .stat-item h3 { font-size: 2rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .contact-methods { flex-direction: column; align-items: stretch; }
-            .contact-method { justify-content: center; }
+            .hero h1 { font-size: 2em; }
+            .about-content { grid-template-columns: 1fr; }
+            .cta-row { flex-direction: column; align-items: center; }
         }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-in { animation: fadeInUp 0.8s ease-out forwards; }
-        .glow-text { text-shadow: 0 0 40px var(--accent-glow); }
     </style>
 </head>
 <body>
+
+    <!-- BRAND BADGE -->
     <div class="powered-by">
-        🔷 Website built by <a href="https://bathabile-code.github.io/chomi-workspace/chomi-ai.html" target="_blank">Chomi AI</a> — SA AI Agent Builder
+        🔷 Website built by <a href="https://scenario-css-podcasts-directed.trycloudflare.com/chomi-ai.html" target="_blank">Chomi AI</a> — SA AI Agent Builder
     </div>
 
-    <header>
-        <div class="header-inner">
-            <a href="#" class="logo">
-                <div class="logo-icon">🚿</div>
-                MASGWAZI
-            </a>
-            <nav>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="tel:0742336904" class="nav-cta">Call Now</a>
-            </nav>
-        </div>
-    </header>
-
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-badge">
-                <span>♀️</span> Female-Owned & Operated in Durban
-            </div>
-            <h1>
-                Plumbing Done
-                <span>Right.</span>
-            </h1>
-            <p>MASGWAZI PROJECTS — Umlazi's trusted female-owned plumbing business. Reliable, affordable, and professionally certified.</p>
-            <div class="hero-cta">
-                <a href="tel:0742336904" class="btn-primary">
-                    📞 Call 074 233 6904
-                </a>
-                <a href="https://wa.me/27742336904?text=Hi%20MASGWAZI%2C%20I%20need%20a%20plumber%20in%20Durban" class="btn-secondary" target="_blank">
-                    💬 WhatsApp
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="stats-inner">
-            <div class="stat-item">
-                <h3>♀️</h3>
-                <p>Female-Owned</p>
-            </div>
-            <div class="stat-item">
-                <h3>✅</h3>
-                <p>Certified Plumber</p>
-            </div>
-            <div class="stat-item">
-                <h3>⚡</h3>
-                <p>Emergency Work</p>
-            </div>
-            <div class="stat-item">
-                <h3>📋</h3>
-                <p>COC Issued</p>
+        <div class="container">
+            <p class="tagline">Female-Owned &amp; Operated in Durban</p>
+            <h1>MASGWAZI PROJECTS</h1>
+            <p class="location">Serving Umlazi &amp; Greater Durban | 074 233 6904</p>
+            <div class="cta-row">
+                <a href="tel:0742336904" class="cta-button">📞 Call Now</a>
+                <a href="https://wa.me/27742336904?text=Hi%20MASGWAZI%2C%20I%20need%20a%20plumber%20in%20Durban" class="cta-button whatsapp-cta" target="_blank">💬 WhatsApp Us</a>
             </div>
         </div>
     </section>
 
-    <section class="section" id="services">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="section-label">What We Do</span>
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">From emergency repairs to full installations — we handle it all.</p>
-            </div>
+    <!-- SOCIAL LINKS -->
+    <div class="social-links">
+        <a href="https://facebook.com/masgwaziprojects" target="_blank">📘 Facebook</a>
+        <a href="https://instagram.com/masgwaziprojects" target="_blank">📷 Instagram</a>
+        <a href="tel:0742336904">📞 074 233 6904</a>
+    </div>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <span><strong>✅ Certified Plumber</strong></span>
+        <span><strong>⚡ Emergency Work</strong></span>
+        <span><strong>📋 COC Issued</strong></span>
+        <span><strong>🏠 Residential &amp; Commercial</strong></span>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section">
+        <div class="container">
+            <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🔧</div>
-                    <h3>Leak & Pipe Repairs</h3>
+                    <h3>Leak &amp; Pipe Repairs</h3>
                     <p>Burst pipes, leaking taps, and faulty connections — fast, lasting fixes.</p>
                 </div>
                 <div class="service-card">
@@ -675,7 +126,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🚽</div>
-                    <h3>Bathroom & Kitchen</h3>
+                    <h3>Bathroom &amp; Kitchen</h3>
                     <p>Full installations and renovations. Taps, toilets, basins — we handle it all.</p>
                 </div>
                 <div class="service-card">
@@ -697,9 +148,10 @@
         </div>
     </section>
 
-    <section class="section about-section" id="about">
-        <div class="section-inner">
-            <div class="about-grid">
+    <!-- ABOUT -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-content">
                 <div class="about-text">
                     <h2>Who We Are</h2>
                     <p>MASGWAZI PROJECTS is a female-owned plumbing business based in Umlazi, Durban. We bring hands-on expertise to every job — from small repairs to full installations.</p>
@@ -720,71 +172,59 @@
         </div>
     </section>
 
+    <!-- SOCIAL PROOF -->
     <section class="section">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="section-label">Testimonials</span>
-                <h2 class="section-title">What People Are Saying</h2>
-                <p class="section-subtitle">Real reviews from real Durban residents.</p>
-            </div>
-            <div class="testimonials-grid">
+        <div class="container">
+            <h2>What People Are Saying</h2>
+            <div style="max-width: 700px; margin: 0 auto;">
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Philisiwe fixed our kitchen tap in under an hour. She was professional, respectful, and the price was fair. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">HU</div>
-                        <div>
-                            <div class="testimonial-name">Homeowner</div>
-                            <div class="testimonial-location">Umlazi, Durban</div>
-                        </div>
-                    </div>
+                    <p>"Philisiwe fixed our kitchen tap in under an hour. She was professional, respectful, and the price was fair. Highly recommended!"</p>
+                    <cite>— Homeowner, Umlazi</cite>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Called MASGWAZI for an emergency leak on a Saturday. She arrived within the hour and had it sorted before my kids got home. Top service."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">PM</div>
-                        <div>
-                            <div class="testimonial-name">Property Manager</div>
-                            <div class="testimonial-location">Durban CBD</div>
-                        </div>
-                    </div>
+                    <p>"Called MASGWAZI for an emergency leak on a Saturday. She arrived within the hour and had it sorted before my kids got home from school. Top service."</p>
+                    <cite>— Property Manager, Durban CBD</cite>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="section-label" style="color: var(--accent);">Get Help Now</span>
-                <h2 class="section-title">Need a Plumber in Durban?</h2>
-                <p class="section-subtitle">Same-day quotes. No obligation. We serve all Durban and surrounding areas.</p>
-            </div>
-            <div class="contact-methods">
-                <a href="tel:0742336904" class="contact-method">
-                    <span>📞</span> 074 233 6904
-                </a>
-                <a href="https://wa.me/27742336904?text=Hi%20MASGWAZI%2C%20I%20need%20a%20plumber%20in%20Durban" class="contact-method" target="_blank">
-                    <span>💬</span> WhatsApp
-                </a>
-            </div>
-            <div class="social-links">
-                <a href="https://facebook.com/masgwaziprojects" class="social-link" target="_blank">📘 Facebook</a>
-                <a href="https://instagram.com/masgwaziprojects" class="social-link" target="_blank">📷 Instagram</a>
-            </div>
-            <div class="address-block">
-                <p>
-                    📍 Umlazi, Durban — Serving Greater Durban<br>
-                    ⏰ Mon–Sat 7am–6pm | Emergency calls available
-                </p>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need a Plumber in Durban?</h2>
+            <p>Same-day quotes. No obligation. We serve all Durban and surrounding areas.</p>
+            <div class="cta-row">
+                <a href="tel:0742336904" class="cta-button">📞 Call 074 233 6904</a>
+                <a href="https://wa.me/27742336904?text=Hi%20MASGWAZI%2C%20I%20need%20a%20plumber%20in%20Durban" class="cta-button whatsapp-cta" target="_blank">💬 WhatsApp 074 233 6904</a>
             </div>
         </div>
     </section>
 
+    <!-- CONTACT -->
+    <section class="section contact-section">
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <div class="contact-item">
+                <span class="icon">📞</span>
+                <span><strong>074 233 6904</strong> — Call or WhatsApp</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon">📍</span>
+                <span>Umlazi, Durban — Serving Greater Durban</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon">⏰</span>
+                <span>Mon–Sat 7am–6pm | Emergency calls available</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 MASGWAZI PROJECTS | Female-Owned Plumbing Business | Durban, South Africa</p>
-        <p style="margin-top:8px;">Powered by <a href="https://bathabile-code.github.io/chomi-workspace/chomi-ai.html" target="_blank">Chomi AI</a> — Building smart SA businesses online 🇿🇦</p>
+        <p>&copy; 2026 MASGWAZI PROJECTS | Female-Owned Plumbing Business | Durban, South Africa</p>
+        <p style="margin-top:8px;">Powered by <a href="https://scenario-css-podcasts-directed.trycloudflare.com/chomi-ai.html" target="_blank">Chomi AI</a> — Building smart SA businesses online 🇿🇦</p>
     </footer>
+
 </body>
 </html>
