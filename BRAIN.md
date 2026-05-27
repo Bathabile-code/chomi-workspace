@@ -1,36 +1,46 @@
 # BRAIN.md — Operational State
-_Last refreshed: 2026-04-23 08:28 UTC_
+_Last refreshed: 2026-05-27 19:04 UTC_
 
 ## Active Projects
 | Project | Status | Next Step | Last Updated |
 |---------|--------|-----------|--------------|
-| AutoSite SA Lead Gen | Live | 5 Durban leads, all researched + competitor analysis complete | 2026-03-15 |
-| Chomi workspace setup | Done | Daily improvements active | 2026-02-21 |
-| OpenClaw Monetization | Research | Fiverr gig + setup service | 2026-03-14 |
-| GitHub Backup | ✅ Active | Pushed Apr 20 — PAT token working 2026-03-14 |
+| EP02 Expert Agents | Article Done, Demo Pending | Record demo session | 2026-05-22 |
+| Chomi 2.0 | Phase 1 Done, Phase 2 Pending | Validate plan, start Week 1 | 2026-05-23 |
+| Ngcebo Awnings Website | Done | Client review + deploy | 2026-05-27 |
+| Reddy's Drain Cleaning | Redesign Done | Deploy update | 2026-05-27 |
+| MASgwazi Projects | Redesign reverted | Client prefers original | 2026-05-27 |
+| AI Forward Engineer Research | Done | Integrate into content pipeline | 2026-05-27 |
+| AutoSite SA Lead Gen | Live | 5 leads, all researched + competitor analysis | 2026-03-15 |
+| EP03 Mission Control | Build Complete | Vercel deploy + demo | 2026-05-04 |
+| GitHub Backup | ✅ Active | PAT working, pushing daily | 2026-05-27 |
 
 ## Immediate Actions (Today)
-- [ ] BRAIN.md refreshed — was 31 days stale (last update Mar 18)
-- [ ] Heartbeat check executed
-- [ ] AutoSite SA: 5 leads all have researched:true + competitor_analysis:completed ✅
+- [x] BRAIN.md refreshed — was 37 days stale (last update Apr 20)
+- [x] Evening cron run — git committed (Reddy's redesign + ngcebo submodule)
+- [x] All working trees clean
+- [ ] Chomi 2.0 Phase 2 — 10 days in "doing", needs decision
+- [ ] EP03 Vercel deploy — 23 days "todo", build complete since May 4
 
 ## Background Tasks
 - [x] Memory flush + session search enabled
 - [x] AGENTS.md safety rails configured
 - [x] Exa AI skill configured
-- [x] Daily 9am improvement (cron active but clock偏移 — fires ~10:06am SAST instead of 9am)
+- [x] Daily 9am improvement (cron active but clock offset — fires ~10:06am SAST instead of 9am)
+- [x] Morning + evening cron running successfully
 
 ## Blocked / Needs Attention
-- GitHub backup blocked — needs Thaby to set PAT token
-- Telegram group bug still open (GitHub #30522) — webhook workaround task created
-- ⏸️ **Parked:** Mission Control build (subagent issues), Apollo Leadgen (not pursuing)
-- WhatsApp: Check stability since Mar 18 reconnection
+- ⏸️ Chomi 2.0 Phase 2 — decision needed from Thaby
+- ⏸️ EP03 Vercel deploy — just needs deployment
+- ⏸️ Telegram group bug still open (GitHub #30522) — webhook workaround
+- ⏸️ AutoSite SA outreach — leads ready, outreach not started
 
 ## What Happened Recently
-- **Apr 23:** Evening cron run — no user sessions today, all systems quiet
-- **Apr 22:** Evening cron run — no user sessions, git clean
-- **Apr 20:** Evening cron run — git pushed (commit 70fdba6)
-- **Apr 18:** WhatsApp reconnected after 2-day outage; morning skill research done (OpenMolt, VoltAgent, security alerts); AutoSite SA Quality Check: 5 leads all clean ✅
+- **May 27:** Ngcebo Awnings website redesign + Reddy's Drain Cleaning redesign + MASgwazi redesign reverted; AI Forward Engineer research; evening cron pushed
+- **May 25:** Agent team build session (Thaby); sub-agent timeout fix (7200s)
+- **May 22-23:** EP02 article finalized; EP02 demo script done; sub-agent timeout fix for Kwazi
+- **May 18:** EP02 expert agents task completed; email proof documented
+- **May 4:** EP03 Mission Control dashboard build complete
+- **Apr 20:** Last BRAIN.md refresh
 
 ## Cron Jobs Active
 - morning_routine (9am SAST) — fires ~10:06am SAST due to clock offset, still functional
@@ -45,52 +55,6 @@ _Last refreshed: 2026-04-23 08:28 UTC_
 - **Status: All leads ready for outreach**
 
 ---
-_Last checked: 2026-04-20 04:58 UTC_
+_Last checked: 2026-05-27 19:04 UTC_
 
 ---
-
-# Cron Run - 2026-04-20 (Monday Early Morning, 4:58 AM SAST)
-
-
-## Summary
-- BRAIN.md last updated Apr 18 — 2 days stale, refreshed this run
-- MEMORY.md last updated Apr 18 evening — updated with current state
-- Git working tree: clean (nothing to commit)
-- Lessons: no new lessons since March 2026
-- Task board: all stale Feb-Mar tasks, no new tasks to add
-- Last cron run logged: Apr 19 midday (Sunday)
-
-## BRAIN.md Refresh — Apr 20
-- Projects unchanged (AutoSite SA live, GitHub Backup blocked)
-- Telegram bug still open (#30522, #66797)
-- WhatsApp stability not flagged as issue
-- Morning cron clock offset still present (~10:06am instead of 9am)
-- All skills status unchanged from Apr 18
-
-## Session Notes
-- Only active session: this cron run
-- No user chat sessions since Apr 19
-- All systems stable
-
----
-_Last checked: 2026-04-18 09:42 SAST_
-
----
-
-# Cron Run - 2026-04-20 (Monday Evening, 9:00 PM SAST)
-
-
-## Summary
-- BRAIN.md last updated Apr 18 morning — 2 days stale, refreshed
-- MEMORY.md last updated Apr 18 evening
-- Git working tree: 5 files changed (config/mcporter.json, .gitignore, 2 screenshots, servicenow tools)
-- Lessons: no new lessons since March 2026
-- Task board: stale Feb-Mar tasks only, no new tasks to add
-- Git backup: ✅ Pushed (commit 45e0abf)
-
-## State
-- All systems stable
-- No action required
-
----
-_Last checked: 2026-04-20 09:00 SAST_
