@@ -231,8 +231,9 @@
       "all_have_addresses": true,
       "some_have_online_presence": false,
       "ready_for_outreach": true,
-      "competitor_analysis_complete": true
+      "competitor_analysis_complete": true,
+      "last_quality_check": "2026-05-28"
     }
   },
-  "quality_check_date": "2026-03-15"
+  "quality_check_date": "2026-05-28"
 }
