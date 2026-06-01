@@ -537,16 +537,33 @@ Consider the outage/SLA example again.
 **The SRE summary says:**
 > CloudCart had elevated 502s and queue lag. Some orders were delayed. Some failed permanently. Some failures were caused by the customer's expired integration token. Do not conflate customer-claimed impact with platform-observed impact.
 
-**The CRM note says:**
-> AE verbally promised "we'll make it right" in renewal call. No written approval. No finance sign-off.
+**The legal note says:**
+> Do not admit liability. Do not say CloudCart caused the claimed revenue loss. Do not use "make whole." Do not treat the AE statement as binding. Do not offer three months free without approval.
 
-**The contract says:**
-> SLA credit applies only to platform-availability breaches verified by internal monitoring. Business-impact claims require separate commercial negotiation.
+**The finance note says:**
+> SLA credit is based on monthly subscription fee, not claimed lost revenue. Possible contractual credit may be 10% or 25%. Three months free is a commercial concession, not an SLA credit.
 
-**The Slack thread says:**
-> Support team discussing how to handle "make it right" promises. Unwritten workaround: if customer mentions AE promise, escalate to Customer Success VP. Do not mention in ticket.
+**The customer-success note says:**
+> Strategic logo. Renewal in 42 days. High churn risk. Do not treat this as a normal support ticket.
 
-Each artifact is real. Each is partial. None shows the full picture.
+None of these artifacts is worthless.
+None of them is merely vague.
+
+But none of them, on its own, tells us what work an agent can safely take over.
+
+Only after normalisation do the candidate units become visible:
+- Draft customer-facing incident response
+- Distinguish platform-caused degradation from customer-owned failure
+- Route SLA-credit claim to Finance
+- Assess contractual SLA-credit eligibility
+- Approve commercial make-good
+- Apply approved credit
+
+Those are the objects that can be assessed.
+
+Not the broad sentence: **Handle the SLA claim.**
+
+## What "Buildable" Means in ServiceNow
 
 The agentic-work-potential finding requires a view that none of these artifacts provides on its own.
 
@@ -929,6 +946,46 @@ If you can answer all 6 for a workflow, it is buildable.
 
 If you can't, it is not ready for agentic delegation—no matter how good the Now Assist demo looks.
 
+## What Comes Next
+
+This piece is the argument.
+
+It is not the full method.
+
+The next step is to show the schema in action.
+
+We are building a public research approach that will contain the working schema, examples, templates, test cases, and the progression of the research. The goal is not to present a finished standard from on high. The goal is to make the work visible: what we tried, what broke, what changed, and where the schema still needs pressure.
+
+The approach will include simple examples first, then harder cases.
+
+We will show how a seemingly simple customer request expands into separate work units, and then how the same structure applies to messier domains:
+- outage-related SLA claims in B2B SaaS support
+- invoice exceptions in Finance Operations
+- standard change processing in ITSM
+- HR case escalations in HRSD
+- CMDB reconciliation in ITOM
+- customer onboarding in CSM
+- and later other domains such as warehouse logistics, compliance, legal operations, sales ops, and the office of the COO
+
+Each example will move through the same chain:
+**messy evidence → candidate work-unit boundaries → boundary record → work-unit spec → desktop agentic-potential burden → finding**
+
+We will also publish the schema reference itself: the categories, templates, field definitions, finding format, and claim-discipline rules. The reference is for people who want to apply the structure, not just read the argument.
+
+The goal is not to create another static governance artifact. If the schema does not stay tightly coupled to build decisions, live test results, and changing operational reality, it will become the very shelf-ware it is meant to improve. We will therefore treat maintenance and evolution of work-unit records as an open research problem, not an afterthought.
+
+## The Broader Research Question
+
+The broader research question is simple:
+
+**Can we create a useful standard for recording what has been discovered about work, so that agentic-potential findings become comparable, challengeable, digitised, and testable?**
+
+The answer is not settled.
+
+But the early signal is promising: the schema appears to help turn messy work evidence into more consistent, inspectable work-unit boundaries.
+
+That is where the serious work begins.
+
 ## The Real ServiceNow Advantage
 
 The time savings from automation are nice. But the bigger win is **decision latency**.
@@ -1024,3 +1081,13 @@ Until then, you're just imagining.
 ---
 
 *This article was adapted from the original work on enterprise agent readiness, repurposed for ServiceNow platform owners, architects, and AI leaders.*
+
+## Acknowledgements
+
+This piece was developed with the assistance of several AI systems, each used for a different part of the work.
+
+The original framework was developed through extensive research and testing with multiple AI models serving as stress-testing harnesses. The models were given messy evidence packs from synthetic domains (invoice-exception handling in Finance Operations and outage/SLA-credit handling in B2B SaaS support) to iterate and refine the schema against real-world complexity.
+
+The ServiceNow-specific adaptation was built by mapping the general framework to ServiceNow's platform capabilities: Now Assist, Flow Designer, Predictive Intelligence, Agent Intelligence, CMDB, Knowledge Management, and the broader Now Platform ecosystem.
+
+The goal is not to present a finished standard, but to make the work visible and invite collaboration from the ServiceNow community.
