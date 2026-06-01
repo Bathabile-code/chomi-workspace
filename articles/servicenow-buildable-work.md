@@ -318,6 +318,135 @@ This is why a process label is not a build specification.
 It may be useful for conversation.
 It is too coarse for delegation.
 
+## The Proposed Chain
+
+The proposed chain is:
+
+**messy evidence → candidate work-unit boundaries → boundary record → work-unit spec → desktop agentic-potential burden → finding**
+
+Each step has a job.
+
+### Messy evidence
+
+What the organisation already has or can discover in ServiceNow:
+- SOPs (knowledge articles)
+- Logs (audit history, system logs, discovery traces)
+- Tickets (incidents, changes, requests, problems)
+- Interviews (with process owners, agents, managers)
+- Emails (work notes, notifications, approvals)
+- System traces (workflow executions, business rule triggers)
+- Examples (successful resolutions, standard changes)
+- Exceptions (workarounds, manual overrides, escalations)
+- Policies (data policies, SLA definitions, approval matrices)
+- Workarounds (Slack agreements, unwritten procedures)
+
+### Candidate work-unit boundaries
+
+Ask:
+- What is the actual unit of work?
+- Where does it start?
+- Where does it end?
+- What result does it produce?
+
+### Boundary records
+
+Make the unit inspectable:
+- What is transformed?
+- Where is the result recorded? (ServiceNow table, field, state)
+- Who immediately relies on it?
+- Who performs it?
+- Who has authority?
+- What sits outside the unit?
+
+### Work-unit specs
+
+Carry the burden:
+- What facts, tools, standards, permissions, evidence, source authority, quality expectations, case ranges, dependencies, modifiers, and unknowns does the unit require?
+
+### Desktop agentic-potential burdens
+
+Ask:
+- What would an agent need to satisfy to perform this unit under a stated operating envelope?
+- What ServiceNow tools would it use?
+- What permissions would it need?
+- What evidence would it require?
+- What exceptions would it need to handle?
+- What human review would it need?
+
+### Findings
+
+Record the conclusion:
+- **assist** — agent can help, but human does the work
+- **augment** — agent can enhance human capability
+- **automate** — agent can perform under defined conditions
+- **agent-primary** — agent can perform with minimal human oversight
+- **human-owned** — authority-bearing decision, stays human
+- **recompose** — redesign the work before automating
+- **eliminate** — remove the work entirely
+- **unknown** — not enough evidence to decide
+
+The schema is not the discovery itself.
+
+It is the normalisation layer between discovery and decision.
+
+It receives what discovery produces and records it in a burden-bearing form.
+
+## The Finding Must Not Exceed the Burden
+
+This is where the schema earns its discipline.
+
+A finding may not treat:
+- drafting as approval
+- recommendation as decision
+- calculation as authorisation
+- status-page language as tenant-specific causation
+- customer claim as established fact
+- Slack workaround as source authority
+- system event as work unit
+- human workaround as permitted practice
+- normal case as exception coverage
+- technical ability as institutional permission
+
+The point is not administrative neatness.
+
+The point is keeping the finding tied to the burden.
+
+If the work-unit spec only supports draft generation, the finding cannot claim the agent can handle the customer.
+
+If the spec shows Finance owns approval, the finding cannot claim the agent can approve credit.
+
+If the evidence only shows an informal Slack workaround, the finding cannot treat that workaround as source authority.
+
+If the unit requires authority that has not been delegated, the finding cannot claim agent-primary replacement.
+
+The finding must be constrained by the burden.
+
+That is the whole point.
+
+## What This Enables
+
+Standardisation matters because it turns local understanding into reusable structure.
+
+Without a schema, each artifact has to be interpreted in its own local language.
+
+With a schema, the organisation can start to create common digital objects:
+- work-unit records
+- boundary records
+- evidence packs
+- authority maps
+- permission matrices
+- quality standards
+- exception handlers
+- feedback loops
+
+These objects can be inspected, challenged, digitised, and tested.
+
+They can be shared across teams, compared across workflows, and reused across projects.
+
+They make the work and the claim inspectable.
+
+That is the whole point.
+
 ## What This Is Not Claiming
 
 This is not a claim that every ServiceNow AI build needs this level of analysis.
