@@ -88,6 +88,196 @@ The point is to know which is which.
 
 And right now, most organisations can't tell the difference because they don't have a decision-grade account of the work itself.
 
+## The Work Unit Escalation: Why Simple Tasks Become Complex
+
+The original article uses a brilliant example to show how work units split. Let me adapt it for ServiceNow.
+
+### Start Simple: Send the Customer an Incident Update
+
+Take something obvious:
+
+**Send the customer an update on their incident status.**
+
+That sounds simple because it mostly is.
+
+A customer asks for an update. The agent finds the incident. The agent sends the status.
+
+Even here, the work has a shape:
+
+- **Need:** Customer asks for an incident status update
+- **Work object:** Customer request + incident record + SLA status
+- **Transformation:** The request is checked, the correct incident is located, the current status is verified, and the update is prepared
+- **Done state:** The correct status update is sent to the customer and the communication is logged
+- **Immediate reliance:** The customer uses the update for planning, escalation, or reassurance
+
+At this level, the unit is fairly clear.
+
+It is not "customer support."
+It is not "ITSM."
+It is not "handle customer request."
+
+It is more specific: **Send incident status update to customer.**
+
+That is the basic shape.
+
+### Now Add One Complication
+
+The customer asks: *Can you send me the status? Also, the incident is causing a production outage.*
+
+The unit starts to split.
+
+There is still one unit: **Send incident status update to customer.**
+
+But there is now another possible unit: **Identify business impact and severity.**
+
+And perhaps another: **Route high-impact incident to Major Incident Management.**
+
+Why? Because sending a status update is not the same as determining whether the incident is a Major Incident.
+
+The first unit produces a communication sent to the customer.
+The second produces a classification or finding:
+- This is a normal incident status request.
+- This is a Major Incident.
+- This needs immediate escalation.
+- This needs executive communication.
+- This needs customer-facing SLA assessment.
+
+Same customer. Same ticket. Different work.
+
+An agent might be able to send the status update. That does not mean it can declare a Major Incident.
+
+### Now Add Authority
+
+The customer says: *This outage is costing us money. We need an SLA credit.*
+
+Support may be able to:
+- Find the incident record
+- Explain what the SLA says
+- Collect the customer's claim
+- Route the issue to Service Level Management
+- Draft a response
+
+But Support may not be allowed to:
+- Approve an SLA credit
+- Change the SLA definition
+- Issue a service credit
+- Admit that the company breached the SLA
+- Promise compensation
+
+This is the first major cliff.
+
+The agent may be technically able to write: *We'll credit your SLA.*
+
+But the question is not only whether it can write that sentence.
+
+The question is whether the work unit includes authority to make that commitment.
+
+If authority has not been delegated, the agent cannot complete that unit. It can prepare, recommend, route, or draft. It cannot decide.
+
+So now we have several different units:
+- Send incident status update
+- Classify business impact
+- Route SLA credit request
+- Approve or reject SLA credit
+- Apply approved SLA credit
+- Communicate resolution to customer
+
+Different work. Different authority. Different agentic potential.
+
+### Now Add Evidence and Legal Exposure
+
+The customer says: *Your outage caused us to miss our internal deadline and cost us money.*
+
+The business must separate:
+- **Customer claim** from **established fact**
+
+The customer's statement is evidence that the customer is making a claim. It is not proof that the company caused a loss.
+
+A good support agent, human or AI, must know the difference between:
+- Incident status update
+- Business impact assessment
+- Customer claim
+- Internal incident record
+- Contractual SLA entitlement
+- Commercial goodwill
+- Legal admission
+- Approved compensation
+
+If the agent collapses those distinctions, it may produce something fluent and dangerous:
+
+> *We're sorry our outage caused your loss. We will compensate you.*
+
+That may sound empathetic. It may also be unauthorized, legally risky, and factually unsupported.
+
+The task was never simply "reply to the customer."
+
+The work now includes evidence, source authority, policy, permitted language, and decision rights.
+
+### Now Add Modifiers
+
+The customer is strategic. Renewal is in 30 days. They are threatening to leave.
+
+The account executive says: *We need to make this right.*
+
+Those facts matter. But they do not automatically become new work units.
+
+They modify the burden of existing work.
+
+They may change:
+- Priority
+- Routing
+- Review level
+- Authority holder
+- Legal sensitivity
+- Commercial discretion
+- Response timing
+- Escalation path
+
+The support agent may still be drafting a response. But now the draft may require Legal review, Customer Success escalation, Finance approval, or executive sign-off.
+
+The work unit did not become: **Handle strategic customer.**
+
+That phrase hides everything.
+
+The better view is:
+- Draft customer response
+- Route SLA credit request
+- Escalate churn risk
+- Approve commercial concession
+- Apply approved SLA credit
+- Communicate resolution
+
+Different units. Different owners. Different findings.
+
+The simple task taught us the shape. The complicated version showed why the shape matters.
+
+## The Same Split Appears in Consequential ServiceNow Work
+
+Now take a more serious business sentence:
+
+**"Handle outage-related SLA claims."**
+
+That sounds like a work unit. It is not. It is a container hiding at least six different units:
+
+1. **Log customer complaint** (Support)
+2. **Verify incident timeline and SLA breach** (Service Level Management)
+3. **Assess contractual entitlement** (Legal/Contracts)
+4. **Approve or reject credit** (Finance/Service Level Management)
+5. **Apply approved credit** (Finance/Billing)
+6. **Communicate resolution** (Support/Customer Success)
+
+Some of those may be agentic. Some may not. Some may be agent-assisted. Some may remain human-owned.
+
+But you cannot tell until you split the container into actual units.
+
+The same split appears in:
+- **"Process standard changes"** → Classify, assess risk, build, test, approve, schedule, implement, review
+- **"Handle HR cases"** → Categorise, route, investigate, advise, escalate, resolve, close
+- **"Reconcile CMDB"** → Identify discrepancies, verify sources, approve corrections, apply updates, validate
+- **"Manage customer escalations"** → Log, assess, route, communicate, resolve, follow up
+
+Each phrase hides multiple work units with different boundaries, evidence, authority, and agentic potential.
+
 ## What This Is Not Claiming
 
 This is not a claim that every ServiceNow AI build needs this level of analysis.
