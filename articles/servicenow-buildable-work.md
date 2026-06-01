@@ -257,26 +257,66 @@ Now take a more serious business sentence:
 
 **"Handle outage-related SLA claims."**
 
-That sounds like a work unit. It is not. It is a container hiding at least six different units:
+That sounds like a work unit. It is not. It is a container hiding at least ten different units:
 
-1. **Log customer complaint** (Support)
-2. **Verify incident timeline and SLA breach** (Service Level Management)
-3. **Assess contractual entitlement** (Legal/Contracts)
-4. **Approve or reject credit** (Finance/Service Level Management)
-5. **Apply approved credit** (Finance/Billing)
-6. **Communicate resolution** (Support/Customer Success)
+1. **Classify the support ticket** (Support)
+2. **Open an impact review** (Incident Management)
+3. **Gather customer-provided facts** (Support)
+4. **Request tenant-specific evidence from SRE** (Engineering)
+5. **Distinguish platform-caused degradation from customer-owned failures** (SRE/Engineering)
+6. **Draft the customer-facing incident response** (Support/Communications)
+7. **Review sensitive wording** (Legal)
+8. **Route the SLA-credit claim to Finance** (Service Level Management)
+9. **Assess contractual SLA-credit eligibility** (Finance/Legal)
+10. **Approve or reject the credit** (Finance/Executive)
+11. **Escalate commercial make-good to Customer Success leadership** (Customer Success)
+12. **Apply approved credit in Billing** (Finance/Billing)
+13. **Run churn-recovery work** (Customer Success)
 
-Some of those may be agentic. Some may not. Some may be agent-assisted. Some may remain human-owned.
+Those units are not interchangeable.
 
-But you cannot tell until you split the container into actual units.
+They have different owners, evidence, systems, authority, quality standards, and findings.
 
-The same split appears in:
-- **"Process standard changes"** → Classify, assess risk, build, test, approve, schedule, implement, review
-- **"Handle HR cases"** → Categorise, route, investigate, advise, escalate, resolve, close
-- **"Reconcile CMDB"** → Identify discrepancies, verify sources, approve corrections, apply updates, validate
-- **"Manage customer escalations"** → Log, assess, route, communicate, resolve, follow up
+For example:
+- **Draft customer-facing incident response:** Potential agent-primary candidate under review gates
+- **Legal review of liability-sensitive wording:** Legal-owned authority review
+- **Assess contractual SLA-credit eligibility:** Agent may assist or draft calculation; Finance owns approval
+- **Approve commercial make-good:** VP / executive authority decision
+- **Apply approved credit:** Billing execution after approval
 
-Each phrase hides multiple work units with different boundaries, evidence, authority, and agentic potential.
+So the answer is not: *AI can handle SLA claims.*
+
+The better answer is: *Some units inside SLA-claim handling are strong agentic candidates. Some are assistive. Some are authority-bearing. Some belong to Finance, Legal, Billing, Customer Success, or Engineering. Some remain unknown until stronger evidence exists.*
+
+The finding has become bounded enough to inspect.
+
+## The Same Pattern in Finance Operations
+
+**"Process invoice exceptions."**
+
+That sentence may hide:
+1. **Classify exception**
+2. **Gather evidence**
+3. **Prepare exception packet**
+4. **Route to correct approver**
+5. **Approve or reject**
+6. **Release from hold**
+7. **Treasury executes payment**
+8. **Respond to vendor inquiry**
+9. **Escalate vendor commitment or dispute**
+
+Again, the finding differs by unit:
+
+- **Prepare exception packet:** Conditional agent-primary candidate
+- **Approve / reject exception:** Human-owned authority decision under current facts
+- **Release from hold:** Conditional automation candidate if valid approval and permissions are clear
+- **Treasury payment execution:** Downstream dependency
+- **Vendor payment promise:** Unauthorized observed practice, not work to automate
+
+This is why a process label is not a build specification.
+
+It may be useful for conversation.
+It is too coarse for delegation.
 
 ## What This Is Not Claiming
 
@@ -320,6 +360,66 @@ It does not decide whether an agent is the right solution.
 Nor is it a replacement for mature discovery, process-modelling, or requirements disciplines — process mining, task mining, Event Storming, DDD, or any other serious way of understanding work. It is a purpose-built normalisation layer that turns already-discovered work into bounded work-unit records, explicit burdens, and inspectable findings that can support agentic delegation decisions.
 
 It makes the work and the claim inspectable.
+
+## Existing Artifacts Are Useful, But They Do Not Normalise Themselves
+
+Most organisations already have many ways to describe work in ServiceNow.
+
+They may have:
+- SOPs (knowledge articles)
+- process maps (Flow Designer workflows)
+- ticket histories (incident/change/request records)
+- system logs (audit history, discovery logs)
+- task-mining traces (Performance Analytics)
+- audit findings (GRC, compliance records)
+- RACI charts (governance documents)
+- interview notes (project documentation)
+- policy documents (data policies, SLAs)
+- control matrices (risk registers)
+- vendor assessments (implementation docs)
+- consulting decks (transformation documents)
+- FDE notes (platform design records)
+
+These artifacts are not useless. Many are valuable. Some are highly detailed.
+
+But they usually preserve fragments of work in the language of the artifact.
+
+- A process map may show flow, but not the judgment at each decision point
+- A log may show events, but not why the human acted
+- An SOP may show intended procedure, but not the workaround the team actually uses
+- An audit note may show control failure, but not the full work unit
+- An interview may reveal a workaround, but not prove it happens consistently
+- A policy may define authority, but not show work in motion
+- A vendor proposal may suggest automation, but not show local authority
+- An FDE note may describe what can be built, but not what should be delegated
+
+Each artifact may be true in its own way.
+
+But none necessarily records the full burden required to make an agentic-work-potential finding.
+
+Consider the outage/SLA example again.
+
+**The support ticket says:**
+> Customer claims outage caused $280k lost revenue. Customer demands three months free. Customer says AE promised commercial relief. Customer threatens churn. Customer demands written response today.
+
+**The status page says:**
+> Partial degradation. Some customers may have experienced delayed order ingestion. Incident resolved.
+
+**The SRE summary says:**
+> CloudCart had elevated 502s and queue lag. Some orders were delayed. Some failed permanently. Some failures were caused by the customer's expired integration token. Do not conflate customer-claimed impact with platform-observed impact.
+
+**The CRM note says:**
+> AE verbally promised "we'll make it right" in renewal call. No written approval. No finance sign-off.
+
+**The contract says:**
+> SLA credit applies only to platform-availability breaches verified by internal monitoring. Business-impact claims require separate commercial negotiation.
+
+**The Slack thread says:**
+> Support team discussing how to handle "make it right" promises. Unwritten workaround: if customer mentions AE promise, escalate to Customer Success VP. Do not mention in ticket.
+
+Each artifact is real. Each is partial. None shows the full picture.
+
+The agentic-work-potential finding requires a view that none of these artifacts provides on its own.
 
 ## What "Buildable" Means in ServiceNow
 
