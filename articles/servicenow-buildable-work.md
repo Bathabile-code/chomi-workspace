@@ -445,7 +445,34 @@ They can be shared across teams, compared across workflows, and reused across pr
 
 They make the work and the claim inspectable.
 
-That is the whole point.
+That makes it possible to:
+- compare findings across teams
+- aggregate across functions
+- track unknowns
+- build work graphs
+- convert findings into implementation requirements
+
+A ServiceNow product builder can use this structure to understand what their product should and should not do.
+
+A forward-deployed engineering (FDE) team can use it to convert discovery into build requirements.
+
+A Head of AI can use it to compare agent opportunities across functions.
+
+A public-sector team can use it to make delegation boundaries explicit before automating services.
+
+A serious buyer can use it to challenge vendor claims.
+
+This does not guarantee successful agents.
+It does not remove risk.
+It does not replace live testing.
+
+But it makes the conversation more concrete.
+
+Not: *Can the agent handle SLA claims?*
+
+But: *The agent may be agent-primary for drafting incident responses under review gates. It may assist with internal causation distinction, but customer-facing causation language remains Legal/SRE-gated. Finance owns contractual credit approval. VP Customer Success owns commercial make-good. Billing applies approved credit.*
+
+That is a decision-grade conversation.
 
 ## What This Is Not Claiming
 
@@ -1088,6 +1115,14 @@ This piece was developed with the assistance of several AI systems, each used fo
 
 The original framework was developed through extensive research and testing with multiple AI models serving as stress-testing harnesses. The models were given messy evidence packs from synthetic domains (invoice-exception handling in Finance Operations and outage/SLA-credit handling in B2B SaaS support) to iterate and refine the schema against real-world complexity.
 
+AI systems were used as collaborators, critics, and accelerants throughout the process:
+- **Research and methodology development** — developing the core argument, pressure-testing the framing, designing synthetic work-evidence packs, iterating the Agentic Work Potential Schema, analysing model outputs, red-teaming objections, and refining the language
+- **Proofreading and objection identification** — identifying objections that needed to be considered and addressed more carefully
+- **Prior art research** — research into work decomposition, process analysis, task analysis, and related methodologies
+- **Formatting and presentation** — assisting with structure and readability
+
 The ServiceNow-specific adaptation was built by mapping the general framework to ServiceNow's platform capabilities: Now Assist, Flow Designer, Predictive Intelligence, Agent Intelligence, CMDB, Knowledge Management, and the broader Now Platform ecosystem.
+
+The final claims, framing, edits, and responsibility for the piece remain with the human authors. The AI systems were collaborators, not authors.
 
 The goal is not to present a finished standard, but to make the work visible and invite collaboration from the ServiceNow community.
