@@ -2,6 +2,54 @@
 
 ---
 
+# Cron Run - 2026-06-02 (Tuesday Morning, 8:08 AM SAST)
+
+## Summary
+- **Session flush**: No active user sessions since May 25 — nothing to flush
+- **Lessons checked**: No new lessons since Feb 21 (learning_notes.md empty on May 10) — all previously merged in MEMORY.md
+- **Git working tree**: 1 modified file (MEMORY.md update from previous cron run) to commit
+- **Task board review**: 2 stale items still flagged from previous runs:
+  - `2026-05-17-chomi-2-0.md` — "doing" for 16 days, Phase 2 not started (needs Thaby decision)
+  - `2026-05-04-ep03-vercel-deploy.md` — "todo" for 29 days, build complete since May 4
+
+## Actions Taken
+- [x] Session flush: No new sessions to flush
+- [x] Lessons check: No new lessons to merge
+- [x] Git backup: Commit MEMORY.md update, push to origin main
+- [x] Stale task flags: Chomi 2.0 + EP03 Vercel deploy still pending
+
+## State
+- All systems stable
+- Last user session: May 25, 2026 (agent team build)
+- GitHub push: Working (PAT confirmed)
+- Tuesday morning — likely resuming work day
+
+---
+
+# Cron Run - 2026-06-01 (Monday Evening, 5:05 PM SAST)
+
+## Summary
+- **Session flush**: No active user sessions since May 25 — nothing to flush
+- **Lessons checked**: No new lessons since Feb 21 — all previously merged in MEMORY.md
+- **Git working tree**: 1 modified file (autosite-sa/leads/durban-sample.json) to commit
+- **Task board review**: 2 stale items still flagged:
+  - `2026-05-17-chomi-2-0.md` — "doing" for 15 days, Phase 2 not started (needs Thaby decision)
+  - `2026-05-04-ep03-vercel-deploy.md` — "todo" for 28 days, build complete since May 4
+
+## Actions Taken
+- [x] Session flush: No new sessions to flush
+- [x] Lessons check: No new lessons to merge (all from Feb 18-21, previously merged)
+- [x] Git backup: Commit durban-sample.json update, push to origin main
+- [x] Stale task flags: Chomi 2.0 + EP03 Vercel deploy still pending
+
+## State
+- All systems stable
+- Last user session: May 25, 2026 (agent team build)
+- GitHub push: Working (PAT confirmed)
+- Monday evening — standard backup routine completed
+
+---
+
 # Cron Run - 2026-05-31 (Sunday Morning, 9:24 AM SAST)
 
 ## Summary
