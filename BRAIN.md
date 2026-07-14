@@ -1,5 +1,5 @@
 # BRAIN.md — Operational State
-_Last refreshed: 2026-07-11 19:03 UTC_
+_Last refreshed: 2026-07-14 12:03 UTC_
 
 ## Active Projects
 | Project | Status | Next Step | Last Updated |
@@ -18,8 +18,8 @@ _Last refreshed: 2026-07-11 19:03 UTC_
 ## Immediate Actions (Tonight)
 - [x] BRAIN.md refreshed — was **45 days stale** (last update May 27) 🚨
 - [x] Evening cron run — git committed (clean working tree)
-- [ ] **Chomi 2.0 Phase 2** — 49 days in "doing", needs Thaby decision
-- [ ] **EP03 Vercel deploy** — 68 days "todo", build complete since May 4
+- [ ] **Chomi 2.0 Phase 2** — 52 days in "doing", needs Thaby decision
+- [ ] **EP03 Vercel deploy** — 71 days "todo", build complete since May 4
 - [ ] **AutoSite SA outreach** — leads ready since Apr 18, outreach never started
 - [ ] **EP02 demo recording** — script done May 22, still not recorded
 
@@ -31,13 +31,14 @@ _Last refreshed: 2026-07-11 19:03 UTC_
 - [x] Morning + evening cron running successfully
 
 ## Blocked / Needs Attention 🚨
-- ⏸️ **Chomi 2.0 Phase 2** — decision needed from Thaby (49 days stale)
-- ⏸️ **EP03 Vercel deploy** — just needs `vercel --prod` (68 days pending)
+- ⏸️ **Chomi 2.0 Phase 2** — decision needed from Thaby (52 days stale)
+- ⏸️ **EP03 Vercel deploy** — just needs `vercel --prod` (71 days pending)
 - ⏸️ **Telegram group bug** still open (GitHub #30522) — webhook workaround
 - ⏸️ **AutoSite SA outreach** — 5 leads ready since Apr 18, zero outreach done
 - ⏸️ **EP02 demo** — script complete, never recorded
 
 ## What Happened Recently
+- **Jul 14:** Evening backup — AutoSite quality check date bumped, no new work
 - **Jul 11:** BRAIN.md refresh — flagged 45-day stale state
 - **Jul 11:** Evening backup — clean working tree
 - **Jun 1-2:** ServiceNow Agentic AI article written and published (5 commits)
@@ -60,6 +61,6 @@ _Last refreshed: 2026-07-11 19:03 UTC_
 - **Outreach status: ZERO emails sent** 🚨
 
 ---
-_Last checked: 2026-07-11 19:03 UTC_
+_Last checked: 2026-07-14 12:03 UTC_
 
 ---
